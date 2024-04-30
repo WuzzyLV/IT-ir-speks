@@ -10,10 +10,14 @@ export default {
     ],
 
     theme: {
-        colors: {
-            ITGreen: '#135D66',
-        },
+
         extend: {
+            colors: {
+                accent1: '#003C43',
+                accent2: '#135D66',
+                accent3: '#77B0AA',
+                accent4: '#E3FEF7',
+            },
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
