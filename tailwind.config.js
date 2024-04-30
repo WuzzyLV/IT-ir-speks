@@ -10,6 +10,9 @@ export default {
     ],
 
     theme: {
+        colors: {
+            ITGreen: '#135D66',
+        },
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
