@@ -1,18 +1,16 @@
-<nav x-data="{ open: false }" class="border-b border-gray-100 bg-white">
+<nav x-data="{ open: false }" class="border-b border-gray-100 bg-accent2 shadow-md">
     <!-- Primary Navigation Menu -->
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 justify-between">
                 <!-- Logo -->
                 <div class="flex shrink-0 items-center">
                     <a href="{{ route("landing") }}">
-                        <x-application-logo
-                            class="block h-9 w-auto fill-current text-gray-800"
-                        />
+                        <x-application-logo/>
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex ">
                     <x-nav-link
                         :href="route('vacancies')"
                         :active="request()->routeIs('vacancies')"
@@ -32,7 +30,7 @@
                             <x-dropdown align="right" width="48">
                                 <x-slot name="trigger">
                                     <button
-                                        class="inline-flex items-center rounded-md border border-transparent bg-white px-1 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out hover:text-gray-700 focus:outline-none"
+                                        class="inline-flex items-center rounded-md border border-transparent bg-accent4 px-1 py-2 text-sm font-medium leading-4 text-accent1 transition duration-150 ease-in-out hover:text-accent4 hover:bg-accent1 focus:outline-none"
                                     >
                                         <div>{{ Auth::user()->name }}</div>
 
