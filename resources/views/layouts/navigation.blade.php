@@ -12,6 +12,12 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex ">
                     <x-nav-link
+                        :href="route('landing')"
+                        :active="request()->routeIs('landing')"
+                    >
+                        {{ __("Par mums") }}
+                    </x-nav-link>
+                    <x-nav-link
                         :href="route('vacancies')"
                         :active="request()->routeIs('vacancies')"
                     >
@@ -30,7 +36,7 @@
                         {{ __("Darbiniekiem") }}
                     </x-nav-link>
 
-                    @if (! is_null(Auth::user()))
+                    @if (!is_null(Auth::user()))
                         <!-- Settings Dropdown -->
                         <div class="hidden sm:ms-6 sm:flex sm:items-center">
                             <x-dropdown align="right" width="48">
@@ -122,7 +128,7 @@
             </x-responsive-nav-link>
         </div>
 
-        @if (! is_null(Auth::user()))
+        @if (!is_null(Auth::user()))
             <!-- Responsive Settings Options -->
             <div class="border-t border-gray-200 pb-1 pt-4">
                 <div class="px-4">
