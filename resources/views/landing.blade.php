@@ -20,20 +20,20 @@
         </div>
         <dl class="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
             <div class="flex flex-col-reverse">
-            <dt class="text-base leading-7 text-gray-300">Offices worldwide</dt>
-            <dd class="text-2xl font-bold leading-9 tracking-tight text-white">12</dd>
+                <dt class="text-base leading-7 text-gray-300">Pieejamas vakances</dt>
+                <dd class="text-2xl font-bold leading-9 tracking-tight text-white">XX</dd>
             </div>
             <div class="flex flex-col-reverse">
-            <dt class="text-base leading-7 text-gray-300">Full-time colleagues</dt>
-            <dd class="text-2xl font-bold leading-9 tracking-tight text-white">300+</dd>
+                <dt class="text-base leading-7 text-gray-300">Pieejami darba devēji</dt>
+                <dd class="text-2xl font-bold leading-9 tracking-tight text-white">XXX+</dd>
             </div>
             <div class="flex flex-col-reverse">
-            <dt class="text-base leading-7 text-gray-300">Hours per week</dt>
-            <dd class="text-2xl font-bold leading-9 tracking-tight text-white">40</dd>
+                <dt class="text-base leading-7 text-gray-300">Darbinieku pieteikumi</dt>
+                <dd class="text-2xl font-bold leading-9 tracking-tight text-white">XXX+</dd>
             </div>
             <div class="flex flex-col-reverse">
-            <dt class="text-base leading-7 text-gray-300">Paid time off</dt>
-            <dd class="text-2xl font-bold leading-9 tracking-tight text-white">Unlimited</dd>
+                <dt class="text-base leading-7 text-gray-300">Vidējā alga vakancēm</dt>
+                <dd class="text-2xl font-bold leading-9 tracking-tight text-white">9,999 €</dd>
             </div>
         </dl>
         </div>
