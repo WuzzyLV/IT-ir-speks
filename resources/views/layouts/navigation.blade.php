@@ -69,7 +69,7 @@
                 </div>
             @else
                 <div class="hidden sm:ms-6 sm:flex sm:items-center">
-                    <div class="flex shrink-0 items-center" id="logo-accent">
+                    <div class="flex shrink-0 items-center text-light1  " id="logo-accent">
                         <a href="{{ route("login") }}">
                             <i class="fa-solid fa-right-to-bracket"></i>
                         </a>
