@@ -15,6 +15,10 @@ Route::get('/vacancies', function () {
     return view('vacancies');
 })->name('vacancies');
 
+Route::get('/vacancies/{id}', function ($id) {
+    return view('vacancy-page', ['id' => $id]);
+})->name('vacancy');
+
 Route::get('/news', function () {
     return view('news');
 })->name('news');

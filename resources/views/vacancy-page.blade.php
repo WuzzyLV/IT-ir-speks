@@ -1,6 +1,6 @@
 <x-app-layout class="">
     <div
-        class="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0"
+        class="bg-light1 relative isolate overflow-hidden px-6 py-20 sm:py-24 lg:overflow-visible lg:px-0"
     >
         <div
             class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10"
@@ -42,9 +42,9 @@
                         </div>
                     </div>
                     <div class="mt-6 border-t border-gray-100">
-                        <dl class="divide-y divide-gray-100">
+                        <dl class="divide-y divide-gray-100 text-center">
                             <div
-                                class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0"
+                                class="px-4 py-6 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-0"
                             >
                                 <dt
                                     class="text-sm font-medium leading-6 text-gray-900"
@@ -52,13 +52,13 @@
                                     Slodze
                                 </dt>
                                 <dd
-                                    class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"
+                                    class="mt-1 text-sm leading-6 text-gray-700 sm:mt-0"
                                 >
                                     Pilna
                                 </dd>
                             </div>
                             <div
-                                class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0"
+                                class="px-4 py-6 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-0"
                             >
                                 <dt
                                     class="text-sm font-medium leading-6 text-gray-900"
@@ -66,13 +66,13 @@
                                     Alga
                                 </dt>
                                 <dd
-                                    class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"
+                                    class="mt-1 text-sm leading-6 text-gray-700 sm:mt-0"
                                 >
                                     950 € - 1,110 €
                                 </dd>
                             </div>
                             <div
-                                class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0"
+                                class="px-4 py-6 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-0"
                             >
                                 <dt
                                     class="text-sm font-medium leading-6 text-gray-900"
@@ -80,7 +80,7 @@
                                     Mājaslapa
                                 </dt>
                                 <dd
-                                    class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"
+                                    class="mt-1 text-sm leading-6 text-gray-700 sm:mt-0"
                                 >
                                     <a
                                         href="https://www.accenture.lv"
@@ -91,7 +91,7 @@
                                 </dd>
                             </div>
                             <div
-                                class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0"
+                                class="px-4 py-6 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-0"
                             >
                                 <dt
                                     class="text-sm font-medium leading-6 text-gray-900"
@@ -99,14 +99,14 @@
                                     Pieteikšanās termiņš
                                 </dt>
                                 <dd
-                                    class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"
+                                    class="mt-1 text-sm leading-6 text-gray-700 sm:mt-0"
                                 >
                                     Līdz 2024. g. 15. mar.
                                 </dd>
                             </div>
                             <div class="flex justify-center px-4 py-6 sm:px-0">
                                 <a
-                                    class="text-dark1 hover:bg-light1 btn btn-wide bg-accent1"
+                                    class="hover:bg-dark1 bg-light1 btn btn-wide text-accent1"
                                 >
                                     Pieteikties
                                 </a>
