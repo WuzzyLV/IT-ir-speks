@@ -1,4 +1,4 @@
-@props(["class" => "", "navAbsolute" => false, "nav" => true])
+@props(["class" => "", "nav" => true, "landing" => false])
 
 <!DOCTYPE html>
 <html lang="{{ str_replace("_", "-", app()->getLocale()) }}">
@@ -23,7 +23,11 @@
 {{--    {{var_dump($nav)}}--}}
         <div class="min-h-screen bg-gray-100">
             @if($nav == "true")
-                @include("layouts.navigation", ["isAbsolute" => $navAbsolute])
+                @if($landing == "true")
+                    @include("layouts.landing-navigation")
+                @else
+                    @include("layouts.navigation")
+                @endif
             @endif
 
             @if (isset($header))
