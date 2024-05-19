@@ -1,4 +1,4 @@
-@props(["class" => "", "navAbsolute" => false])
+@props(["class" => "", "navAbsolute" => false, "nav" => true])
 
 <!DOCTYPE html>
 <html lang="{{ str_replace("_", "-", app()->getLocale()) }}">
@@ -20,10 +20,12 @@
         @vite(["resources/css/app.css", "resources/js/app.js"])
     </head>
     <body class="font-sans antialiased">
+{{--    {{var_dump($nav)}}--}}
         <div class="min-h-screen bg-gray-100">
-            @include("layouts.navigation", ["isAbsolute" => $navAbsolute])
+            @if($nav == "true")
+                @include("layouts.navigation", ["isAbsolute" => $navAbsolute])
+            @endif
 
-            <!-- Page Heading -->
             @if (isset($header))
                 <header class="bg-white shadow">
                     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
