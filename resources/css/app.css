@@ -1,3 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.raleway {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+}
+
+#logo {
+    animation: shake 1s infinite;
+    transition: all 0.5s;
+}
+#logo:hover {
+    animation: shake 0.5s infinite;
+    text-shadow: 0 0 10px #fff;
+}
+
+#logo-accent {
+    transition: all 0.25s;
+}
+
+#logo-accent:hover {
+    transition: all 0.25s;
+    transform: scale(1.1);
+    text-shadow: 0 0 10px #556e58;
+}
