@@ -7,9 +7,9 @@ Route::get('/', function () {
     return view('landing');
 })->name('landing');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/vacancies', function () {
     return view('vacancies');
