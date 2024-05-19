@@ -329,10 +329,9 @@
     document.addEventListener('DOMContentLoaded', () => {
         const shootingStars = document.querySelectorAll('.shooting_star');
         shootingStars.forEach(setRandomPosition);
-    });
 
-    // Optionally add an event listener to trigger position change on animation end
-    shootingStars.forEach((star) => {
-        star.addEventListener('animationend', () => setRandomPosition(star));
+        shootingStars.forEach((star) => {
+            star.addEventListener('animationend', () => setRandomPosition(star));
+        });
     });
 </script>

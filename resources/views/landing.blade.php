@@ -16,15 +16,6 @@
                         70% { transform: rotate(5deg); }
                         100% { transform: rotate(0deg); }
                     }
-                    #logo {
-                        animation: shake 1s infinite;
-                        transition: all 0.5s;
-
-                    }
-                    #logo:hover {
-                        animation: shake 0.5s infinite;
-                        text-shadow: 0 0 10px #fff
-                    }
                 </style>
                 <p class="mt-6 text-lg leading-8 text-gray-300">Mēs esam darba iekārtošanas aģentūra, kura sniedz dažādas darba iespējas IT nozarē Latvijā </p>
             </div>
