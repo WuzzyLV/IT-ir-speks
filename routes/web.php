@@ -19,6 +19,10 @@ Route::get('/news', function () {
     return view('news');
 })->name('news');
 
+Route::get('/news/{id}', function ($id) {
+    return view('news-page', ['id' => $id]);
+})->name('news-page');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
