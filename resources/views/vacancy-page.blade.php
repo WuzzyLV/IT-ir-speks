@@ -13,7 +13,7 @@
                         <p
                             class="text-base font-semibold leading-7 text-indigo-600"
                         >
-                            Accenture
+                            2024. g. 1. mar.
                         </p>
                         <h1
                             class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
