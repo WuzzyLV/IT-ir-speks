@@ -77,7 +77,11 @@
                 </div>
             @endif
 
-
+            <div class="flex shrink-0 items-center sm:hidden" id="logo-accent">
+                <a href="{{ route("landing") }}">
+                    <x-application-logo/>
+                </a>
+            </div>
             <!-- Hamburger -->
             <div class="-me-2 flex items-center sm:hidden justify-self-end">
                 <button
@@ -92,7 +96,7 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="space-y-1 pb-3 pt-2">
+        <div class="space-y-1 pb-3 pt-2 border-t border-light1">
             <x-responsive-nav-link
                 :href="route('vacancies')"
                 :active="request()->routeIs('vacancies')"
@@ -109,12 +113,12 @@
 
         @if (!is_null(Auth::user()))
             <!-- Responsive Settings Options -->
-            <div class="border-t border-gray-200 pb-1 pt-4 self-end">
-                <div class="px-4">
-                    <div class="text-base font-medium text-gray-800">
+            <div class="border-t border-light1 shadow-lg shadow-light1 pb-1 pt-4 self-end text-light1">
+                <div class="px-4 ">
+                    <div class="text-base font-medium">
                         {{ Auth::user()->name }}
                     </div>
-                    <div class="text-sm font-medium text-gray-500">
+                    <div class="text-sm font-medium text-gray-400">
                         {{ Auth::user()->email }}
                     </div>
                 </div>
@@ -130,6 +134,7 @@
 
                         <x-responsive-nav-link
                             :href="route('logout')"
+                            class="!text-red-400"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();"
                         >
