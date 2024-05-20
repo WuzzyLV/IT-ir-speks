@@ -16,11 +16,8 @@
             class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600"
         >
 
-            @php
-                $id = 1
-            @endphp
 
-            <a href="news/{{$id}}">
+            <a href="{{route("news-page", 1)}}">
                 <span class="absolute inset-0"></span>
                 Anglijā izgudro 6G internetu
             </a>
