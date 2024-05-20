@@ -5,6 +5,7 @@
             <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     {{ __("You're logged in!") }}
+                    {{ __("Admin panel") }}
                 </div>
             </div>
         </div>
