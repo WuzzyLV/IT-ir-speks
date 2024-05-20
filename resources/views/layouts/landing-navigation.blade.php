@@ -2,7 +2,7 @@
 <nav x-data="{ open: false }"
      class="top-0 w-screen absolute z-50">
     <!-- Primary Navigation Menu -->
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-8 mx-8 font">
+    <div class="px-4 sm:px-6 lg:px-8 mt-8 mx-8 font">
         <div class="flex h-16 justify-end sm:mx-6">
                 <!-- Logo -->
 {{--            <div class="flex shrink-0 items-center" id="logo-accent">--}}
