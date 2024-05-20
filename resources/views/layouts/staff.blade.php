@@ -27,7 +27,7 @@
         <!-- Impliment left nav -->
         <div class="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-            <main class="drawer-content flex flex-col items-center justify-center ">
+            <main class="drawer-content {{$class}}">
                 <!-- Page content here -->
                 
                 {{$slot}}
