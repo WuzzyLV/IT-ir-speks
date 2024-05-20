@@ -1,19 +1,29 @@
-@props(["isAbsolute" => false])
-
+@props(["isAbsolute" => false, "isAdmin" => false])
 <nav x-data="{ open: false }"
      class="border-b border-gray-100 bg-dark1 shadow-md">
     <!-- Primary Navigation Menu -->
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 justify-between sm:mx-6">
                 <!-- Logo -->
-
+                
                 <!-- Navigation Links -->
             <div class="hidden space-x-8 sm:-my-px  sm:flex justify-self-start transition-all">
                 {{-- LOGO --}}
-                <div class="flex shrink-0 items-center" id="logo-accent">
-                    <a href="{{ route("landing") }}">
-                        <x-application-logo/>
-                    </a>
+                <div class="flex shrink-0 items-center " id="logo-accent">
+                        
+                        @if ($isAdmin == "true")
+                            
+                            <label for="my-drawer-2 " class="!cursor-pointer">
+                                <x-application-logo class="rotate-90 lg:rotate-0"/>
+                            </label>
+                            
+                        @else
+                            <a href="{{ route("landing") }}">
+                                <x-application-logo class="rotate-0"/>
+                            </a>
+                        @endif
+                    
+                    
                 </div>
 
                 <x-nav-link
@@ -28,6 +38,8 @@
                 >
                     {{ __("Aktualitates") }}
                 </x-nav-link>
+                
+
 
             </div>
             @if (!is_null(Auth::user()))
@@ -78,9 +90,16 @@
             @endif
 
             <div class="flex shrink-0 items-center sm:hidden" id="logo-accent">
-                <a href="{{ route("landing") }}">
-                    <x-application-logo/>
-                </a>
+                @if ($isAdmin == "true")
+                    <label for="my-drawer-2">
+                        <x-application-logo class="rotate-90 "/>
+                    </label>
+                            
+                @else
+                    <a href="{{ route("landing") }}">
+                        <x-application-logo class="rotate-0"/>
+                    </a>
+                @endif
             </div>
             <!-- Hamburger -->
             <div class="-me-2 flex items-center sm:hidden justify-self-end">

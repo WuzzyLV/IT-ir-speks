@@ -1,3 +1,5 @@
+
+
 <x-app-layout class="bg-light1 mt-10 sm:mt-16">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <x-breadcrumbs />
