@@ -11,7 +11,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/users', function () {
+Route::get('/dashboard/users', function () {
     return view('users');
 })->middleware(['auth', 'verified'])->name('users');
 
