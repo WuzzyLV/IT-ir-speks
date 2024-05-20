@@ -4,10 +4,12 @@
 >
     <div class="space-y-12">
         <div class="border-b border-gray-900/10 pb-12">
-            <h2 class="text-base font-semibold leading-7 text-gray-900 text-center">
+            <h2
+                class="text-center text-base font-semibold leading-7 text-gray-900"
+            >
                 Pieteikuma dati
             </h2>
-            <p class="mt-1 text-sm leading-6 text-gray-60 text-center">
+            <p class="text-gray-60 mt-1 text-center text-sm leading-6">
                 Aizpildi datus, kuri tiks nogadāti darbadevējam.
             </p>
 
@@ -27,7 +29,7 @@
                             autocomplete="given-name"
                             placeholder="Kevins"
                             required
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus-within:ring-accent1 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
                         />
                     </div>
                 </div>
@@ -47,7 +49,7 @@
                             autocomplete="family-name"
                             placeholder="Kakiņš"
                             required
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus-within:ring-accent1 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
                         />
                     </div>
                 </div>
@@ -67,7 +69,7 @@
                             placeholder="kakins@inbox.lv"
                             autocomplete="email"
                             required
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus-within:ring-accent1 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
                         />
                     </div>
                 </div>
@@ -90,7 +92,7 @@
                             maxlength="8"
                             minlength="8"
                             required
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus-within:ring-accent1 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
                         />
                     </div>
                 </div>
@@ -100,42 +102,35 @@
                     for="cover-photo"
                     class="block text-sm font-medium leading-6 text-gray-900"
                 >
-                    Cover photo
+                    Tavs CV
                 </label>
                 <div
-                    class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10"
+                    class="shdow mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 bg-white px-6 py-10 shadow"
+                    id="drop-area"
                 >
                     <div class="text-center">
-                        <svg
-                            class="mx-auto h-12 w-12 text-gray-300"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            aria-hidden="true"
+                        <i class="fa-regular fa-file-lines text-4xl"></i>
+                        <div
+                            class="mt-4 flex justify-center text-sm leading-6 text-gray-600"
                         >
-                            <path
-                                fill-rule="evenodd"
-                                d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z"
-                                clip-rule="evenodd"
-                            />
-                        </svg>
-                        <div class="mt-4 flex text-sm leading-6 text-gray-600">
                             <label
                                 for="file-upload"
-                                class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                                class="relative flex cursor-pointer justify-center rounded-md font-semibold text-accent1 focus-within:outline-none focus-within:ring-2 focus-within:ring-accent1 focus-within:ring-offset-2 hover:text-dark1"
                             >
-                                <span>Upload a file</span>
+                                <span id="file-result">Augšupieladē failu</span>
                                 <input
                                     id="file-upload"
                                     name="file-upload"
                                     type="file"
                                     class="sr-only"
-                                    <!-- required TODO Remove -->
                                 />
                             </label>
-                            <p class="pl-1">or drag and drop</p>
+                            <p class="pl-1" id="file-hide-if-upload">
+                                vai velc un nomet šeit
+                            </p>
                         </div>
                         <p class="text-xs leading-5 text-gray-600">
-                            PNG, JPG, GIF up to 10MB
+                            PDF, DOC, DOCX līdz 10MB
                         </p>
                     </div>
                 </div>
@@ -143,19 +138,82 @@
         </div>
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropArea = document.getElementById('drop-area');
+            const fileInput = document.getElementById('file-upload');
+            const fileResult = document.getElementById('file-result');
+            const hideIfUpload = document.getElementById('file-hide-if-upload');
+
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(
+                (eventName) => {
+                    dropArea.addEventListener(
+                        eventName,
+                        preventDefaults,
+                        false,
+                    );
+                },
+            );
+
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            // Highlight drop area when item is dragged over it
+            ['dragenter', 'dragover'].forEach((eventName) => {
+                dropArea.addEventListener(
+                    eventName,
+                    () => {
+                        dropArea.classList.add('bg-accent1/50');
+                    },
+                    false,
+                );
+            });
+
+            ['dragleave', 'drop'].forEach((eventName) => {
+                dropArea.addEventListener(
+                    eventName,
+                    () => {
+                        console.log('i leave');
+                        dropArea.classList.remove('bg-accent1/50');
+                    },
+                    false,
+                );
+            });
+
+            // Handle dropped files
+            dropArea.addEventListener('drop', handleDrop, false);
+
+            function handleDrop(e) {
+                let dt = e.dataTransfer;
+                let files = dt.files;
+                // Pass the file to the input element
+                fileInput.files = files;
+                handleUploadVisually(files[0].name);
+            }
+
+            function handleUploadVisually(fileName) {
+                fileResult.textContent = fileName;
+                console.log(hideIfUpload.style.display);
+                hideIfUpload.style.display = 'none';
+            }
+        });
+    </script>
+
     <div class="mt-6 flex items-center justify-end gap-x-6">
         <button
             id="cancel"
             type="button"
             class="text-sm font-semibold leading-6 text-gray-900"
         >
-            Cancel
+            Atcelt
         </button>
         <button
             type="submit"
-            class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            class="rounded-md bg-accent1 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-dark1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dark1"
         >
-            Save
+            Nosūtīt
         </button>
     </div>
     <script></script>
