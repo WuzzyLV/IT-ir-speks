@@ -16,7 +16,7 @@
         <h3
             class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600"
         >
-            <a href="#">
+            <a href="{{route("vacancy", ["id"=> 1])}}">
                 <span class="absolute inset-0"></span>
                 Vecakais UML diagrammu specalists
             </a>

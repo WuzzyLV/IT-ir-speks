@@ -1,6 +1,6 @@
 <x-app-layout class="">
     <div
-        class="bg-light1 relative isolate overflow-hidden px-6 py-20 sm:py-24 lg:overflow-visible lg:px-0"
+        class="relative isolate overflow-hidden bg-light1 px-6 py-20 sm:py-24 lg:overflow-visible lg:px-0"
     >
         <div
             class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10"
@@ -9,20 +9,9 @@
                 class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
             >
                 <div class="lg:pr-4">
-                    <div class="breadcrumbs text-sm">
-                        <ul>
-                            <li>
-                                <a href="{{ route("landing") }}">Sākumlapa</a>
-                            </li>
-                            <li>
-                                <a href="{{ route("news") }}">Aktualitātes</a>
-                            </li>
-                            <li class="line-clamp-1 text-gray-500">
-                                Vecakais UML diagrammu specalistsVecakais UML
-                                diagrammu specalists
-                            </li>
-                        </ul>
-                    </div>
+                    <x-breadcrumbs
+                        currentPage="Vecakais UML diagrammu specalists"
+                    />
                     <div class="lg:max-w-lg">
                         <p
                             class="text-base font-semibold leading-7 text-indigo-600"
@@ -40,7 +29,7 @@
             <div
                 class="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden"
             >
-                <div>
+                <div id="preview">
                     <div
                         class="relative flex flex-col items-center gap-x-4 px-4 sm:px-0"
                     >
@@ -119,15 +108,20 @@
                                 </dd>
                             </div>
                             <div class="flex justify-center px-4 py-6 sm:px-0">
-                                <a
-                                    class="hover:bg-dark1 bg-light1 btn btn-wide text-accent1"
+                                <button
+                                    id="apply"
+                                    class="btn btn-wide bg-light1 text-accent1 hover:bg-dark1"
                                 >
                                     Pieteikties
-                                </a>
+                                </button>
                             </div>
+                            {{-- --------------------------- --}}
+
+                            {{-- --------------------------- --}}
                         </dl>
                     </div>
                 </div>
+                <x-apply-form />
             </div>
             <div
                 class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
@@ -204,4 +198,27 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let cancelBtn = document.getElementById('cancel');
+            let applyBtn = document.getElementById('apply');
+            console.log(applyBtn);
+
+            let form = document.getElementById('apply-form');
+            let preview = document.getElementById('preview');
+
+            cancelBtn.addEventListener('click', () => {
+                console.log('cancel');
+                form.style.display = 'none';
+                preview.style.display = 'block';
+            });
+
+            applyBtn.addEventListener('click', () => {
+                console.log('apply');
+                form.style.display = 'block';
+                preview.style.display = 'none';
+            });
+        });
+    </script>
 </x-app-layout>
