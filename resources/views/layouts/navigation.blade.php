@@ -149,6 +149,13 @@
             >
                 {{ __("Aktualitates") }}
             </x-responsive-nav-link>
+
+            <x-responsive-nav-link
+                :href="route('login')"
+                :active="request()->routeIs('login')"
+            >
+                {{ __("Ielogoties") }}
+            </x-responsive-nav-link>
         </div>
 
         @if (! is_null(Auth::user()))

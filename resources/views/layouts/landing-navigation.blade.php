@@ -111,6 +111,13 @@
             >
                 {{ __("Aktualitates") }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link
+                :href="route('login')"
+                :active="request()->routeIs('login')"
+                class="!w-auto"
+            >
+                {{ __("Ielogoties") }}
+            </x-responsive-nav-link>
         </div>
     </div>
 </nav>
