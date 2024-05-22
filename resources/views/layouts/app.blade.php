@@ -50,7 +50,7 @@
             </main>
 
             @if ($footer == "true")
-                @include("components.footer")
+                @include("components.footer", ["class" => "text-gray-600"])
             @endif
         </div>
     </body>

@@ -1,7 +1,7 @@
 @props(["class" => "text-gray-600"])
 
 <footer
-    class="{{ $class }} footer mt-8 items-center justify-center bg-transparent p-4"
+    class="{{ $class }} footer items-center justify-center bg-transparent p-4"
 >
     <aside class="grid-flow-col items-center justify-center">
         <x-application-logo />
