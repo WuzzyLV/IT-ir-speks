@@ -1,8 +1,8 @@
 <x-staff-layout class="w-full flex flex-col text-gray-900">
     <div class=" flex items-center justify-between border-b border-gray-300 px-6 py-4 shadow lg:px-8">
-        <h2 class="tracking-tightsm:text-xl text-lg font-bold">Lietotāji</h2>
+        <h2 class="tracking-tightsm:text-xl text-lg font-bold">Aktualitātes</h2>
         <a href="#" class="btn btn-sm border-accent1 bg-transparent text-accent1">
-            Jauns lietotājs
+            Jauna aktualitāte
         </a>
     </div>
     <div class="flex-grow flex flex-col">

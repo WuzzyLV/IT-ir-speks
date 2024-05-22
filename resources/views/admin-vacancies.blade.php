@@ -1,8 +1,8 @@
 <x-staff-layout class="w-full flex flex-col text-gray-900">
     <div class=" flex items-center justify-between border-b border-gray-300 px-6 py-4 shadow lg:px-8">
-        <h2 class="tracking-tightsm:text-xl text-lg font-bold">Lietotāji</h2>
+        <h2 class="tracking-tightsm:text-xl text-lg font-bold">Vakances</h2>
         <a href="#" class="btn btn-sm border-accent1 bg-transparent text-accent1">
-            Jauns lietotājs
+            Jauna vakance
         </a>
     </div>
     <div class="flex-grow flex flex-col">
@@ -26,8 +26,13 @@
 
                         </td>
                         <td class="flex justify-center items-center ">
-                            <div class="badge badge-outline gap-2 border-gray-400 py-3 ">
-                                <p class="text-sm">Accenture</p>
+                            <div class="relative flex items-center gap-x-4">
+                                <img src="https://logos-world.net/wp-content/uploads/2020/06/Accenture-Emblem.png" alt="" class="h-10 w-10 rounded-full  bg-gray-50 object-contain" />
+                                <div class="leading-6">
+                                    <p class="text-">
+                                        <a href="#" class="">Accenture</a>
+                                    </p>
+                                </div>
                             </div>
                         </td>
                         <td>
@@ -49,8 +54,13 @@
 
                         </td>
                         <td class="flex justify-center items-center">
-                            <div class="badge badge-outline gap-2 border-gray-400 py-3 ">
-                                <p class="text-sm">Accenture</p>
+                            <div class="relative flex items-center gap-x-4">
+                                <img src="https://logos-world.net/wp-content/uploads/2020/06/Accenture-Emblem.png" alt="" class="h-10 w-10 rounded-full  bg-gray-50 object-contain" />
+                                <div class="leading-6">
+                                    <p class="text-">
+                                        <a href="#" class="">Accenture</a>
+                                    </p>
+                                </div>
                             </div>
                         </td>
                         <td>
@@ -72,8 +82,13 @@
 
                         </td>
                         <td class="flex justify-center items-center">
-                            <div class="badge badge-outline gap-2 border-gray-400 py-3 ">
-                                <p class="text-sm">Accenture</p>
+                            <div class="relative flex items-center gap-x-4">
+                                <img src="https://logos-world.net/wp-content/uploads/2020/06/Accenture-Emblem.png" alt="" class="h-10 w-10 rounded-full  bg-gray-50 object-contain" />
+                                <div class="leading-6">
+                                    <p class="text-">
+                                        <a href="#" class="">Accenture</a>
+                                    </p>
+                                </div>
                             </div>
                         </td>
                         <td>
@@ -86,7 +101,7 @@
                                 </a>
                         </td>
                     </tr>
-                    
+
                 </tbody>
             </table>
         </div>
