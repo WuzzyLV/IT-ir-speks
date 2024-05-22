@@ -23,11 +23,10 @@
                         <h2
                             class="text-base font-semibold leading-7 text-gray-900"
                         >
-                            Profile
+                            Lietotājs
                         </h2>
                         <p class="mt-1 text-sm leading-6 text-gray-600">
-                            This information will be displayed publicly so be
-                            careful what you share.
+                            Veic lietotāju datu apskati vai maiņu šeit.
                         </p>
                     </div>
                     <div
