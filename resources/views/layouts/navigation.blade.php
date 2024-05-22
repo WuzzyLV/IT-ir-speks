@@ -74,11 +74,11 @@
 
                         <x-slot name="content">
                             <x-dropdown-link :href="route('dashboard')">
-                                {{ __("Admin dashboard/panel") }}
+                                {{ __("Adminu panelis") }}
                             </x-dropdown-link>
 
                             <x-dropdown-link :href="route('profile.edit')">
-                                {{ __("Profile") }}
+                                {{ __("Profils") }}
                             </x-dropdown-link>
 
                             <!-- Authentication -->
@@ -90,7 +90,7 @@
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();"
                                 >
-                                    {{ __("Log Out") }}
+                                    {{ __("Izlogoties") }}
                                 </x-dropdown-link>
                             </form>
                         </x-slot>
