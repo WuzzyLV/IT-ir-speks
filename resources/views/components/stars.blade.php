@@ -29,17 +29,26 @@
 
 <style>
     .stars {
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        --mask: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 1) 0,
+                rgba(0, 0, 0, 1) 40%,
+                rgba(0, 0, 0, 0) 95%,
+                rgba(0, 0, 0, 0) 0
+            )
+            100% 50% / 100% 100% repeat-x;
+
+        -webkit-mask: var(--mask);
+        mask: var(--mask);
+
         background: radial-gradient(
             ellipse at bottom,
             #222823 0%,
             #090a0f 100%
-        );
-        height: 100%;
-        overflow: hidden;
-        display: flex;
-        font-family: 'Anton', sans-serif;
-        justify-content: center;
-        align-items: center;
+        ) !important;
     }
     .night {
         position: relative;
@@ -331,7 +340,9 @@
         shootingStars.forEach(setRandomPosition);
 
         shootingStars.forEach((star) => {
-            star.addEventListener('animationend', () => setRandomPosition(star));
+            star.addEventListener('animationend', () =>
+                setRandomPosition(star),
+            );
         });
     });
 </script>
