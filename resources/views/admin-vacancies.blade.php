@@ -12,7 +12,7 @@
                 <thead class="">
                     <tr class="text-gray-600 text-center border-b-gray-300">
                         <th class="">Nosaukums</th>
-                        <th class="">Uzņēmums</th>
+                        <th class="hidden xs:table-cell">Uzņēmums</th>
                         <th class="flex justify-center items-center h-11"><i class="fa-solid fa-circle text-4xs"></i></th>
                     </tr>
                 </thead>
@@ -25,7 +25,7 @@
                             </p>
 
                         </td>
-                        <td class="flex justify-center items-center ">
+                        <td class="hidden justify-center items-center xs:flex ">
                             <div class="relative flex items-center gap-x-4">
                                 <img src="https://logos-world.net/wp-content/uploads/2020/06/Accenture-Emblem.png" alt="" class="h-10 w-10 rounded-full  bg-gray-50 object-contain" />
                                 <div class="leading-6">
@@ -53,7 +53,7 @@
                             </p>
 
                         </td>
-                        <td class="flex justify-center items-center">
+                        <td class="hidden justify-center items-center xs:flex ">
                             <div class="relative flex items-center gap-x-4">
                                 <img src="https://logos-world.net/wp-content/uploads/2020/06/Accenture-Emblem.png" alt="" class="h-10 w-10 rounded-full  bg-gray-50 object-contain" />
                                 <div class="leading-6">
@@ -81,7 +81,7 @@
                             </p>
 
                         </td>
-                        <td class="flex justify-center items-center">
+                        <td class="hidden justify-center items-center xs:flex ">
                             <div class="relative flex items-center gap-x-4">
                                 <img src="https://logos-world.net/wp-content/uploads/2020/06/Accenture-Emblem.png" alt="" class="h-10 w-10 rounded-full  bg-gray-50 object-contain" />
                                 <div class="leading-6">
