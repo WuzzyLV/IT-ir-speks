@@ -1,11 +1,11 @@
 <section>
     <header>
-        <h2 class="text-lg font-medium text-gray-900">
-            {{ __("Profile Information") }}
+        <h2 class="text-xl font-medium text-gray-900">
+            {{ __("Profila informācija") }}
         </h2>
 
-        <p class="mt-1 text-sm text-gray-600">
-            {{ __("Update your account's profile information and email address.") }}
+        <p class="mt-1 text-lg text-gray-600">
+            {{ __("Samaini savu epastu.") }}
         </p>
     </header>
 
@@ -25,28 +25,28 @@
         @csrf
         @method("patch")
 
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
+        {{-- <div>
+            <x-input-label for="name" :value="__('Lietotājvārds')" />
             <x-text-input
                 id="name"
                 name="name"
                 type="text"
-                class="mt-1 block w-full"
+                class="mt-1 block w-full text-gray-900"
                 :value="old('name', $user->name)"
                 required
                 autofocus
                 autocomplete="name"
             />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
-        </div>
+        </div> --}}
 
         <div>
-            <x-input-label for="email" :value="__('Email')" />
+            <x-input-label for="email" :value="__('Epasts')" />
             <x-text-input
                 id="email"
                 name="email"
                 type="email"
-                class="mt-1 block w-full"
+                class="mt-1 block w-full text-gray-900"
                 :value="old('email', $user->email)"
                 required
                 autocomplete="username"

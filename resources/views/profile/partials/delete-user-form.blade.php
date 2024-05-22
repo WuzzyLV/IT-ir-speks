@@ -1,11 +1,11 @@
 <section class="space-y-6">
     <header>
-        <h2 class="text-lg font-medium text-gray-900">
-            {{ __("Delete Account") }}
+        <h2 class="text-xl font-medium text-gray-900">
+            {{ __("Dzēst kontu") }}
         </h2>
 
-        <p class="mt-1 text-sm text-gray-600">
-            {{ __("Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.") }}
+        <p class="mt-1 text-lg text-gray-600">
+            {{ __("Kad jūsu konts tiks dzēsts, visi tā resursi un dati tiks neatgriezeniski dzēsti. Pirms konta dzēšanas, lūdzu, lejupielādējiet visus datus vai informāciju, ko vēlaties saglabāt.") }}
         </p>
     </header>
 
@@ -13,7 +13,7 @@
         x-data=""
         x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
     >
-        {{ __("Delete Account") }}
+        {{ __("Dzēst kontu") }}
     </x-danger-button>
 
     <x-modal
