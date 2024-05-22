@@ -61,6 +61,16 @@
                                 />
                             </div>
                         </div>
+                        <div class="sm:col-span-6">
+                            <label
+                                for="title"
+                                class="block text-sm font-medium leading-6 text-gray-900"
+                            >
+                                Apraksts
+                            </label>
+                            <x-text-editor class="sm:col-span-6 mt-4"/>
+
+                        </div>
 
                         <!-- image -->
                         <div class="sm:col-span-3">
@@ -70,17 +80,15 @@
                             >
                                 Attēls
                             </label>
-                            <div class="mt-2">
-                                <input
-                                    id="image"
+                            <div class="mt-2 flex items-center min-h-[36px] w-full bg-white rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                <input name="logo" type="file" id="image"
                                     name="image"
                                     type="file"
                                     accept="image/*"
                                     autocomplete="new-image"
                                     required
-                                    placeholder="attels"
-                                    class="block  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-                                />
+                                    placeholder="attels" class="ml-1" />
+
                             </div>
                         </div>
                 </div>
