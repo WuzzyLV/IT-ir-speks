@@ -11,12 +11,12 @@
         </div>
         <div
             class="mx-auto mt-10 grid max-w-2xl grid-cols-1 border-t border-gray-300 sm:mt-16 sm:gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-            <x-vacancy-card />
-            <x-vacancy-card />
-            <x-vacancy-card />
-            <x-vacancy-card />
-            <x-vacancy-card />
-            <x-vacancy-card />
+            <x-vacancy-card h3Color="gray-900" textColor="gray-600"/>
+            <x-vacancy-card h3Color="gray-900" textColor="gray-600"/>
+            <x-vacancy-card h3Color="gray-900" textColor="gray-600"/>
+            <x-vacancy-card h3Color="gray-900" textColor="gray-600"/>
+            <x-vacancy-card h3Color="gray-900" textColor="gray-600"/>
+            <x-vacancy-card h3Color="gray-900" textColor="gray-600"/>
         </div>
     </div>
 </x-app-layout>
