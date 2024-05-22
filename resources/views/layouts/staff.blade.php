@@ -27,24 +27,26 @@
     </head>
 
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        <div class="flex h-screen flex-col bg-light1">
             @include("layouts.navigation", ["isAdmin" => true])
 
             <!-- Impliment left nav -->
-            <div class="drawer lg:drawer-open">
+            <div class="drawer flex-grow lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-                <main class="{{ $class }} drawer-content bg-light1">
+                <main
+                    class="{{ $class }} drawer-content h-full flex-grow border-l border-gray-300 bg-light1"
+                >
                     <!-- Page content here -->
                     {{ $slot }}
                 </main>
-                <div class="drawer-side">
+                <div class="drawer-side top-0 h-screen lg:h-auto lg:flex-grow">
                     <label
                         for="my-drawer-2"
                         aria-label="close sidebar"
                         class="drawer-overlay"
                     ></label>
                     <ul
-                        class="menu min-h-full w-72 border-r border-gray-300 bg-light1 p-4 text-gray-900"
+                        class="menu h-screen w-72 flex-1 rounded-br bg-light1 p-4 text-gray-900 lg:h-auto lg:flex-grow"
                     >
                         <!-- Sidebar content here -->
                         <li><a href="{{ route("dashboard") }}">Dashy</a></li>
