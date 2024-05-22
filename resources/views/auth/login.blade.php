@@ -2,12 +2,26 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
+    <div class="m-8 flex justify-center items-center flex-col text-center">
+        <h1 class="text-3xl font-bold tracking-tight text-gray-700 sm:text-4xl">
+            Esi sveicināts!
+        </h1>
+
+        <p class="mt-2 text-2xl leading-8">
+            Ielogošanās sistēmā paredzēta darbiniekiem
+        </p>
+        
+        <a href=" {{route('landing')}}" class="inline-flex items-center px-4 py-2 bg-accent1 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-dark1 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 m-4 ">
+            DOTIES UZ GALVENO LAPU
+        </a>
+    </div>
+
     <form method="POST" action="{{ route("login") }}">
         @csrf
 
         <!-- Email Address -->
         <div>
-            <x-input-label for="email" :value="__('Email')" />
+            <x-input-label for="email" :value="__('Epasts')" />
             <x-text-input
                 id="email"
                 class="mt-1 block w-full"
@@ -23,7 +37,7 @@
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+            <x-input-label for="password" :value="__('Parole')" />
 
             <x-text-input
                 id="password"
@@ -47,7 +61,7 @@
                     name="remember"
                 />
                 <span class="ms-2 text-sm text-gray-600">
-                    {{ __("Remember me") }}
+                    {{ __("Atcerēties mani") }}
                 </span>
             </label>
         </div>
@@ -64,7 +78,7 @@
             @endif
 
             <x-primary-button class="ms-3">
-                {{ __("Log in") }}
+                {{ __("Ielogoties") }}
             </x-primary-button>
         </div>
     </form>

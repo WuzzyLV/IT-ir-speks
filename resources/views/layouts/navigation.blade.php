@@ -74,11 +74,11 @@
 
                         <x-slot name="content">
                             <x-dropdown-link :href="route('dashboard')">
-                                {{ __("Admin dashboard/panel") }}
+                                {{ __("Adminu panelis") }}
                             </x-dropdown-link>
 
                             <x-dropdown-link :href="route('profile.edit')">
-                                {{ __("Profile") }}
+                                {{ __("Profils") }}
                             </x-dropdown-link>
 
                             <!-- Authentication -->
@@ -87,10 +87,11 @@
 
                                 <x-dropdown-link
                                     :href="route('logout')"
+                                    class="!text-red-400"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();"
                                 >
-                                    {{ __("Log Out") }}
+                                    {{ __("Izlogoties") }}
                                 </x-dropdown-link>
                             </form>
                         </x-slot>
@@ -168,7 +169,7 @@
 
                 <div class="mt-3 space-y-1">
                     <x-responsive-nav-link :href="route('profile.edit')">
-                        {{ __("Profile") }}
+                        {{ __("Profils") }}
                     </x-responsive-nav-link>
 
                     <!-- Authentication -->
@@ -181,7 +182,7 @@
                             onclick="event.preventDefault();
                                         this.closest('form').submit();"
                         >
-                            {{ __("Log Out") }}
+                            {{ __("Izlogoties") }}
                         </x-responsive-nav-link>
                     </form>
                 </div>
