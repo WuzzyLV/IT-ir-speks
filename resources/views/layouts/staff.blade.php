@@ -40,7 +40,7 @@
                     {{ $slot }}
                 </main>
                 <div
-                    class="drawer-side top-0 h-screen bg-light1 lg:h-auto lg:flex-grow"
+                    class="drawer-side top-0 h-screen lg:h-auto lg:flex-grow lg:bg-light1"
                 >
                     <label
                         for="my-drawer-2"
