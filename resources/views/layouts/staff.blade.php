@@ -51,7 +51,7 @@
                         <!-- Sidebar content here -->
                         <li><a href="{{ route("dashboard") }}">Dashy</a></li>
                         <li><a href="{{ route("users") }}">Lietotāji</a></li>
-                        <li><a>Sidebar Item 2</a></li>
+                        <li><a href="{{ route("admin-vacancies") }}">Vakances</a></li>
                     </ul>
                 </div>
             </div>

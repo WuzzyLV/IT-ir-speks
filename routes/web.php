@@ -15,6 +15,10 @@ Route::get('/dashboard/users', function () {
     return view('users');
 })->middleware(['auth', 'verified'])->name('users');
 
+Route::get('/dashboard/vacancies', function () {
+    return view('admin-vacancies');
+})->middleware(['auth', 'verified'])->name('admin-vacancies');
+
 Route::get('/vacancies', function () {
     return view('vacancies');
 })->name('vacancies');
