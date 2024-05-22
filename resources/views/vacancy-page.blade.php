@@ -10,7 +10,7 @@
             >
                 <div class="lg:pr-4">
                     <x-breadcrumbs
-                        currentPage="Vecakais UML diagrammu specalists"
+                        currentRoute="Vecakais UML diagrammu specalists"
                     />
                     <div class="lg:max-w-lg">
                         <p
