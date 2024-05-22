@@ -6,8 +6,6 @@
     <!-- Primary Navigation Menu -->
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 justify-between sm:mx-6">
-            <!-- Logo -->
-
             <!-- Navigation Links -->
             <div
                 class="hidden space-x-8 justify-self-start transition-all sm:-my-px sm:flex"

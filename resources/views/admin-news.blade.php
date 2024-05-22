@@ -12,6 +12,7 @@
                 <thead class="">
                     <tr class="text-gray-600 text-center border-b-gray-300">
                         <th class="">Virsraksts</th>
+                        <th class="hidden xs:table-cell">Datums</th>
                         <th class="flex justify-center items-center h-11"><i class="fa-solid fa-circle text-4xs"></i></th>
                     </tr>
                 </thead>
@@ -24,7 +25,12 @@
                             </p>
 
                         </td>
-                        
+
+                        <td class="hidden justify-center items-center xs:flex ">
+                            <time datetime="2020-03-16">
+                                2024. g. 19. maijs
+                            </time>
+                        </td>
                         <td>
                             <div class="flex items-center justify-center gap-x-2">
                                 <a class="btn btn-circle btn-outline btn-sm shadow">
@@ -43,7 +49,11 @@
                             </p>
 
                         </td>
-                        
+                        <td class="hidden justify-center items-center xs:flex ">
+                            <time datetime="2020-03-16">
+                                2024. g. 19. maijs
+                            </time>
+                        </td>
                         <td>
                             <div class="flex items-center justify-center gap-x-2">
                                 <a class="btn btn-circle btn-outline btn-sm shadow">
@@ -62,7 +72,11 @@
                             </p>
 
                         </td>
-                        
+                        <td class="hidden justify-center items-center xs:flex ">
+                            <time datetime="2020-03-16">
+                                2024. g. 19. maijs
+                            </time>
+                        </td>
                         <td>
                             <div class="flex items-center justify-center gap-x-2">
                                 <a class="btn btn-circle btn-outline btn-sm shadow">
@@ -73,7 +87,7 @@
                                 </a>
                         </td>
                     </tr>
-                    
+
                 </tbody>
             </table>
         </div>

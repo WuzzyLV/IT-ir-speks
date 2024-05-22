@@ -1,111 +1,85 @@
 <x-staff-layout class="flex w-full flex-col text-gray-900">
     <div class="flex items-center justify-between px-6 py-4 shadow lg:px-8">
-        <h2 class="text-lg font-bold tracking-tight sm:text-xl">MegaMind123</h2>
+        <h2 class="text-lg font-bold tracking-tight sm:text-xl">Anglijā izgudro 6G internetu</h2>
         <div>
             <a
-                href="{{ route('users') }}"
+                href="{{ route('admin-news') }}"
                 class="btn btn-sm border-red-500 bg-transparent text-red-500"
             >
                 Atpakaļ
             </a>
             <a
-                href="{{ route('users') }}"
+                href="{{ route('admin-news') }}"
                 class="btn btn-sm border-accent1 bg-transparent text-accent1"
             >
-                Saglabat
+                Saglabāt
             </a>
         </div>
     </div>
     <div class="flex flex-grow flex-col">
             <form class="mx-8">
                 <div class="pb-12">
-                    <div class="my-6 border-b border-b-gray-300 pb-4">
-                        <h2
-                            class="text-base font-semibold leading-7 text-gray-900"
-                        >
-                            Profile
-                        </h2>
-                        <p class="mt-1 text-sm leading-6 text-gray-600">
-                            This information will be displayed publicly so be
-                            careful what you share.
-                        </p>
-                    </div>
+                    
                     <div
-                        class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6"
+                        class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 m-4"
                     >
                         <div class="sm:col-span-3">
                             <label
-                                for="username"
+                                for="title"
                                 class="block text-sm font-medium leading-6 text-gray-900"
                             >
-                                Lietotājvārds
+                                Virsraksts
                             </label>
                             <div class="mt-2">
                                 <input
                                     type="text"
-                                    name="username"
-                                    id="username"
-                                    autocomplete="nickname"
-                                    placeholder="kakins"
-                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    name="title"
+                                    id="title"
+                                    {{-- autocomplete="nickname" --}}
+                                    placeholder="virsraksts"
+                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-accent1 sm:text-sm sm:leading-6"
                                 />
                             </div>
                         </div>
-                        <div class="sm:col-span-3">
-                            <label
-                                for="country"
-                                class="block text-sm font-medium leading-6 text-gray-900"
-                            >
-                                Pakāpe
-                            </label>
-                            <div class="mt-2">
-                                <select
-                                    id="role"
-                                    name="role"
-                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                >
-                                    <option>Administrators</option>
-                                    <option>Moderators</option>
-                                </select>
-                            </div>
-                        </div>
+                        
                         <div class="sm:col-span-3">
                             <label
                                 for="email"
                                 class="block text-sm font-medium leading-6 text-gray-900"
                             >
-                                E-pasta adrese
+                                Teksts
                             </label>
                             <div class="mt-2">
                                 <input
-                                    id="email"
-                                    name="email"
-                                    type="email"
-                                    placeholder="kakins@inbox.lv"
-                                    autocomplete="email"
+                                    id="text"
+                                    name="text"
+                                    type="text"
+                                    placeholder="kokoddhambo"
+                                    {{-- autocomplete="text" --}}
                                     required
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus-within:ring-accent1 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
                                 />
                             </div>
                         </div>
 
-                        <!-- password -->
+                        <!-- image -->
                         <div class="sm:col-span-3">
                             <label
-                                for="password"
+                                for="image"
                                 class="block text-sm font-medium leading-6 text-gray-900"
                             >
-                                Parole
+                                Attēls
                             </label>
                             <div class="mt-2">
                                 <input
-                                    id="password"
-                                    name="password"
-                                    type="password"
-                                    autocomplete="new-password"
+                                    id="image"
+                                    name="image"
+                                    type="file"
+                                    accept="image/*"
+                                    autocomplete="new-image"
                                     required
-                                    placeholder="Parole"
-                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus-within:ring-accent1 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+                                    placeholder="attels"
+                                    class="block  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                                 />
                             </div>
                         </div>
