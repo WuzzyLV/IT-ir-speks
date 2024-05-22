@@ -5,7 +5,7 @@
         <h2 class="tracking-tightsm:text-xl text-lg font-bold">Lietotāji</h2>
         <a
             href="#"
-            class="btn btn-sm border-accent bg-transparent text-accent1"
+            class="btn btn-sm border-accent1 bg-transparent text-accent1"
         >
             Jauns lietotājs
         </a>
