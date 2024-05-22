@@ -11,8 +11,7 @@
                 <!-- head -->
                 <thead class="">
                     <tr class="text-gray-600 text-center border-b-gray-300">
-                        <th class="">Nosaukums</th>
-                        <th class="">Uzņēmums</th>
+                        <th class="">Virsraksts</th>
                         <th class="flex justify-center items-center h-11"><i class="fa-solid fa-circle text-4xs"></i></th>
                     </tr>
                 </thead>
@@ -21,15 +20,11 @@
                     <tr class="border-b-0 my-4">
                         <td class="text-center">
                             <p class="mb-1 text-base font-medium">
-                                Vecakais UML diagrammu specalists
+                                Anglijā izgudro 6G internetu
                             </p>
 
                         </td>
-                        <td class="flex justify-center items-center ">
-                            <div class="badge badge-outline gap-2 border-gray-400 py-3 ">
-                                <p class="text-sm">Accenture</p>
-                            </div>
-                        </td>
+                        
                         <td>
                             <div class="flex items-center justify-center gap-x-2">
                                 <a class="btn btn-circle btn-outline btn-sm shadow">
@@ -44,15 +39,11 @@
                     <tr class="border-b-0 my-4">
                         <td class="text-center">
                             <p class="mb-1 text-base font-medium">
-                                Vecakais UML diagrammu specalists
+                                Anglijā izgudro 6G internetu
                             </p>
 
                         </td>
-                        <td class="flex justify-center items-center">
-                            <div class="badge badge-outline gap-2 border-gray-400 py-3 ">
-                                <p class="text-sm">Accenture</p>
-                            </div>
-                        </td>
+                        
                         <td>
                             <div class="flex items-center justify-center gap-x-2">
                                 <a class="btn btn-circle btn-outline btn-sm shadow">
@@ -67,15 +58,11 @@
                     <tr class="border-b-0 my-4">
                         <td class="text-center">
                             <p class="mb-1 text-base font-medium">
-                                Vecakais UML diagrammu specalists
+                                Anglijā izgudro 6G internetu
                             </p>
 
                         </td>
-                        <td class="flex justify-center items-center">
-                            <div class="badge badge-outline gap-2 border-gray-400 py-3 ">
-                                <p class="text-sm">Accenture</p>
-                            </div>
-                        </td>
+                        
                         <td>
                             <div class="flex items-center justify-center gap-x-2">
                                 <a class="btn btn-circle btn-outline btn-sm shadow">

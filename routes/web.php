@@ -19,6 +19,10 @@ Route::get('/dashboard/vacancies', function () {
     return view('admin-vacancies');
 })->middleware(['auth', 'verified'])->name('admin-vacancies');
 
+Route::get('/dashboard/news', function () {
+    return view('admin-news');
+})->middleware(['auth', 'verified'])->name('admin-news');
+
 Route::get('/vacancies', function () {
     return view('vacancies');
 })->name('vacancies');
