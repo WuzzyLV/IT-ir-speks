@@ -49,9 +49,10 @@
                         class="menu h-screen w-72 flex-1 rounded-br bg-light1 p-4 text-gray-900 lg:h-auto lg:flex-grow"
                     >
                         <!-- Sidebar content here -->
-                        <li><a href="{{ route("dashboard") }}">Dashy</a></li>
+                        <li><a href="{{ route("dashboard") }}">Home</a></li>
                         <li><a href="{{ route("users") }}">Lietotāji</a></li>
-                        <li><a>Sidebar Item 2</a></li>
+                        <li><a href="{{ route("admin-vacancies") }}">Vakances</a></li>
+                        <li><a href="{{ route("admin-news") }}">Aktualitātes</a></li>
                     </ul>
                 </div>
             </div>

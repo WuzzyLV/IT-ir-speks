@@ -18,6 +18,13 @@ Route::get('/dashboard/users', function () {
 Route::get('/dashboard/users/{id}', function ($id) {
     return view('edit-user',['id' => $id]);
 })->middleware(['auth', 'verified'])->name('edit-user');
+Route::get('/dashboard/vacancies', function () {
+    return view('admin-vacancies');
+})->middleware(['auth', 'verified'])->name('admin-vacancies');
+
+Route::get('/dashboard/news', function () {
+    return view('admin-news');
+})->middleware(['auth', 'verified'])->name('admin-news');
 
 Route::get('/vacancies', function () {
     return view('vacancies');
