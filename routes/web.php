@@ -26,6 +26,10 @@ Route::get('/dashboard/news', function () {
     return view('admin-news');
 })->middleware(['auth', 'verified'])->name('admin-news');
 
+Route::get('/dashboard/edit-news', function () {
+    return view('edit-news');
+})->middleware(['auth', 'verified'])->name('edit-news');
+
 Route::get('/vacancies', function () {
     return view('vacancies');
 })->name('vacancies');
