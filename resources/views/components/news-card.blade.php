@@ -4,7 +4,7 @@
 >
     <img
         src="https://i1.sndcdn.com/artworks-EZSvIHkxvqSQ2jTU-z0oCGA-t500x500.jpg"
-        class="mb-4 h-64 w-full rounded-2xl bg-gray-300 object-fill"
+        class="mb-4 h-64 w-full rounded-2xl bg-gray-950/25 object-cover"
     />
 
     <div class="flex items-center gap-x-4 text-xs">
