@@ -39,7 +39,9 @@
                     <!-- Page content here -->
                     {{ $slot }}
                 </main>
-                <div class="drawer-side top-0 h-screen lg:h-auto lg:flex-grow">
+                <div
+                    class="drawer-side top-0 h-screen bg-light1 lg:h-auto lg:flex-grow"
+                >
                     <label
                         for="my-drawer-2"
                         aria-label="close sidebar"
@@ -51,8 +53,16 @@
                         <!-- Sidebar content here -->
                         <li><a href="{{ route("dashboard") }}">Home</a></li>
                         <li><a href="{{ route("users") }}">Lietotāji</a></li>
-                        <li><a href="{{ route("admin-vacancies") }}">Vakances</a></li>
-                        <li><a href="{{ route("admin-news") }}">Aktualitātes</a></li>
+                        <li>
+                            <a href="{{ route("admin-vacancies") }}">
+                                Vakances
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route("admin-news") }}">
+                                Aktualitātes
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
