@@ -63,11 +63,10 @@
         </div>
     </div>
 
-
     <div class="mx-auto max-w-7xl px-6 lg:px-8 m-8">
         <div class="mx-auto max-w-2xl lg:mx-0">
             <h2 class="text-3xl font-bold tracking-tight text-light1 sm:text-4xl">
-                Jaunākās Vakances
+                Jaunākās vakances
             </h2>
             <p class="mt-2 text-lg leading-8  ">
                 Nesen pievienotās vakances.
@@ -75,11 +74,31 @@
         </div>
         <div
             class="mx-auto mt-10 grid max-w-2xl grid-cols-1 border-t border-gray-300 sm:mt-16 sm:gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-            <x-vacancy-card h3Color="light1"/>
-            <x-vacancy-card h3Color="light1"/>
-            <x-vacancy-card h3Color="light1" textColor=""/>
+            <x-vacancy-card h3Color="white" textColor="gray-300"/>
+            <x-vacancy-card h3Color="white" textColor="gray-300"/>
+            <x-vacancy-card h3Color="white" textColor="gray-300" />
+        </div>
+    </div>                
+    
+    <div class="mx-auto max-w-7xl px-6 lg:px-8 m-8">
+        <div class="mx-auto max-w-2xl lg:mx-0">
+            <h2 class="text-3xl font-bold tracking-tight text-light1 sm:text-4xl">
+                Jaunākās aktualitātes
+            </h2>
+            <p class="mt-2 text-lg leading-8  ">
+                Nesen pievienotās aktualitātes.
+            </p>
+        </div>
+        <div
+            class="mx-auto mt-10 grid max-w-2xl grid-cols-1 border-t border-gray-300 sm:mt-16 sm:gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+            <x-news-card h3Color="white" textColor="gray-300"/>
+            <x-news-card h3Color="white" textColor="gray-300"/>
+            <x-news-card h3Color="white" textColor="gray-300"/>
         </div>
     </div>
+
+
+    
 
 
 

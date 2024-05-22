@@ -1,3 +1,5 @@
+@props(["textColor" => '',
+        "h3Color" => ''])
 <article
     class="max-w m-6 mx-4 flex max-w-xl flex-col items-start justify-between"
 >   
@@ -13,7 +15,7 @@
     
     <div class="group relative">
         <h3
-            class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600"
+            class="mt-3 text-lg font-semibold leading-6 text-{{$h3Color}} group-hover:text-gray-600"
         >
 
 
@@ -22,7 +24,7 @@
                 Anglijā izgudro 6G internetu
             </a>
         </h3>
-        <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
+        <p class="mt-5 line-clamp-3 text-sm leading-6 text-{{$textColor}}">
             Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam
             vitae illo. Non aliquid explicabo necessitatibus unde. Sed
             exercitationem placeat consectetur nulla deserunt vel. Iusto
