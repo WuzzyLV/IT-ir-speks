@@ -8,7 +8,8 @@ Route::get('/', function () {
 })->name('landing');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    //redirect to users
+    return redirect()->route('users');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/dashboard/users', function () {

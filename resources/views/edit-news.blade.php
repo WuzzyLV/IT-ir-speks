@@ -1,7 +1,7 @@
 <x-staff-layout class="flex w-full flex-col text-gray-900">
     <div class="flex items-center justify-between px-6 py-4 shadow lg:px-8">
         <h2 class="text-lg font-bold tracking-tight sm:text-xl">Anglijā izgudro 6G internetu</h2>
-        <div>
+        <div class="flex gap-1 flex-wrap justify-center">
             <a
                 href="{{ route('admin-news') }}"
                 class="btn btn-sm border-red-500 bg-transparent text-red-500"
@@ -35,38 +35,18 @@
                                     type="text"
                                     name="title"
                                     id="title"
-                                    {{-- autocomplete="nickname" --}}
-                                    placeholder="virsraksts"
+                                    placeholder="Virsraksts"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-accent1 sm:text-sm sm:leading-6"
                                 />
                             </div>
                         </div>
                         
-                        <div class="sm:col-span-3">
+                        <div class="sm:col-span-6">
                             <label
-                                for="email"
+                                for="text"
                                 class="block text-sm font-medium leading-6 text-gray-900"
                             >
                                 Teksts
-                            </label>
-                            <div class="mt-2">
-                                <input
-                                    id="text"
-                                    name="text"
-                                    type="text"
-                                    placeholder="kokoddhambo"
-                                    {{-- autocomplete="text" --}}
-                                    required
-                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus-within:ring-accent1 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
-                                />
-                            </div>
-                        </div>
-                        <div class="sm:col-span-6">
-                            <label
-                                for="title"
-                                class="block text-sm font-medium leading-6 text-gray-900"
-                            >
-                                Apraksts
                             </label>
                             <x-text-editor class="sm:col-span-6 mt-4"/>
 
