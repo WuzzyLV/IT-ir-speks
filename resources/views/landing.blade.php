@@ -1,4 +1,4 @@
-<x-app-layout class="bg-[#090a0f]" landing="true">
+<x-app-layout class="bg-[#090a0f]" landing="true" footer="false">
     <!-- prettier-ignore -->
     <div class="relative isolate overflow-hidden h-screen flex flex-col justify-center">
         <x-stars class="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"  />
@@ -113,4 +113,6 @@
             ) !important;
         }
     </style>
+
+    @include("components.footer", ["class" => "text-gray-300"])
 </x-app-layout>
