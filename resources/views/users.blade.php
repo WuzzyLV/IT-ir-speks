@@ -17,7 +17,7 @@
                 <thead class="">
                     <tr class="text-gray-600 text-center border-b-gray-300">
                         <th class="">Lietotājs</th>
-                        <th class="">Pakāpe</th>
+                        <th class="hidden xs:table-cell">Pakāpe</th>
                         <th class="flex justify-center items-center h-11"><i class="fa-solid fa-circle text-4xs"></i></th>
                     </tr>
                 </thead>
@@ -30,7 +30,8 @@
                             </p>
                             <p class="text-gray-400">coolman@auth.lv</p>
                         </td>
-                        <td class="flex justify-center items-center">
+                        <td class="hidden justify-center xs:flex">
+
                             <div
                                 class="badge badge-outline gap-2 border-gray-400 py-3 shadow"
                             >
@@ -62,7 +63,7 @@
                             </p>
                             <p class="text-gray-400">coolman@auth.lv</p>
                         </td>
-                        <td class="flex justify-center">
+                        <td class="hidden justify-center xs:flex">
                             <div
                                 class="badge badge-outline gap-2 border-gray-400 py-3 shadow"
                             >
@@ -94,7 +95,7 @@
                             </p>
                             <p class="text-gray-400">coolman@auth.lv</p>
                         </td>
-                        <td class="flex justify-center">
+                        <td class="hidden justify-center xs:flex ">
                             <div
                                 class="badge badge-outline gap-2 border-gray-400 py-3 shadow"
                             >
