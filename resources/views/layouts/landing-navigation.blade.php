@@ -111,13 +111,24 @@
             >
                 {{ __("Aktualitates") }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link
-                :href="route('login')"
-                :active="request()->routeIs('login')"
-                class="!w-auto"
-            >
-                {{ __("Ielogoties") }}
-            </x-responsive-nav-link>
+
+            @if(is_null(Auth::user()))
+                <x-responsive-nav-link
+                    :href="route('login')"
+                    :active="request()->routeIs('login')"
+                    class="!w-auto"
+                >
+                    {{ __("Ielogoties") }}
+                </x-responsive-nav-link>
+            @else
+                <x-responsive-nav-link
+                    :href="route('login')"
+                    :active="request()->routeIs('login')"
+                    class="!w-auto"
+                >
+                    {{ __("Adminu panelis") }}
+                </x-responsive-nav-link>
+            @endif
         </div>
     </div>
 </nav>
