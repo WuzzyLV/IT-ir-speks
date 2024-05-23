@@ -66,11 +66,12 @@
 
     <div class="m-8 mx-auto mt-0 max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl lg:mx-0">
-            <h2
-                class="text-3xl font-bold tracking-tight text-light1 sm:text-4xl"
+            <a
+                class="cursor-pointer text-3xl font-bold tracking-tight text-light1 hover:text-accent1 sm:text-4xl"
+                href="{{ route("vacancies") }}"
             >
                 Jaunākās vakances
-            </h2>
+            </a>
             <p class="text-lg mt-2 leading-8 text-gray-300">
                 Nesen pievienotās vakances.
             </p>
@@ -86,11 +87,12 @@
 
     <div class="m-8 mx-auto mb-0 max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl lg:mx-0">
-            <h2
-                class="text-3xl font-bold tracking-tight text-light1 sm:text-4xl"
+            <a
+                class="cursor-pointer text-3xl font-bold tracking-tight text-light1 hover:text-accent1 sm:text-4xl"
+                href="{{ route("news") }}"
             >
                 Jaunākās aktualitātes
-            </h2>
+            </a>
             <p class="text-lg mt-2 leading-8 text-gray-300">
                 Nesen pievienotās aktualitātes.
             </p>
