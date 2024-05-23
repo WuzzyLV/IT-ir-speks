@@ -147,15 +147,17 @@
                 :href="route('news')"
                 :active="request()->routeIs('news')"
             >
-                {{ __("Aktualitates") }}
+                {{ __("Aktualitātes") }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link
-                :href="route('login')"
-                :active="request()->routeIs('login')"
-            >
-                {{ __("Ielogoties") }}
-            </x-responsive-nav-link>
+            @if(is_null(Auth::user()))
+                <x-responsive-nav-link
+                    :href="route('login')"
+                    :active="request()->routeIs('login')"
+                >
+                    {{ __("Ielogoties") }}
+                </x-responsive-nav-link>
+            @endif
         </div>
 
         @if (! is_null(Auth::user()))
