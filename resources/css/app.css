@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    scroll-behavior: smooth;
+}
+
 .raleway {
     font-family: "Raleway", sans-serif;
     font-optical-sizing: auto;
@@ -31,3 +35,5 @@
 ::-webkit-calendar-picker-indicator {
     filter: invert(1);
 }
+
+
