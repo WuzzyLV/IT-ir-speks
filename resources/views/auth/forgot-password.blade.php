@@ -1,6 +1,6 @@
 <x-guest-layout>
     <div class="mb-4 text-sm text-gray-600">
-        {{ __("Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.") }}
+        {{ __("Aizmirsi savu paroli? Nekādu problēmu. Vienkārši paziņojiet mums savu e-pasta adresi, un mēs pa e-pastu nosūtīsim jums paroles atiestatīšanas saiti, kas ļaus jums izvēlēties jaunu.") }}
     </div>
 
     <!-- Session Status -->
@@ -11,7 +11,7 @@
 
         <!-- Email Address -->
         <div>
-            <x-input-label for="email" :value="__('Email')" />
+            <x-input-label for="email" :value="__('E-pasts')" />
             <x-text-input
                 id="email"
                 class="mt-1 block w-full"
@@ -26,7 +26,7 @@
 
         <div class="mt-4 flex items-center justify-end">
             <x-primary-button>
-                {{ __("Email Password Reset Link") }}
+                Iegūt paroles atiestatīšanas saiti
             </x-primary-button>
         </div>
     </form>

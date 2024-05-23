@@ -21,7 +21,7 @@
 
         <!-- Email Address -->
         <div>
-            <x-input-label for="email" :value="__('Epasts')" />
+            <x-input-label for="email" :value="__('E-pasts')" />
             <x-text-input
                 id="email"
                 class="mt-1 block w-full"

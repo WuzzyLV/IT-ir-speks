@@ -17,7 +17,11 @@
                             for="my-drawer-2"
                             class="drawer-button !cursor-pointer"
                         >
-                            <x-application-logo class="rotate-90 lg:rotate-0" />
+                            <x-application-logo class="hidden lg:block" />
+                            <x-application-logo
+                                class="block lg:hidden"
+                                pointer="true"
+                            />
                         </label>
                         <!-- <label
                             for="my-drawer-2"
@@ -114,7 +118,7 @@
                         for="my-drawer-2"
                         class="drawer-button !cursor-pointer"
                     >
-                        <x-application-logo class="rotate-90" />
+                        <x-application-logo class="" pointer="true" />
                     </label>
                 @else
                     <a href="{{ route("landing") }}">
@@ -150,7 +154,7 @@
                 {{ __("Aktualitātes") }}
             </x-responsive-nav-link>
 
-            @if(is_null(Auth::user()))
+            @if (is_null(Auth::user()))
                 <x-responsive-nav-link
                     :href="route('login')"
                     :active="request()->routeIs('login')"
@@ -176,7 +180,7 @@
 
                 <div class="mt-3 space-y-1">
                     <x-responsive-nav-link :href="route('dashboard')">
-                                {{ __("Adminu panelis") }}
+                        {{ __("Adminu panelis") }}
                     </x-responsive-nav-link>
 
                     <x-responsive-nav-link :href="route('profile.edit')">
