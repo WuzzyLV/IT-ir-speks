@@ -84,7 +84,7 @@
             <div class="-me-2 flex items-center justify-self-end sm:hidden">
                 <button
                     @click="open = ! open"
-                    class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 transition duration-150 ease-in-out hover:bg-gray-100 hover:text-gray-500 focus:bg-accent1 focus:text-dark1 focus:outline-none"
+                    class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 transition duration-150 ease-in-out  hover:text-gray-500 active:bg-accent1 focus:text-dark1 focus:outline-none"
                 >
                     <i class="fas fa-bars text-lg"></i>
                 </button>
