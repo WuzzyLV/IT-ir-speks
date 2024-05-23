@@ -36,9 +36,9 @@
                                 class="badge badge-outline gap-2 border-gray-400 py-3 shadow"
                             >
                                 <i
-                                    class="fa-solid fa-shield text-base text-accent1"
+                                    class="fa-solid fa-crown text-base text-accent1"
                                 ></i>
-                                <p class="text-sm">Administrators</p>
+                                <p class="text-sm">Priekšnieks</p>
                             </div>
                         </td>
                         <td>
