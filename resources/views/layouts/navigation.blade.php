@@ -175,6 +175,10 @@
                 </div>
 
                 <div class="mt-3 space-y-1">
+                    <x-responsive-nav-link :href="route('dashboard')">
+                                {{ __("Adminu panelis") }}
+                    </x-responsive-nav-link>
+
                     <x-responsive-nav-link :href="route('profile.edit')">
                         {{ __("Profils") }}
                     </x-responsive-nav-link>
