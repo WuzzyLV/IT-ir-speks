@@ -1,5 +1,4 @@
-@props(["textColor" => '',
-        "h3Color" => ''])
+@props(["textColor" => "", "h3Color" => ""])
 
 <article
     class="max-w m-6 mx-4 flex max-w-xl flex-col items-start justify-between"
@@ -17,14 +16,14 @@
     </div>
     <div class="group relative">
         <h3
-            class="mt-3 text-lg font-semibold leading-6 text-{{$h3Color}} group-hover:text-gray-600"
+            class="text-lg text-{{ $h3Color }} mt-3 font-semibold leading-6 group-hover:text-accent1"
         >
-            <a href="{{route("vacancy", 1)}}">
-                <span class="absolute inset-0 "></span>
+            <a href="{{ route("vacancy", 1) }}">
+                <span class="absolute inset-0"></span>
                 Vecakais UML diagrammu specalists
             </a>
         </h3>
-        <p class="mt-5 line-clamp-3 text-sm leading-6 text-{{$textColor}}">
+        <p class="text-{{ $textColor }} mt-5 line-clamp-3 text-sm leading-6">
             Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam
             vitae illo. Non aliquid explicabo necessitatibus unde. Sed
             exercitationem placeat consectetur nulla deserunt vel. Iusto
@@ -39,15 +38,15 @@
                 class="h-10 w-10 rounded-full border border-gray-400 bg-gray-50 object-contain"
             />
             <div class="leading-6">
-                <p class="text-{{$h3Color}}">
+                <p class="text-{{ $h3Color }}">
                     <a href="#" class="">Accenture</a>
                 </p>
             </div>
         </div>
         <div>
             <div class="stat py-0 pr-0">
-                <div class="stat-title text-lg">Alga</div>
-                <div class="stat-value text-sm text-{{$h3Color}} lg:text-lg">
+                <div class="text-lg stat-title">Alga</div>
+                <div class="text-{{ $h3Color }} lg:text-lg stat-value text-sm">
                     950 € - 1,110 €
                 </div>
             </div>
