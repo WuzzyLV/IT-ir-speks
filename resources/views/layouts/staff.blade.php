@@ -29,6 +29,11 @@
                         class="menu h-screen w-72 flex-1 rounded-br bg-light1 p-4 text-gray-900 lg:h-auto lg:flex-grow"
                     >
                         <!-- Sidebar content here -->
+                        <li class="border-b border-gray-300">
+                            <a href="{{ route("applications") }}">
+                                Pieteikumi
+                            </a>
+                        </li>
                         <li><a href="{{ route("users") }}">Lietotāji</a></li>
                         <li>
                             <a href="{{ route("admin-vacancies") }}">
