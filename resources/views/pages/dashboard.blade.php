@@ -2,6 +2,6 @@
 <x-staff-layout>
     
     <div>
-    cok an ball
+        stats/index
     </div>
 </x-staff-layout>
