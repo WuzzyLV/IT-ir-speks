@@ -23,7 +23,7 @@
                     @endif
                 </div>
 
-                <x-nav-link :href="route('login')" :active="request()->routeIs('aboutus')">
+                <x-nav-link :href="route('aboutus')" :active="request()->routeIs('aboutus')">
 
                     {{ __("Par mums") }}
                 </x-nav-link>

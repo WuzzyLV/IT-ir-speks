@@ -10,8 +10,7 @@
             {{-- </div> --}}
             <!-- Navigation Links -->
             <div class="hidden space-x-8 justify-self-start transition-all sm:-my-px sm:flex">
-                <x-nav-link :href="route('login')" :active="request()->routeIs('aboutus')">
-
+                <x-nav-link :href="route('aboutus')" :active="request()->routeIs('aboutus')">
                     {{ __("Par mums") }}
                 </x-nav-link>
 
