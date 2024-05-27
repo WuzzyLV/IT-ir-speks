@@ -32,7 +32,7 @@
                     {{ __("Vakances") }}
                 </x-nav-link>
                 <x-nav-link :href="route('news')" :active="request()->routeIs('news')">
-                    {{ __("Aktualitates") }}
+                    {{ __("Aktualitātes") }}
                 </x-nav-link>
             </div>
             @if (! is_null(Auth::user()))
