@@ -4,7 +4,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <title>IT ir spēks</title>
-    <link rel="icon" type="image/x-icon" href="favicon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.png" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net" />
