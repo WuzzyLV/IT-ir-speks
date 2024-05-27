@@ -60,9 +60,9 @@ Route::get('/news/{id}', function ($id) {
     return view('pages.news.news-page', ['id' => $id]);
 })->name('news-page');
 
-Route::get('/aboutus', function () {
-    return view('aboutus');
-})->name('aboutus');
+Route::get('/about-us', function () {
+    return view('pages.about-us');
+})->name('about-us');
 
 
 

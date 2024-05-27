@@ -10,7 +10,7 @@
             {{-- </div> --}}
             <!-- Navigation Links -->
             <div class="hidden space-x-8 justify-self-start transition-all sm:-my-px sm:flex">
-                <x-nav-link :href="route('aboutus')" :active="request()->routeIs('aboutus')">
+                <x-nav-link :href="route('about-us')" :active="request()->routeIs('about-us')">
                     {{ __("Par mums") }}
                 </x-nav-link>
 
@@ -87,7 +87,7 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="flex flex-col items-center border-y border-light1 bg-dark1 pb-3 pt-2">
-            <x-responsive-nav-link :href="route('aboutus')" :active="request()->routeIs('aboutus')" class="!w-auto">
+            <x-responsive-nav-link :href="route('about-us')" :active="request()->routeIs('about-us')" class="!w-auto">
                 {{ __("Par mums") }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('vacancies')" :active="request()->routeIs('vacancies')" class="!w-auto">

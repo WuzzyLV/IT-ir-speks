@@ -23,7 +23,7 @@
                     @endif
                 </div>
 
-                <x-nav-link :href="route('aboutus')" :active="request()->routeIs('aboutus')">
+                <x-nav-link :href="route('about-us')" :active="request()->routeIs('about-us')">
 
                     {{ __("Par mums") }}
                 </x-nav-link>
@@ -106,7 +106,7 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="space-y-1 border-t border-light1 pb-3 pt-2">
-            <x-responsive-nav-link :href="route('aboutus')" :active="request()->routeIs('aboutus')" class="!w-auto">
+            <x-responsive-nav-link :href="route('about-us')" :active="request()->routeIs('about-us')" class="!w-auto">
                 {{ __("Par mums") }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('vacancies')" :active="request()->routeIs('vacancies')">
