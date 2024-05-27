@@ -35,6 +35,15 @@ Route::get('/dashboard/news/{id}', function ($id) {
     return view('pages.admin.forms.edit-news',['id' => $id]);
 })->middleware(['auth', 'verified'])->name('edit-news');
 
+Route::get('/dashboard/applications', function () {
+    return view('pages.admin.applications');
+})->middleware(['auth', 'verified'])->name('applications');
+
+Route::get('/dashboard/applications/{id}', function ($id) {
+    return view('pages.admin.application',['id' => $id]);
+})->middleware(['auth', 'verified'])->name('view-application');
+
+
 Route::get('/vacancies', function () {
     return view('pages.vacancies.vacancies');
 })->name('vacancies');
