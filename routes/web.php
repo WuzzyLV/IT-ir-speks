@@ -52,6 +52,10 @@ Route::get('/news/{id}', function ($id) {
     return view('news-page', ['id' => $id]);
 })->name('news-page');
 
+Route::get('/aboutus', function () {
+    return view('aboutus');
+})->name('aboutus');
+
 
 
 Route::middleware('auth')->group(function () {
