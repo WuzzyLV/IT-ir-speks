@@ -17,8 +17,11 @@
             <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 gap-9 lg:grid-cols-2">
                     <div class="img-box">
-                        <img src="https://muzikaspasaule.lv/images/News_Images/R/Reiks/REIKS-Velos-ScreenShot2.png" alt="About Us tailwind page"
-                            class="max-lg:mx-auto">
+                        <img
+                            src="https://muzikaspasaule.lv/images/News_Images/R/Reiks/REIKS-Velos-ScreenShot2.png"
+                            alt="About Us tailwind page"
+                            class="rounded-lg max-lg:mx-auto"
+                        />
                     </div>
                     <div class="flex items-center lg:pl-[100px]">
                         <div class="data w-full">
@@ -48,21 +51,36 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-9">
                     <div class="flex items-center lg:pr-24">
                         <div class="data w-full">
-                            <img src="https://www.architectureanddesign.com.au/getmedia/90cb94b6-6fc0-44f4-bba9-b1b1ca7e898e/6.aspx" alt="About Us tailwind page"
-                                class="block lg:hidden mb-9 mx-auto">
-                            <h2 class="font-manrope font-bold text-4xl lg:text-5xl text-black mb-9 max-lg:text-center">
-                                Mūsu misija</h2>
-                            <p class="font-normal text-xl leading-8 text-gray-500 max-lg:text-center max-w-2xl mx-auto">
-                                Mūsu misija ir veicināt IT nozares attīstību Latvijā, palīdzot uzņēmumiem atrast
-                                vispiemērotākos speciālistus un palīdzot IT profesionāļiem atrast darbu, kas atbilst
-                                viņu prasmēm un ambīcijām. Mēs ticam, ka IT ir spēks, kas var mainīt pasauli, un mūsu
-                                uzdevums ir nodrošināt, ka šis spēks tiek izmantots visefektīvākajā veidā.
+                            <img
+                                src="https://www.architectureanddesign.com.au/getmedia/90cb94b6-6fc0-44f4-bba9-b1b1ca7e898e/6.aspx"
+                                alt="About Us tailwind page"
+                                class="mx-auto mb-9 block rounded-lg lg:hidden"
+                            />
+                            <h2
+                                class="font-manrope mb-9 text-4xl font-bold text-black max-lg:text-center lg:text-5xl"
+                            >
+                                Mūsu misija
+                            </h2>
+                            <p
+                                class="mx-auto max-w-2xl text-xl font-normal leading-8 text-gray-500 max-lg:text-center"
+                            >
+                                Mūsu misija ir veicināt IT nozares attīstību
+                                Latvijā, palīdzot uzņēmumiem atrast
+                                vispiemērotākos speciālistus un palīdzot IT
+                                profesionāļiem atrast darbu, kas atbilst viņu
+                                prasmēm un ambīcijām. Mēs ticam, ka IT ir spēks,
+                                kas var mainīt pasauli, un mūsu uzdevums ir
+                                nodrošināt, ka šis spēks tiek izmantots
+                                visefektīvākajā veidā.
                             </p>
                         </div>
                     </div>
-                    <div class="img-box ">
-                        <img src="https://www.architectureanddesign.com.au/getmedia/90cb94b6-6fc0-44f4-bba9-b1b1ca7e898e/6.aspx" alt="About Us tailwind page"
-                            class="hidden lg:block ">
+                    <div class="img-box">
+                        <img
+                            src="https://www.architectureanddesign.com.au/getmedia/90cb94b6-6fc0-44f4-bba9-b1b1ca7e898e/6.aspx"
+                            alt="About Us tailwind page"
+                            class="hidden rounded-lg lg:block"
+                        />
                     </div>
                 </div>
             </div>
