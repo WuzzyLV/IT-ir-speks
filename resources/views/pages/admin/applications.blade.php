@@ -59,6 +59,45 @@
                         </td>
                     </tr>
 
+                    <!-- row 2 -->
+                    <tr class="border-b-0 my-4 text-sm md:text-base">
+                        <td class="text-center">
+                            <p class="mb-1 font-medium">
+                                Loinards Petersilis
+                            </p>
+                        </td>
+                        
+                        <td class="text-center hidden md:table-cell">
+                            <p class="mb-1 font-medium">
+                                loinardsSlaysXX@inbox.lv
+                            </p>
+                        </td>
+
+                        <td class="text-center">
+                            <!-- <time datetime="2020-03-16">
+                                2024. g. 19. maijs
+                            </time> -->
+                            <p class="mb-1 font-medium">
+                            Vecakais UML diagrammu specalists
+                            </p>
+                        </td>
+
+                        <td class="text-center hidden sm:table-cell">
+                            <a href="" >
+                                <i class="fa-solid fa-paperclip text-center text-accent1 hover:underline"></i>
+                            </a>
+                        </td>
+
+                        <td>
+                            <div class="flex items-center justify-center gap-x-2">
+                                <a class="btn btn-circle btn-outline btn-sm shadow" href="{{route("view-application", 1)}}">
+                                    <i class="fa-solid fa-eye text-accent1"></i>
+                                </a>
+                                <a class="btn btn-circle btn-outline btn-sm shadow">
+                                    <i class="fa-solid fa-trash-can text-red-500"></i>
+                                </a>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
