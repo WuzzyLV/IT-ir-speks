@@ -38,7 +38,12 @@
                     <dd
                         class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"
                     >
-                        Vecakais UML diagrammu specalists
+                        <a
+                            href="{{ route("vacancy", 1) }}"
+                            class="text-accent1 hover:underline"
+                        >
+                            Vecakais UML diagrammu specalists
+                        </a>
                     </dd>
                 </div>
                 <div class="py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -58,7 +63,7 @@
                         Curriculum Vitae
                     </dt>
                     <dd
-                        class="mt-2 text-sm text-gray-900 sm:col-span-2 sm:mt-0"
+                        class="mt-2 text-sm text-gray-900 shadow-sm sm:col-span-2 sm:mt-0"
                     >
                         <ul
                             role="list"

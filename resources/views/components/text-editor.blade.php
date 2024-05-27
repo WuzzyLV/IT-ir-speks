@@ -14,7 +14,7 @@
 
 <div class="{{ $class }} flex items-center justify-center">
     <div
-        class="mx-auto w-full max-w-6xl rounded-xl bg-white p-2 text-black shadow"
+        class="mx-auto w-full rounded-xl bg-white p-2 text-black shadow"
         x-data="app()"
         x-init="init($refs.richEditor)"
     >
