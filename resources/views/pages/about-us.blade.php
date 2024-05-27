@@ -18,7 +18,7 @@
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative ">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-9">
                     <div class="img-box">
-                        <img src="https://pagedone.io/asset/uploads/1702034769.png" alt="About Us tailwind page"
+                        <img src="https://muzikaspasaule.lv/images/News_Images/R/Reiks/REIKS-Velos-ScreenShot2.png" alt="About Us tailwind page"
                             class="max-lg:mx-auto">
                     </div>
                     <div class="lg:pl-[100px] flex items-center">
@@ -43,7 +43,7 @@
 
                     <div class="lg:pr-24 flex items-center">
                         <div class="data w-full">
-                            <img src="https://pagedone.io/asset/uploads/1702034785.png" alt="About Us tailwind page"
+                            <img src="https://www.architectureanddesign.com.au/getmedia/90cb94b6-6fc0-44f4-bba9-b1b1ca7e898e/6.aspx" alt="About Us tailwind page"
                                 class="block lg:hidden mb-9 mx-auto">
                             <h2 class="font-manrope font-bold text-4xl lg:text-5xl text-black mb-9 max-lg:text-center">
                                 Mūsu misija</h2>
@@ -56,7 +56,7 @@
                         </div>
                     </div>
                     <div class="img-box ">
-                        <img src="https://pagedone.io/asset/uploads/1702034785.png" alt="About Us tailwind page"
+                        <img src="https://www.architectureanddesign.com.au/getmedia/90cb94b6-6fc0-44f4-bba9-b1b1ca7e898e/6.aspx" alt="About Us tailwind page"
                             class="hidden lg:block ">
                     </div>
                 </div>
@@ -71,23 +71,24 @@
 
                 <div class=" py-10 max-md:max-w-sm max-md:mx-auto m-16">
                     <div class="col-span-full mb-10 lg:col-span-2 lg:mb-0 flex items-center flex-col">
-                        <h1 class="text-gray-900 text-2xl font-bold py-4">
+                        <h2 class="text-gray-900 text-3xl font-bold py-4">
                             Sazinies ar mums!
-                        </h1>
-                        <div class="flex justify-center items-center flex-row">
-                            <i class="fa-solid fa-envelope text-accent1"></i>
-                            <p class="py-1 text-xl text-gray-500 lg:max-w-xs text-center lg:text-left">itirspeks@lvt.lv
-                            </p>
+                        </h2>
+                        <div class="">
+                            <div class="flex justify-start items-center flex-row">
+                                <i class="fa-solid fa-envelope text-accent1 m-4"></i>
+                                <p class="py-2 text-xl text-gray-500 lg:max-w-xs text-center lg:text-left">
+                                    itirspeks@lvt.lv
+                                </p>
+                            </div>
+                            <div class="flex justify-start items-center flex-row">
+                                <i class="fa-solid fa-phone text-accent1 m-4"></i>
+                                <p class="py-2 text-xl text-gray-500 lg:max-w-xs text-center lg:text-left">+371 112</p>
+                            </div>
                         </div>
-                        <div>
-                            <i class="fa-solid fa-phone text-accent1"></i>
-                            <p class="py-1 text-xl text-gray-500 lg:max-w-xs text-center lg:text-left">+371 112</p>
-                        </div>
+
 
                     </div>
-
-
-
 
                 </div>
 
