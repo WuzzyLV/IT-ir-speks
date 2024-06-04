@@ -1,6 +1,6 @@
 <x-staff-layout class="w-full flex flex-col text-gray-900">
 <div class=" flex items-center justify-between border-b border-gray-300 px-6 py-4 shadow lg:px-8">
-        <h2 class="tracking-tightsm:text-xl text-lg font-bold">Pieteikumi</h2>
+        <h2 class="tracking-tight sm:text-xl text-lg font-bold">Pieteikumi</h2>
         <!-- <a href="{{route("edit-news",1)}}" class="btn btn-sm border-accent1 bg-transparent text-accent1">
             Jauna aktualitāte
         </a> -->
