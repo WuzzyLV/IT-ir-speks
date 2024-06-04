@@ -33,23 +33,23 @@
         @foreach ($routes as $key => $value)
             @if (!$needsRoute)
                 @if (end($routes) == $value)
-                    <li class="line-clamp-1 text-gray-500">
+                    <li class="line-clamp-1 text-gray-500 ">
                         {{ $value }}
                     </li>
                 @else
                     <li>
-                        <a href="{{ $key }}">{{ $value }}</a>
+                        <a class="hover:text-accent1" href="{{ $key }}">{{ $value }}</a>
                     </li>
                 @endif
             @else
                 <li>
-                    <a href="{{ $key }}">{{ $value }}</a>
+                    <a class="hover:text-accent1" href="{{ $key }}">{{ $value }}</a>
                 </li>
             @endif
         @endforeach
 
         @if ($needsRoute)
-            <li class="line-clamp-1 text-gray-500">
+            <li class="line-clamp-1 text-gray-500 ">
                 {{ $currentRoute }}
             </li>
         @endif
