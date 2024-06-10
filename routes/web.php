@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -12,8 +13,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/dashboard/users', function () { return view('pages.admin.users'); })
         ->name('users');
-    Route::get('/dashboard/users/{id}', function ($id) { return view('pages.admin.forms.edit-user',['id' => $id]); })
+    Route::get('/dashboard/users/new', function () { return view('pages.admin.forms.edit-user'); })
+        ->name('new-user');
+
+    Route::get('/dashboard/users/{id}', [UserController::class, "edit"])
         ->name('edit-user');
+    Route::post('/dashboard/users/{id}', [UserController::class, "handleEdit"])
+        ->name('handle-edit-user');
 
     Route::get('/dashboard/vacancies', function () {return view('pages.admin.vacancies'); })
         ->name('admin-vacancies');
