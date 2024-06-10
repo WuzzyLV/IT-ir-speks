@@ -1,9 +1,6 @@
 @props(["class" => ""])
 
-<script
-    src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js"
-    defer
-></script>
+
 <style>
     @import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);
     .active\:bg-gray-50:active {
@@ -22,24 +19,6 @@
             <div
                 class="flex w-full border-b border-gray-200 text-xl text-gray-600"
             >
-                <button
-                    class="h-10 w-10 border-r border-gray-200 outline-none hover:text-indigo-500 focus:outline-none active:bg-gray-50"
-                    @click="format('bold')"
-                >
-                    <i class="mdi mdi-format-bold"></i>
-                </button>
-                <button
-                    class="h-10 w-10 border-r border-gray-200 outline-none hover:text-indigo-500 focus:outline-none active:bg-gray-50"
-                    @click="format('italic')"
-                >
-                    <i class="mdi mdi-format-italic"></i>
-                </button>
-                <button
-                    class="mr-1 h-10 w-10 border-r border-gray-200 outline-none hover:text-indigo-500 focus:outline-none active:bg-gray-50"
-                    @click="format('underline')"
-                >
-                    <i class="mdi mdi-format-underline"></i>
-                </button>
                 <button
                     class="h-10 w-10 border-l border-r border-gray-200 outline-none hover:text-indigo-500 focus:outline-none active:bg-gray-50"
                     @click="format('formatBlock','P')"
