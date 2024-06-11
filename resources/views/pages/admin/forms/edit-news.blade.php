@@ -1,7 +1,7 @@
 <x-staff-layout class="flex w-full flex-col text-gray-900">
 <div x-data>
     <div class="flex items-center justify-between px-6 py-4 shadow lg:px-8" >
-        <h2 class="text-lg font-bold tracking-tight sm:text-xl">Anglijā izgudro 6G internetu</h2>
+        <h2 class="text-lg font-bold tracking-tight sm:text-xl">{{$new ? "Jauna aktualitāte" : "Anglijā izgudro 6G internetu}"}}</h2>
         <div class="flex gap-1 flex-wrap justify-center">
             <a
                 href="{{ route('admin-news') }}"
@@ -13,16 +13,23 @@
                 @click="$refs.submit.click()"
                 class="btn btn-sm border-accent1 bg-transparent text-accent1"
             >
-                Saglabat    
+                Saglabat
             </button>
         </div>
     </div>
+    {{--show errors--}}
+    @if ($errors->any())
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-center" role="alert">
+            <strong class="font-bold fa-solid fa-triangle-exclamation"></strong>
+            <span class="block sm:inline">{{ $errors->first() }}</span>
+        </div>
+    @endif
     <div class="flex flex-grow flex-col">
-            <form class="mx-8">
+        <form class="mx-8" method="post">
             <input type="submit" value="submit" x-ref="submit" hidden>
-
+                @csrf
                 <div class="pb-12">
-                    
+
                     <div
                         class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 m-4"
                     >
@@ -44,7 +51,7 @@
                                 />
                             </div>
                         </div>
-                        
+
                         <div class="sm:col-span-6">
                             <label
                                 for="text"

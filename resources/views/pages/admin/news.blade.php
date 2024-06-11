@@ -1,7 +1,7 @@
 <x-staff-layout class="w-full flex flex-col text-gray-900">
     <div class=" flex items-center justify-between border-b border-gray-300 px-6 py-4 shadow lg:px-8">
         <h2 class="tracking-tight sm:text-xl text-lg font-bold">Aktualitātes</h2>
-        <a href="{{route("edit-news",1)}}" class="btn btn-sm border-accent1 bg-transparent text-accent1">
+        <a href="{{route("new-news")}}" class="btn btn-sm border-accent1 bg-transparent text-accent1">
             Jauna aktualitāte
         </a>
     </div>
@@ -39,6 +39,7 @@
                                 <a class="btn btn-circle btn-outline btn-sm shadow">
                                     <i class="fa-solid fa-trash-can text-red-500"></i>
                                 </a>
+                            </div>
                         </td>
                     </tr>
                     <!-- row 2 -->
