@@ -129,7 +129,7 @@
                     id="richEditor"
                     contenteditable="true"
                     x-ref="richEditor"
-                    x-init="initComp($refs.richEditor)"
+                    x-init="initComp($refs.richEditor, $refs.desc)"
                     class="h-96 w-full overflow-y-auto text-gray-900"
                     x-on:input="$refs.desc.value = $event.target.innerHTML"
                 >
@@ -139,34 +139,28 @@
             </div>
         </div>
     </div>
-    <input type="text" id="desc" x-ref="desc" hidden name="desc" />
+    <input type="text" id="desc" x-ref="desc" name="desc" />
 </div>
 
 <script>
     function app() {
         return {
             richEditor: null,
-            initComp: function (el) {
-                if (el === undefined) {
+            input: null,
+            initComp: function (editor, input) {
+                if (editor === undefined) {
                     //trhow error
                     throw new Error('Element not found');
                     return;
                 }
-                this.richEditor = el;
-                // console.log(this.richEditor);
-                // Add CSS
-                // this.richEditor.innerHTML += `
-                //         <h1>Hello World!</h1>
-                //         <p>Welcome to the pure AlpineJS and Tailwind richEditor.</p>
-                //     `;
+                this.richEditor = editor;
+                this.input = input;
 
-                // Make editable
-                this.richEditor.designMode = 'on';
+                this.input.value = this.richEditor.innerHTML;
             },
             format: function (cmd, param) {
-                console.log(this.richEditor);
-                console.log('cmd', cmd, 'param', param);
                 document.execCommand(cmd, false, param || null);
+                this.input.value = this.richEditor.innerHTML;
             },
         };
     }
