@@ -7,76 +7,167 @@
         --tw-bg-opacity: 1;
         background-color: rgba(249, 250, 251, var(--tw-bg-opacity));
     }
-
 </style>
 
-<div class="{{ $class }} flex items-center justify-center">
-    <div class="mx-auto w-full rounded-xl bg-white p-2 text-black shadow" x-data="app()" x-init="init($refs.richEditor)">
+<div class="{{ $class }} flex items-center justify-center" x-data="app()">
+    <div class="mx-auto w-full rounded-xl bg-white p-2 text-black shadow">
         <div class="overflow-hidden rounded-md border border-gray-200">
-            <div class="flex w-full border-b border-gray-200 text-xl text-gray-600">
-                
-                <button type='button' class="h-10 w-10 border-l border-r border-gray-200 outline-none hover:text-indigo-500 focus:outline-none active:bg-gray-50" @click="format('formatBlock','P')">
-                    <i class="mdi mdi-format-paragraph"></i>
+            <div
+                class="flex w-full border-b border-gray-200 !text-base text-gray-600"
+            >
+                <button
+                    type="button"
+                    class="h-10 w-10 border-r border-gray-200 outline-none hover:text-accent1 focus:outline-none active:bg-gray-50"
+                    @click="format('bold')"
+                >
+                    <i class="fa-solid fa-bold"></i>
                 </button>
-                <button type='button' class="h-10 w-10 border-r border-gray-200 outline-none hover:text-indigo-500 focus:outline-none active:bg-gray-50" @click="format('formatBlock','H1')">
-                    <i class="mdi mdi-format-header-1"></i>
+                <button
+                    type="button"
+                    class="h-10 w-10 border-r border-gray-200 outline-none hover:text-accent1 focus:outline-none active:bg-gray-50"
+                    @click="format('italic')"
+                >
+                    <i class="fa-solid fa-italic"></i>
                 </button>
-                <button type='button' class="h-10 w-10 border-r border-gray-200 outline-none hover:text-indigo-500 focus:outline-none active:bg-gray-50" @click="format('formatBlock','H2')">
-                    <i class="mdi mdi-format-header-2"></i>
+                <button
+                    type="button"
+                    class="h-10 w-10 border-r border-gray-200 outline-none hover:text-accent1 focus:outline-none active:bg-gray-50"
+                    @click="format('underline')"
+                >
+                    <i class="fa-solid fa-underline"></i>
                 </button>
-                <button type='button' class="mr-1 h-10 w-10 border-r border-gray-200 outline-none hover:text-indigo-500 focus:outline-none active:bg-gray-50" @click="format('formatBlock','H3')">
-                    <i class="mdi mdi-format-header-3"></i>
+                <button
+                    type="button"
+                    class="h-10 w-10 border-r border-gray-200 outline-none hover:text-accent1 focus:outline-none active:bg-gray-50"
+                    @click="format('formatBlock','P')"
+                >
+                    <i class="fa-solid fa-p"></i>
                 </button>
-                
-                <button type='button' class="h-10 w-10 border-l border-r border-gray-200 outline-none hover:text-indigo-500 focus:outline-none active:bg-gray-50" @click="format('justifyLeft')">
-                    <i class="mdi mdi-format-align-left"></i>
+                <button
+                    type="button"
+                    class="h-10 w-10 border-r border-gray-200 outline-none hover:text-accent1 focus:outline-none active:bg-gray-50"
+                    @click="format('formatBlock','H1')"
+                >
+                    <i class="fa-solid fa-h1"></i>
                 </button>
-                <button type='button' class="h-10 w-10 border-r border-gray-200 outline-none hover:text-indigo-500 focus:outline-none active:bg-gray-50" @click="format('justifyCenter')">
-                    <i class="mdi mdi-format-align-center"></i>
+                <button
+                    type="button"
+                    class="h-10 w-10 border-r border-gray-200 outline-none hover:text-accent1 focus:outline-none active:bg-gray-50"
+                    @click="format('formatBlock','H2')"
+                >
+                    <i class="fa-solid fa-h2"></i>
                 </button>
-                <button type='button' class="h-10 w-10 border-r border-gray-200 outline-none hover:text-indigo-500 focus:outline-none active:bg-gray-50" @click="format('justifyRight')">
-                    <i class="mdi mdi-format-align-right"></i>
+                <button
+                    type="button"
+                    class="h-10 w-10 border-r border-gray-200 outline-none hover:text-accent1 focus:outline-none active:bg-gray-50"
+                    @click="format('formatBlock','H3')"
+                >
+                    <i class="fa-solid fa-h3"></i>
+                </button>
+
+                <button
+                    type="button"
+                    class="h-10 w-10 border-r border-gray-200 outline-none hover:text-accent1 focus:outline-none active:bg-gray-50"
+                    @click="format('justifyLeft')"
+                >
+                    <i class="fa-solid fa-align-left"></i>
+                </button>
+                <button
+                    type="button"
+                    class="h-10 w-10 border-r border-gray-200 outline-none hover:text-accent1 focus:outline-none active:bg-gray-50"
+                    @click="format('justifyCenter')"
+                >
+                    <i class="fa-solid fa-align-center"></i>
+                </button>
+                <button
+                    type="button"
+                    class="h-10 w-10 border-r border-gray-200 outline-none hover:text-accent1 focus:outline-none active:bg-gray-50"
+                    @click="format('justifyRight')"
+                >
+                    <i class="fa-solid fa-align-right"></i>
+                </button>
+                <button
+                    type="button"
+                    class="h-10 w-10 border-l border-r border-gray-200 outline-none hover:text-accent1 focus:outline-none active:bg-gray-50"
+                    @click="format('insertUnorderedList')"
+                >
+                    <i class="fa-solid fa-list"></i>
+                </button>
+                <button
+                    type="button"
+                    class="h-10 w-10 border-r border-gray-200 outline-none hover:text-accent1 focus:outline-none active:bg-gray-50"
+                    @click="format('insertOrderedList')"
+                >
+                    <i class="fa-solid fa-list-ol"></i>
                 </button>
             </div>
             <div class="w-full">
-                <iframe x-ref="richEditor" class="h-96 w-full overflow-y-auto"></iframe>
+                <style>
+                    #richEditor p {
+                    }
+                    #richEditor h1 {
+                        font-size: 2em;
+                    }
+                    #richEditor h2 {
+                        font-size: 1.5em;
+                    }
+                    #richEditor h3 {
+                        font-size: 1.17em;
+                    }
+                    #richEditor ul,
+                    #richEditor ol {
+                        padding-left: 1.5rem;
+                    }
+                    #richEditor ul {
+                        list-style-type: disc;
+                    }
+                    #richEditor ol {
+                        list-style-type: decimal;
+                    }
+                </style>
+                <div
+                    id="richEditor"
+                    contenteditable="true"
+                    x-ref="richEditor"
+                    x-init="initComp($refs.richEditor)"
+                    class="h-96 w-full overflow-y-auto text-gray-900"
+                    x-on:input="$refs.desc.value = $event.target.innerHTML"
+                >
+                    <h1>Labākā darba vieta</h1>
+                    <p>Apraksti savu karjieras iespēju</p>
+                </div>
             </div>
         </div>
     </div>
+    <input type="text" id="desc" x-ref="desc" hidden name="desc" />
 </div>
 
 <script>
     function app() {
         return {
-            richEditor: null
-            , init: function(el) {
-                // Get el
+            richEditor: null,
+            initComp: function (el) {
+                if (el === undefined) {
+                    //trhow error
+                    throw new Error('Element not found');
+                    return;
+                }
                 this.richEditor = el;
+                // console.log(this.richEditor);
                 // Add CSS
-                this.richEditor.contentDocument.querySelector(
-                    'head'
-                , ).innerHTML += `<style>
-            *, ::after, ::before {box-sizing: border-box;}
-            :root {tab-size: 4;}
-            html {line-height: 1.15;text-size-adjust: 100%;}
-            body {margin: 0px; padding: 1rem 0.5rem;}
-            body {font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";}
-            </style>`;
-                this.richEditor.contentDocument.body.innerHTML += `
-            
-            `;
-                // Make editable
-                this.richEditor.contentDocument.designMode = 'on';
-            }
-            , format: function(cmd, param) {
-                console.log(cmd, param);
-                this.richEditor.contentDocument.execCommand(
-                    cmd
-                    , !1
-                    , param || null
-                , );
-            }
-        , };
-    }
+                // this.richEditor.innerHTML += `
+                //         <h1>Hello World!</h1>
+                //         <p>Welcome to the pure AlpineJS and Tailwind richEditor.</p>
+                //     `;
 
+                // Make editable
+                this.richEditor.designMode = 'on';
+            },
+            format: function (cmd, param) {
+                console.log(this.richEditor);
+                console.log('cmd', cmd, 'param', param);
+                document.execCommand(cmd, false, param || null);
+            },
+        };
+    }
 </script>
