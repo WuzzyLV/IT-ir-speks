@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\News;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+
 
 class NewsController extends Controller
 {
@@ -32,6 +34,7 @@ class NewsController extends Controller
         $news = new News();
         $news->title = $request->title;
         $news->content = $request->desc;
+        $news->date = Carbon::now(); // Set the date to the current date and time
         $news->save();
 
 //        return redirect()->route('admin-news');
