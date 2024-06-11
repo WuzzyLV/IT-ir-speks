@@ -18,6 +18,13 @@
             </button>
         </div>
     </div>
+    {{--show errors--}}
+    @if ($errors->any())
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-center" role="alert">
+            <strong class="font-bold fa-solid fa-triangle-exclamation"></strong>
+            <span class="block sm:inline">{{ $errors->first() }}</span>
+        </div>
+    @endif
     <div class="flex flex-grow flex-col">
             <form class="mx-8">
                 <input type="submit" value="submit" x-ref="submit" hidden>
@@ -53,7 +60,7 @@
                                 />
                             </div>
                         </div>
-                       
+
                         <div class="sm:col-span-2">
                             <label
                                 for="title"
