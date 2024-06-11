@@ -11,10 +11,12 @@ Route::get('/', function () {
 })->name('landing');
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', function () { return view("pages.dashboard"); })->name('dashboard');
+    Route::get('/dashboard', function () {
+        return view("pages.dashboard"); })->name('dashboard');
 
     Route::middleware(['role:admin'])->group(function () {
-        Route::get('/dashboard/users', function () { return view('pages.admin.users'); })
+        Route::get('/dashboard/users', function () {
+            return view('pages.admin.users'); })
             ->name('users');
         Route::get('/dashboard/users/new', [UserController::class, "new"])
             ->name('new-user');
@@ -27,31 +29,44 @@ Route::middleware(['auth', 'verified'])->group(function () {
             ->name('handle-edit-user');
         Route::delete('/dashboard/users/{id}', [UserController::class, "destroy"])
             ->name('delete-user');
+
+        Route::get('/dashboard/news', function () {
+            return view('pages.admin.news'); })
+            ->name('admin-news');
+        Route::get('/dashboard/news/new', [NewsController::class, "new"])
+            ->name('new-news');
+        Route::post('/dashboard/news/new', [NewsController::class, "handleNew"])
+            ->name('handle-new-news');
+
+        Route::get('/dashboard/news/{id}', [NewsController::class, "edit"])
+            ->name('edit-news');
+        Route::post('/dashboard/news/{id}', [NewsController::class, "handleEdit"])
+            ->name('handle-edit-news');
+        Route::delete('/dashboard/news/{id}', [NewsController::class, "destroy"])
+            ->name('delete-news');
+
+        Route::get('/dashboard/vacancies', function () {
+            return view('pages.admin.vacancies'); })
+            ->name('admin-vacancies');
+        Route::get('/dashboard/vacancies/new', [VacancyController::class, "new"])
+            ->name('new-vacancy');
+        Route::post('/dashboard/vacancies/new', [VacancyController::class, "handleNew"])
+            ->name('handle-new-vacancy');
+
+        Route::get('/dashboard/vacancies/{id}', [VacancyController::class, "edit"])
+            ->name('edit-vacancy');
+        Route::post('/dashboard/vacancies/{id}', [VacancyController::class, "handleEdit"])
+            ->name('handle-edit-vacancy');
+        Route::delete('/dashboard/vacancies/{id}', [VacancyController::class, "destroy"])
+            ->name('delete-vacancy');
     });
 
-
-    Route::get('/dashboard/vacancies', function () {return view('pages.admin.vacancies'); })
-        ->name('admin-vacancies');
-
-    Route::get('/dashboard/vacancies/new', [VacancyController::class, 'new'])
-        ->name('new-vacancy');
-
-    Route::get('/dashboard/vacancies/{id}', [VacancyController::class, 'edit'])
-        ->name('edit-vacancy');
-
-    Route::get('/dashboard/news', function () {return view('pages.admin.news');})
-        ->name('admin-news');
-
-    Route::get('/dashboard/news/new', [NewsController::class, 'new'])
-        ->name('new-news');
-    Route::post("/dashboard/news/new", [NewsController::class, 'handleNew']);
-
-    Route::get('/dashboard/news/{id}', [NewsController::class, 'edit'])
-        ->name('edit-news');
-
-    Route::get('/dashboard/applications', function () {return view('pages.admin.applications');})
+    Route::get('/dashboard/applications', function () {
+        return view('pages.admin.applications'); })
         ->name('applications');
-    Route::get('/dashboard/applications/{id}', function ($id) {return view('pages.admin.application',['id' => $id]);})
+
+    Route::get('/dashboard/applications/{id}', function ($id) {
+        return view('pages.admin.application', ['id' => $id]); })
         ->name('view-application');
 });
 
@@ -84,4 +99,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
