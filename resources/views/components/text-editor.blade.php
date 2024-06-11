@@ -139,7 +139,7 @@
             </div>
         </div>
     </div>
-    <input type="text" id="desc" x-ref="desc" name="desc" />
+    <input type="text" id="desc" x-ref="desc" hidden name="desc" />
 </div>
 
 <script>
