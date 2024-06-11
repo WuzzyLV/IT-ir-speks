@@ -1,0 +1,30 @@
+@props(['news'])
+
+<tr class="border-b-0 my-4">
+    <td class="text-center">
+        <p class="mb-1 text-base font-medium">
+            {{$news->title}}
+        </p>
+
+    </td>
+
+    <td class="hidden justify-center items-center xs:flex ">
+        <time datetime="2020-03-16">
+            {{$news->date}}
+        </time>
+    </td>
+    <td>
+        <div class="flex items-center justify-center gap-x-2">
+            <a href="{{route("edit-news", $news->id)}}" class="btn btn-circle btn-outline btn-sm shadow">
+                <i class="fa-solid fa-pencil text-accent1"></i>
+            </a>
+            <form action="{{route("delete-news", $news->id)}}" method="post">
+                @csrf
+                @method("DELETE")
+                <button type="submit" class="btn btn-circle btn-outline btn-sm shadow">
+                    <i class="fa-solid fa-trash-can text-red-500"></i>
+                </button>
+            </form>
+        </div>
+    </td>
+</tr>
