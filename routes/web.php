@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VacancyController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -30,12 +32,21 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/dashboard/vacancies', function () {return view('pages.admin.vacancies'); })
         ->name('admin-vacancies');
-    Route::get('/dashboard/vacancies/{id}', function ($id) {return view('pages.admin.forms.edit-vacancy',['id' => $id]);})
+
+    Route::get('/dashboard/vacancies/new', [VacancyController::class, 'new'])
+        ->name('new-vacancy');
+
+    Route::get('/dashboard/vacancies/{id}', [VacancyController::class, 'edit'])
         ->name('edit-vacancy');
 
     Route::get('/dashboard/news', function () {return view('pages.admin.news');})
         ->name('admin-news');
-    Route::get('/dashboard/news/{id}', function ($id) {return view('pages.admin.forms.edit-news',['id' => $id]);})
+
+    Route::get('/dashboard/news/new', [NewsController::class, 'new'])
+        ->name('new-news');
+    Route::post("/dashboard/news/new", [NewsController::class, 'handleNew']);
+
+    Route::get('/dashboard/news/{id}', [NewsController::class, 'edit'])
         ->name('edit-news');
 
     Route::get('/dashboard/applications', function () {return view('pages.admin.applications');})
