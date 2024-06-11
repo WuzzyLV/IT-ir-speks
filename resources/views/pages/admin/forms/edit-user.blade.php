@@ -4,7 +4,7 @@
 <x-staff-layout class="flex w-full flex-col text-gray-900">
     <div x-data>
         <div class="flex items-center justify-between px-6 py-4 shadow lg:px-8">
-            <h2 class="text-lg font-bold tracking-tight sm:text-xl">MegaMind123</h2>
+            <h2 class="text-lg font-bold tracking-tight sm:text-xl">{{$user->name ?? "Jauns lietotājs"}}</h2>
             <div class="flex gap-1 flex-wrap justify-center" >
                 <a
                     href="{{ route('users') }}"
@@ -15,13 +15,13 @@
                 <button
                     href="{{ route('users') }}"
                     class="btn btn-sm border-accent1 bg-transparent text-accent1"
-                    x-on:click="$refs.form.submit()"
+                    x-on:click="$refs.formBtn.click()"
                 >
                     Saglabāt
                 </button>
             </div>
         </div>
-{{--        show errors--}}
+        {{--show errors--}}
         @if ($errors->any())
             <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-center" role="alert">
                 <strong class="font-bold fa-solid fa-triangle-exclamation"></strong>
@@ -76,10 +76,13 @@
                                         id="role"
                                         name="role"
                                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-accent1 sm:text-sm sm:leading-6"
+                                        @if(($user->role->name ?? '') == 'root') disabled @endif
                                     >
-                                        <option value="root" @selected($user->role->name == 'root')>Vadītājs</option>
-                                        <option value="admin" @selected($user->role->name == 'admin')>Administrators</option>
-                                        <option value="moderator" @selected($user->role->name == 'moderator')>Moderators</option>
+                                        @if(($user->role->name ?? '') == 'root')
+                                            <option value="root" @selected(($user->role->name ?? '') == 'root')>Vadītājs</option>
+                                        @endif
+                                        <option value="admin" @selected(($user->role->name ?? '') == 'admin')>Administrators</option>
+                                        <option value="moderator" @selected(($user->role->name ?? '')=='moderator')>Moderators</option>
                                     </select>
                                 </div>
                             </div>
@@ -124,7 +127,9 @@
                                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus-within:ring-accent1 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
                                     />
                                 </div>
+                                <input type="submit" value="submit" x-ref="formBtn" hidden>
                             </div>
+
                     </div>
 
                 </form>

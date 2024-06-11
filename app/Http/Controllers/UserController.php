@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
 use App\Roles;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
 class UserController extends Controller
@@ -12,8 +16,31 @@ class UserController extends Controller
 
     public function new(Request $request): View
     {
-        return view('new-user');
+        return view('pages.admin.forms.edit-user', [
+            'user' => null,
+            'new' => true,
+        ]);
     }
+
+    public function handleNew(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'username' => 'required|unique:users,name',
+            'email' => 'required|email|unique:users,email',
+            'role' => Rule::in(['admin', 'moderator']),
+            'password' => 'required'
+        ]);
+
+        $user = new User();
+        $user->name = $request->username;
+        $user->email = $request->email;
+        $user->role()->associate(Role::where('name', $request->role)->first());
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        return redirect()->route('users');
+    }
+
     public function edit(Request $request): View
     {
         $user = User::with('role')->find($request->id);
@@ -24,7 +51,7 @@ class UserController extends Controller
         ]);
     }
 
-    public function handleEdit(Request $request)
+    public function handleEdit(Request $request): RedirectResponse
     {
         $currUser = $request->user();
         $user = User::with('role')->find($request->id);
@@ -34,15 +61,49 @@ class UserController extends Controller
             // root user cannot be edited
             return redirect()->back()->withErrors(['error' => 'Tikai galvenais lietotājs var rediģēt šo lietotāju']);
         }
-        echo $user;
+        $roleRules= [];
+        if ($user->role->name !== Roles::Root->value) {
+            $roleRules[] = Rule::in(['root', 'admin', 'moderator']);
+        }
+        //check if values exist
+        $request->validate([
+            'username' => 'required',
+            'email' => 'required|email',
+            'role' => $roleRules
+        ]);
 
-
+        $user->name = $request->username;
+        $user->email = $request->email;
+        // if user isint root, then set role
+        if ($currUser->role()->first()->name !== Roles::Root->value){
+            $user->role()->associate(Role::where('name', $user->role)->first());
+        }
+        // if password is set, then set password
+        if ($request->password != "") {
+            $user->password = Hash::make($request->password);
+            echo "Password is set";
+        }
+        $user->save();
 
 
 
         //return with errors
 //        return redirect()->back()->withErrors(['error' => 'User cannot be edited']);
         //redirect to users
-//        return redirect()->route('users');
+        return redirect()->route('users');
+    }
+
+    public function destroy(Request $request): RedirectResponse
+    {
+        $user = User::find($request->id);
+        if (!$user) {
+            return redirect()->back()->withErrors(['error' => 'Lietotājs nav atrasts']);
+        }
+        if ($user->role->name === Roles::Root->value) {
+            return redirect()->back()->withErrors(['error' => 'Šo lietotāju nevar izdzēst']);
+        }
+        $user->delete();
+
+        return redirect()->route('users');
     }
 }
