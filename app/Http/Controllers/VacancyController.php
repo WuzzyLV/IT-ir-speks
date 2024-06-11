@@ -66,4 +66,14 @@ class VacancyController extends Controller
             'new' => false,
         ]);
     }
+
+    public function handleEdit(Request $request)
+    {
+        $vacancy = Vacancy::find($request->id);
+
+        return view('pages.admin.forms.edit-vacancy', [
+            'vacancy' => $vacancy,
+            'new' => false,
+        ]);
+    }
 }
