@@ -13,7 +13,18 @@ return new class extends Migration
     {
         Schema::create('vacancies', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('company');
+            $table->text('desc');
+            $table->string('website');
+            $table->unsignedBigInteger('file_id')->nullable();
+            $table->string('city');
+            $table->tinyInteger('workload');
+            $table->double('salary');
+            $table->date('deadline');
             $table->timestamps();
+            
+            $table->foreign('file_id')->references('id')->on('files');
         });
     }
 
