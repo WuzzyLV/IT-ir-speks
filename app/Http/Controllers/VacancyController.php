@@ -57,4 +57,13 @@ class VacancyController extends Controller
         // return redirect()->route('admin-vacancies');
     }
 
+    public function edit(Request $request): View
+    {
+        $vacancy = Vacancy::find($request->id);
+
+        return view('pages.admin.forms.edit-vacancy', [
+            'vacancy' => $vacancy,
+            'new' => false,
+        ]);
+    }
 }
