@@ -11,15 +11,22 @@ Route::get('/', function () {
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function () { return view("pages.dashboard"); })->name('dashboard');
 
-    Route::get('/dashboard/users', function () { return view('pages.admin.users'); })
-        ->name('users');
-    Route::get('/dashboard/users/new', function () { return view('pages.admin.forms.edit-user'); })
-        ->name('new-user');
+    Route::middleware(['role:admin'])->group(function () {
+        Route::get('/dashboard/users', function () { return view('pages.admin.users'); })
+            ->name('users');
+        Route::get('/dashboard/users/new', [UserController::class, "new"])
+            ->name('new-user');
+        Route::post('/dashboard/users/new', [UserController::class, "handleNew"])
+            ->name('handle-new-user');
 
-    Route::get('/dashboard/users/{id}', [UserController::class, "edit"])
-        ->name('edit-user');
-    Route::post('/dashboard/users/{id}', [UserController::class, "handleEdit"])
-        ->name('handle-edit-user');
+        Route::get('/dashboard/users/{id}', [UserController::class, "edit"])
+            ->name('edit-user');
+        Route::post('/dashboard/users/{id}', [UserController::class, "handleEdit"])
+            ->name('handle-edit-user');
+        Route::delete('/dashboard/users/{id}', [UserController::class, "destroy"])
+            ->name('delete-user');
+    });
+
 
     Route::get('/dashboard/vacancies', function () {return view('pages.admin.vacancies'); })
         ->name('admin-vacancies');
