@@ -25,7 +25,7 @@
         @csrf
         @method("patch")
 
-        {{-- <div>
+         <div>
             <x-input-label for="name" :value="__('Lietotājvārds')" />
             <x-text-input
                 id="name"
@@ -38,7 +38,7 @@
                 autocomplete="name"
             />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
-        </div> --}}
+        </div>
 
         <div>
             <x-input-label for="email" :value="__('Epasts')" />
