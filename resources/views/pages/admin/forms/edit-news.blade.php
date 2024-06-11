@@ -1,5 +1,6 @@
 <x-staff-layout class="flex w-full flex-col text-gray-900">
-    <div class="flex items-center justify-between px-6 py-4 shadow lg:px-8">
+<div x-data>
+    <div class="flex items-center justify-between px-6 py-4 shadow lg:px-8" >
         <h2 class="text-lg font-bold tracking-tight sm:text-xl">Anglijā izgudro 6G internetu</h2>
         <div class="flex gap-1 flex-wrap justify-center">
             <a
@@ -8,16 +9,18 @@
             >
                 Atpakaļ
             </a>
-            <a
-                href="{{ route('admin-news') }}"
+            <button
+                @click="$refs.submit.click()"
                 class="btn btn-sm border-accent1 bg-transparent text-accent1"
             >
-                Saglabāt
-            </a>
+                Saglabat    
+            </button>
         </div>
     </div>
     <div class="flex flex-grow flex-col">
             <form class="mx-8">
+            <input type="submit" value="submit" x-ref="submit" hidden>
+
                 <div class="pb-12">
                     
                     <div
@@ -35,6 +38,7 @@
                                     type="text"
                                     name="title"
                                     id="title"
+                                    required
                                     placeholder="Virsraksts"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-accent1 sm:text-sm sm:leading-6"
                                 />
@@ -66,7 +70,6 @@
                                     type="file"
                                     accept="image/*"
                                     autocomplete="new-image"
-                                    required
                                     placeholder="attels" class="ml-1" />
 
                             </div>
@@ -75,4 +78,5 @@
             </form>
         </div>
     </div>
+</div>
 </x-staff-layout>

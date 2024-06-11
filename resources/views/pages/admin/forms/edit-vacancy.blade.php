@@ -1,4 +1,5 @@
 <x-staff-layout class="flex w-full flex-col text-gray-900">
+<div x-data>
     <div class="flex items-center justify-between px-6 py-4 shadow lg:px-8">
         <h2 class="text-lg font-bold tracking-tight sm:text-xl">Vecakais UML diagrammu specalists</h2>
         <div class="flex gap-1 flex-wrap justify-center">
@@ -8,16 +9,18 @@
             >
                 Atpakaļ
             </a>
-            <a
+            <button
+                x-on:click="$refs.submit.click()"
                 href="{{ route('admin-vacancies') }}"
                 class="btn btn-sm border-accent1 bg-transparent text-accent1"
             >
                 Saglabat
-            </a>
+            </button>
         </div>
     </div>
     <div class="flex flex-grow flex-col">
             <form class="mx-8">
+                <input type="submit" value="submit" x-ref="submit" hidden>
                 <div class="pb-12">
                     <div class="my-6 border-b border-b-gray-300 pb-4">
                         <h2
@@ -166,4 +169,5 @@
             </form>
         </div>
     </div>
+</div>
 </x-staff-layout>
