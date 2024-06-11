@@ -19,10 +19,7 @@
         crossorigin="anonymous"
         referrerpolicy="no-referrer"
     />
-    <script
-        src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js"
-        defer
-    ></script>
+
     <!-- Scripts -->
     @vite(["resources/css/app.css", "resources/js/app.js"])
 </head>
