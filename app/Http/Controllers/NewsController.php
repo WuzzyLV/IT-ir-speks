@@ -59,4 +59,16 @@ class NewsController extends Controller
             'new' => false,
         ]);
     }
+
+    public function destroy(Request $request): RedirectResponse
+    {
+        $news = News::find($request->id);
+        if (!$news) {
+            return redirect()->back()->withErrors(['error' => 'Aktualitāte nav atrasta']);
+        }
+       
+        $news->delete();
+
+        return redirect()->route('admin-news');
+    }
 }
