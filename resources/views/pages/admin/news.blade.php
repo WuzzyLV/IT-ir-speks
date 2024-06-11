@@ -17,78 +17,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- row 1 -->
-                    <tr class="border-b-0 my-4">
-                        <td class="text-center">
-                            <p class="mb-1 text-base font-medium">
-                                Anglijā izgudro 6G internetu
-                            </p>
-
-                        </td>
-
-                        <td class="hidden justify-center items-center xs:flex ">
-                            <time datetime="2020-03-16">
-                                2024. g. 19. maijs
-                            </time>
-                        </td>
-                        <td>
-                            <div class="flex items-center justify-center gap-x-2">
-                                <a class="btn btn-circle btn-outline btn-sm shadow">
-                                    <i class="fa-solid fa-pencil text-accent1"></i>
-                                </a>
-                                <a class="btn btn-circle btn-outline btn-sm shadow">
-                                    <i class="fa-solid fa-trash-can text-red-500"></i>
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
-                    <!-- row 2 -->
-                    <tr class="border-b-0 my-4">
-                        <td class="text-center">
-                            <p class="mb-1 text-base font-medium">
-                                Anglijā izgudro 6G internetu
-                            </p>
-
-                        </td>
-                        <td class="hidden justify-center items-center xs:flex ">
-                            <time datetime="2020-03-16">
-                                2024. g. 19. maijs
-                            </time>
-                        </td>
-                        <td>
-                            <div class="flex items-center justify-center gap-x-2">
-                                <a class="btn btn-circle btn-outline btn-sm shadow">
-                                    <i class="fa-solid fa-pencil text-accent1"></i>
-                                </a>
-                                <a class="btn btn-circle btn-outline btn-sm shadow">
-                                    <i class="fa-solid fa-trash-can text-red-500"></i>
-                                </a>
-                        </td>
-                    </tr>
-                    <!-- row 3 -->
-                    <tr class="border-b-0 my-4">
-                        <td class="text-center">
-                            <p class="mb-1 text-base font-medium">
-                                Anglijā izgudro 6G internetu
-                            </p>
-
-                        </td>
-                        <td class="hidden justify-center items-center xs:flex ">
-                            <time datetime="2020-03-16">
-                                2024. g. 19. maijs
-                            </time>
-                        </td>
-                        <td>
-                            <div class="flex items-center justify-center gap-x-2">
-                                <a class="btn btn-circle btn-outline btn-sm shadow">
-                                    <i class="fa-solid fa-pencil text-accent1"></i>
-                                </a>
-                                <a class="btn btn-circle btn-outline btn-sm shadow">
-                                    <i class="fa-solid fa-trash-can text-red-500"></i>
-                                </a>
-                        </td>
-                    </tr>
-
+                    @foreach(\App\Models\News::all() as $news)
+                        <x-admin.news-row :news="$news"/>
+                    @endforeach
                 </tbody>
             </table>
         </div>
