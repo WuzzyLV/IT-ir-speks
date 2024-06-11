@@ -16,7 +16,7 @@ $isRoot= Roles::from($role->name) == Roles::Root;
     </td>
     <td>
         <div class="flex items-center justify-center gap-x-2">
-            <a href="" class="btn btn-circle btn-outline btn-sm shadow">
+            <a href="{{route("edit-user", $user->id)}}" class="btn btn-circle btn-outline btn-sm shadow">
                 <i
                     class="fa-solid fa-pencil text-accent1"
                 ></i>
@@ -29,12 +29,15 @@ $isRoot= Roles::from($role->name) == Roles::Root;
                     ></i>
                 </a>
                 @else
-                <a href=""
-                    class="btn btn-circle btn-outline btn-sm shadow">
-                    <i
-                        class="fa-solid fa-trash-can text-red-500"
-                    ></i>
-                </a>
+                <form action="{{route("delete-user", $user->id)}}" method="post">
+                    @csrf
+                    @method("DELETE")
+                    <button type="submit" class="btn btn-circle btn-outline btn-sm shadow">
+                        <i
+                            class="fa-solid fa-trash-can text-red-500"
+                        ></i>
+                    </button>
+                </form>
             @endif
 
         </div>

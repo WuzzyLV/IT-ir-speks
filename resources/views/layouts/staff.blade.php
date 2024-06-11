@@ -37,7 +37,13 @@
                                 Pieteikumi
                             </a>
                         </li>
-                        <li><a href="{{ route("users") }}">Lietotāji</a></li>
+
+                        @if (Auth::user()->role->name == "root" || Auth::user()->role->name == "admin")
+                            <li>
+                                <a href="{{ route("users") }}">Lietotāji</a>
+                            </li>
+                        @endif
+
                         <li>
                             <a href="{{ route("admin-vacancies") }}">
                                 Vakances
