@@ -7,41 +7,29 @@ Route::get('/', function () {
     return view('pages.landing');
 })->name('landing');
 
-Route::get('/dashboard', function () {
-    return view("pages.dashboard");
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', function () { return view("pages.dashboard"); })->name('dashboard');
 
-Route::get('/dashboard/users', function () {
-    return view('pages.admin.users');
-})->middleware(['auth', 'verified'])->name('users');
+    Route::get('/dashboard/users', function () { return view('pages.admin.users'); })
+        ->name('users');
+    Route::get('/dashboard/users/{id}', function ($id) { return view('pages.admin.forms.edit-user',['id' => $id]); })
+        ->name('edit-user');
 
-Route::get('/dashboard/users/{id}', function ($id) {
-    return view('pages.admin.forms.edit-user',['id' => $id]);
-})->middleware(['auth', 'verified'])->name('edit-user');
+    Route::get('/dashboard/vacancies', function () {return view('pages.admin.vacancies'); })
+        ->name('admin-vacancies');
+    Route::get('/dashboard/vacancies/{id}', function ($id) {return view('pages.admin.forms.edit-vacancy',['id' => $id]);})
+        ->name('edit-vacancy');
 
-Route::get('/dashboard/vacancies', function () {
-    return view('pages.admin.vacancies');
-})->middleware(['auth', 'verified'])->name('admin-vacancies');
+    Route::get('/dashboard/news', function () {return view('pages.admin.news');})
+        ->name('admin-news');
+    Route::get('/dashboard/news/{id}', function ($id) {return view('pages.admin.forms.edit-news',['id' => $id]);})
+        ->name('edit-news');
 
-Route::get('/dashboard/vacancies/{id}', function ($id) {
-    return view('pages.admin.forms.edit-vacancy',['id' => $id]);
-})->middleware(['auth', 'verified'])->name('edit-vacancy');
-
-Route::get('/dashboard/news', function () {
-    return view('pages.admin.news');
-})->middleware(['auth', 'verified'])->name('admin-news');
-
-Route::get('/dashboard/news/{id}', function ($id) {
-    return view('pages.admin.forms.edit-news',['id' => $id]);
-})->middleware(['auth', 'verified'])->name('edit-news');
-
-Route::get('/dashboard/applications', function () {
-    return view('pages.admin.applications');
-})->middleware(['auth', 'verified'])->name('applications');
-
-Route::get('/dashboard/applications/{id}', function ($id) {
-    return view('pages.admin.application',['id' => $id]);
-})->middleware(['auth', 'verified'])->name('view-application');
+    Route::get('/dashboard/applications', function () {return view('pages.admin.applications');})
+        ->name('applications');
+    Route::get('/dashboard/applications/{id}', function ($id) {return view('pages.admin.application',['id' => $id]);})
+        ->name('view-application');
+});
 
 
 Route::get('/vacancies', function () {

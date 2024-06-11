@@ -62,4 +62,9 @@ class User extends Authenticatable
         $this->save();
         return $this;
     }
+
+    function test()
+    {
+        (Role::class)($this->role()->getModel())->getEnum();
+    }
 }
