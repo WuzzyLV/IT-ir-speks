@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\FileUtils;
 use App\Models\News;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -17,26 +18,28 @@ class NewsController extends Controller
             'new' => true,
         ]);
     }
-    public function handleNew(Request $request): RedirectResponse
+    public function handleNew(Request $request)
     {
         $request->validate([
-            'title' => 'required|unique:news,title',
+            'title' => 'required',
             'content' => 'required',
             'desc' => 'required'
         ]);
         
 
+        $file = null;
         if ($request->hasFile('image')) {
             $request->validate([
                 'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:20480',
             ]);
-
+            $file = FileUtils::store($request->file('image'));
         }
 
         $news = new News();
         $news->title = $request->title;
         $news->content = $request->content;
         $news->desc = $request->desc;
+        $news->file_id = $file ? $file->id : null;
         $news->save();
 
        return redirect()->route('admin-news');
@@ -82,7 +85,7 @@ class NewsController extends Controller
         if (!$news) {
             return redirect()->back()->withErrors(['error' => 'Aktualitāte nav atrasta']);
         }
-       
+
         $news->delete();
 
         return redirect()->route('admin-news');
