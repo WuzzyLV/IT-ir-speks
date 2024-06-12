@@ -63,17 +63,21 @@ class NewsController extends Controller
         ]);
         
 
+        $news;
         if ($request->hasFile('image')) {
             $request->validate([
                 'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:20480',
             ]);
-
+            $file = FileUtils::store($request->file('image'));
         }
 
         $news = News::find($request->id);
         $news->title = $request->title;
         $news->content = $request->content;
         $news->desc = $request->desc;
+        if ($file) {
+            $news->file_id = $file->id;
+        }
         $news->save();
 
        return redirect()->route('admin-news');
