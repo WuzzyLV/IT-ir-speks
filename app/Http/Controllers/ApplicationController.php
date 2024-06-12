@@ -7,9 +7,15 @@ use App\Models\Application;
 use App\Models\Vacancy;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class ApplicationController extends Controller
 {
+    public function view(Request $request): View
+    {
+        $application = Application::findOrFail($request->id);
+        return view('pages.admin.application-page', ['application' => $application]);
+    }
 
     public function apply(Request $request)
     {
