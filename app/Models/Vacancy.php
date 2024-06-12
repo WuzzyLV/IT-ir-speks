@@ -10,8 +10,13 @@ class Vacancy extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title',
-        'content',
-        'image'
+        'name',
+        'desc',
+        'website',
+        // 'file_id',
+        'city',
+        'workload',
+        'salary',
+        'deadline'
     ];
 }
