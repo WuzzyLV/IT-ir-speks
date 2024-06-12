@@ -24,10 +24,18 @@
             </table>
         </div>
         <div class="flex justify-center my-4">
+            
+            {{-- Manual pagination --}}
             <div class="join border-gray-300">
-                <button class="join-item btn bg-transparent text-gray-900 !border-gray-300 hover:bg-gray-300/50">«</button>
-                <button class="join-item btn bg-transparent text-gray-900 !border-gray-300 hover:bg-gray-300/50 px-6">1</button>
-                <button class="join-item btn bg-transparent text-gray-900 !border-gray-300 hover:bg-gray-300/50">»</button>
+                @if ($currentPage > 1)
+                    <a href="{{ route('admin-news', ['page' => $currentPage - 1]) }}" class="join-item btn bg-transparent text-gray-900 !border-gray-300 hover:bg-gray-300/50">«</a>
+                @endif
+                @for ($i = 1; $i <= $totalPages; $i++)
+                    <a href="{{ route('admin-news', ['page' => $i]) }}" class="join-item btn bg-transparent text-gray-900 !border-gray-300 hover:bg-gray-300/50 px-6">{{ $i }}</a>
+                @endfor
+                @if ($currentPage < $totalPages)
+                    <a href="{{ route('admin-news', ['page' => $currentPage + 1]) }}" class="join-item btn bg-transparent text-gray-900 !border-gray-300 hover:bg-gray-300/50">»</a>
+                @endif
             </div>
         </div>
     </div>

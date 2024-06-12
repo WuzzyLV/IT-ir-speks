@@ -15,11 +15,13 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
-        return view("pages.dashboard"); })->name('dashboard');
+        return view("pages.dashboard");
+    })->name('dashboard');
 
     Route::middleware(['role:admin'])->group(function () {
         Route::get('/dashboard/users', function () {
-            return view('pages.admin.users'); })
+            return view('pages.admin.users');
+        })
             ->name('users');
         Route::get('/dashboard/users/new', [UserController::class, "new"])
             ->name('new-user');
@@ -33,9 +35,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::delete('/dashboard/users/{id}', [UserController::class, "destroy"])
             ->name('delete-user');
 
-        Route::get('/dashboard/news', function () {
-            return view('pages.admin.news'); })
-            ->name('admin-news');
+        Route::get('/dashboard/news', [NewsController::class, 'adminNews'])->name('admin-news');
+        
         Route::get('/dashboard/news/new', [NewsController::class, "new"])
             ->name('new-news');
         Route::post('/dashboard/news/new', [NewsController::class, "handleNew"])
@@ -49,7 +50,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
             ->name('delete-news');
 
         Route::get('/dashboard/vacancies', function () {
-            return view('pages.admin.vacancies'); })
+            return view('pages.admin.vacancies');
+        })
             ->name('admin-vacancies');
         Route::get('/dashboard/vacancies/new', [VacancyController::class, "new"])
             ->name('new-vacancy');
@@ -65,7 +67,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 
     Route::get('/dashboard/applications', function () {
-        return view('pages.admin.applications'); })
+        return view('pages.admin.applications');
+    })
         ->name('applications');
 
     Route::get('/dashboard/applications/{id}', [ApplicationController::class, "view"])
@@ -74,9 +77,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/dashboard/applications/{id}', [ApplicationController::class, "destroy"])
         ->name('delete-application');
 
-//    Route::get('/dashboard/applications/{id}/cv', [CVController::class, "view"])
+    //    Route::get('/dashboard/applications/{id}/cv', [CVController::class, "view"])
 //        ->name('cv-application');
-    Route::get('/dashboard/applications/{id}/cv', [CVController::class, "view" ] )
+    Route::get('/dashboard/applications/{id}/cv', [CVController::class, "view"])
         ->name('cv-application');
 
 });
@@ -94,7 +97,7 @@ Route::get('/news', function () {
     return view('pages.news.news');
 })->name('news');
 
-Route::get('/news/{id}',[NewsController::class, "view"])->name('news-page');
+Route::get('/news/{id}', [NewsController::class, "view"])->name('news-page');
 
 Route::get('/about-us', function () {
     return view('pages.about-us');

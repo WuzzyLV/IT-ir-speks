@@ -6,11 +6,34 @@ use App\Helpers\FileUtils;
 use App\Models\News;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
 
 
 class NewsController extends Controller
 {
+    public function adminNews(Request $request)
+    {
+        $perPage = 10; // Number of items per page
+        $currentPage = $request->query('page', 1); // Current page, default to 1
+
+        // Retrieve total news count (for pagination)
+        $totalNewsCount = News::count();
+        $totalPages = ceil($totalNewsCount / $perPage); // Calculate total pages
+
+        // Calculate offset
+        $offset = ($currentPage - 1) * $perPage;
+
+        // Fetch news for the current page
+        $newsList = News::orderBy('created_at', 'desc')
+            ->skip($offset)
+            ->take($perPage)
+            ->get();
+
+        return view('pages.admin.news', [
+            'newsList' => $newsList,
+            'currentPage' => $currentPage,
+            'totalPages' => $totalPages,
+        ]);
+    }
     public function new(Request $request)
     {
         return view('pages.admin.forms.edit-news', [
@@ -42,7 +65,7 @@ class NewsController extends Controller
         $news->file_id = $file ? $file->id : null;
         $news->save();
 
-       return redirect()->route('admin-news');
+        return redirect()->route('admin-news');
     }
 
     public function edit(Request $request)
@@ -80,7 +103,7 @@ class NewsController extends Controller
         }
         $news->save();
 
-       return redirect()->route('admin-news');
+        return redirect()->route('admin-news');
     }
 
     public function destroy(Request $request): RedirectResponse
