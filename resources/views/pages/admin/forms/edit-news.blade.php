@@ -76,7 +76,7 @@
                                 @endif
                             </label>
                             <div
-                                class="mt-2 flex min-h-[36px] w-full items-center rounded-md border-0 bg-white text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                class="mt-2 flex min-h-[36px] w-full items-center rounded-md border-0 bg-white text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-accent1 sm:text-sm sm:leading-6"
                             >
                                 <input
                                     name="image"

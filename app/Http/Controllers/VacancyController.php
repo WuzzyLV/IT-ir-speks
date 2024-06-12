@@ -39,9 +39,27 @@ class VacancyController extends Controller
             // 'file_id' => 'required',
             'city' => 'required',
             'workload' => Rule::in(['Pilna', 'Nepilna']),
-            'salary' => 'required',
             'deadline' => 'required',
         ]);
+        //check if salary or salary min max
+        $isSalaryRange=false;
+        if ($request->salary_min && $request->salary_max){
+            $request->validate([
+                'salary_min' => 'required|numeric',
+                'salary_max' => 'required|numeric',
+            ]);
+            if ($request->salary_min>$request->salary_max){
+                $temp=$request->salary_min;
+                $request->salary_min=$request->salary_max;
+                $request->salary_max=$temp;
+            }
+            $isSalaryRange=true;
+        }else{
+            $request->validate([
+                'salary' => 'required|numeric',
+            ]);
+        }
+
 
         $file=null;
         if ($request->hasFile('image')) {
@@ -59,7 +77,16 @@ class VacancyController extends Controller
         $vacancy->website = $request->website;
         $vacancy->city = $request->city;
         $vacancy->workload = $request->workload;
-        $vacancy->salary = $request->salary;
+
+        if ($isSalaryRange){
+            $vacancy->salary_min = $request->salary_min;
+            $vacancy->salary_max = $request->salary_max;
+        }else{
+            $vacancy->salary_min = $request->salary;
+            $vacancy->salary_max = $request->salary;
+        }
+
+
         $vacancy->deadline = $request->deadline;
         if ($file){
             $vacancy->file_id = $file->id;
@@ -90,9 +117,26 @@ class VacancyController extends Controller
             // 'file_id' => 'required',
             'city' => 'required',
             'workload' => Rule::in(['Pilna', 'Nepilna']),
-            'salary' => 'required',
             'deadline' => 'required',
         ]);
+
+        $isSalaryRange=false;
+        if ($request->salary_min && $request->salary_max){
+            $request->validate([
+                'salary_min' => 'required|numeric',
+                'salary_max' => 'required|numeric',
+            ]);
+            if ($request->salary_min>$request->salary_max){
+                $temp=$request->salary_min;
+                $request->salary_min=$request->salary_max;
+                $request->salary_max=$temp;
+            }
+            $isSalaryRange=true;
+        }else{
+            $request->validate([
+                'salary' => 'required|numeric',
+            ]);
+        }
 
         $file=null;
         if ($request->hasFile('image')) {
@@ -110,7 +154,16 @@ class VacancyController extends Controller
         $vacancy->website = $request->website;
         $vacancy->city = $request->city;
         $vacancy->workload = $request->workload;
-        $vacancy->salary = $request->salary;
+
+        if ($isSalaryRange){
+            $vacancy->salary_min = $request->salary_min;
+            $vacancy->salary_max = $request->salary_max;
+        }else{
+            $vacancy->salary_min = $request->salary;
+            $vacancy->salary_max = $request->salary;
+        }
+
+
         $vacancy->deadline = $request->deadline;
         if ($file){
             $vacancy->file_id = $file->id;

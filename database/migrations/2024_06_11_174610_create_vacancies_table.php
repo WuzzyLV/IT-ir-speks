@@ -21,7 +21,8 @@ return new class extends Migration
             $table->unsignedBigInteger('file_id')->nullable();
             $table->string('city');
             $table->string('workload');
-            $table->double('salary');
+            $table->double('salary_min');
+            $table->double('salary_max');
             $table->date('deadline');
             $table->timestamps();
             
