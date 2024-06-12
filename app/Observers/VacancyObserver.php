@@ -2,7 +2,10 @@
 
 namespace App\Observers;
 
+use App\Models\Activity;
 use App\Models\Vacancy;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class VacancyObserver
 {
@@ -11,7 +14,12 @@ class VacancyObserver
      */
     public function created(Vacancy $vacancy): void
     {
-        //
+        $activity = Activity::create([
+            'desc' => $vacancy->title,
+            'action' => 'create vacancy',
+        ]);
+        $activity->user()->associate(Auth::user());
+        $activity->save();
     }
 
     /**
@@ -27,7 +35,12 @@ class VacancyObserver
      */
     public function deleted(Vacancy $vacancy): void
     {
-        //
+        $activity = Activity::create([
+            'desc' => $vacancy->title,
+            'action' => 'delete vacancy',
+        ]);
+        $activity->user()->associate(Auth::user());
+        $activity->save();
     }
 
     /**

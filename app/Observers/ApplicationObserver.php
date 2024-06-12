@@ -2,7 +2,9 @@
 
 namespace App\Observers;
 
+use App\Models\Activity;
 use App\Models\Application;
+use Illuminate\Support\Facades\Auth;
 
 class ApplicationObserver
 {
@@ -27,7 +29,7 @@ class ApplicationObserver
      */
     public function deleted(Application $application): void
     {
-        //
+
     }
 
     /**

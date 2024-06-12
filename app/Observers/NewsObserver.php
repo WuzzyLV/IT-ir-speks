@@ -2,7 +2,9 @@
 
 namespace App\Observers;
 
+use App\Models\Activity;
 use App\Models\News;
+use Illuminate\Support\Facades\Auth;
 
 class NewsObserver
 {
@@ -11,7 +13,12 @@ class NewsObserver
      */
     public function created(News $news): void
     {
-        //
+        $activity = Activity::create([
+            'desc' => $news->title,
+            'action' => 'create news',
+        ]);
+        $activity->user()->associate(Auth::user());
+        $activity->save();
     }
 
     /**
@@ -27,7 +34,12 @@ class NewsObserver
      */
     public function deleted(News $news): void
     {
-        //
+        $activity = Activity::create([
+            'desc' => $news->title,
+            'action' => 'delete news',
+        ]);
+        $activity->user()->associate(Auth::user());
+        $activity->save();
     }
 
     /**
