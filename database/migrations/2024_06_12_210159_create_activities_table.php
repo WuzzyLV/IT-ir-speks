@@ -17,8 +17,6 @@ return new class extends Migration
             $table->string('desc');
             $table->string('action');
             $table->timestamps();
-
-            $table->foreignId('role_id')->nullable()->references('id')->on('roles');
         });
     }
 
