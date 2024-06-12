@@ -18,7 +18,7 @@
             @endif
             <div class="leading-6">
                 <p class="text-">
-                    <a href="#" class="">{{$vacancy->company}}</a>
+                {{$vacancy->company}}
                 </p>
             </div>
         </div>
