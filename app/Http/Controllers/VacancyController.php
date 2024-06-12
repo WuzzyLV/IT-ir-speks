@@ -16,7 +16,7 @@ class VacancyController extends Controller
     public function new(Request $request): View
     {
         return view('pages.admin.forms.edit-vacancy', [
-            'user' => null,
+            'vacancy' => null,
             'new' => true,
         ]);
     }
