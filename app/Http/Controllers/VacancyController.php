@@ -19,6 +19,20 @@ class VacancyController extends Controller
         $vacancy = Vacancy::findOrFail($request->id);
         return view('pages.vacancies.vacancy-page', ['vacancy' => $vacancy]);
     }
+
+    public function viewCards(Request $request): View
+    {
+        $perPage= 7;
+        $page= $request->input('page', 1);
+
+        $total_pages= ceil(Vacancy::count()/$perPage);
+        return view('pages.admin.vacancies', [
+            'page' => $page,
+            'total_pages' => $total_pages,
+            'vacancies' => Vacancy::paginate($perPage, ['*'], 'page', $page),
+        ]);
+    }
+
     public function new(Request $request): View
     {
         return view('pages.admin.forms.edit-vacancy', [
