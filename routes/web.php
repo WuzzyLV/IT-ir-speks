@@ -83,9 +83,7 @@ Route::get('/news', function () {
     return view('pages.news.news');
 })->name('news');
 
-Route::get('/news/{id}', function ($id) {
-    return view('pages.news.news-page', ['id' => $id]);
-})->name('news-page');
+Route::get('/news/{id}',[NewsController::class, "view"])->name('news-page');
 
 Route::get('/about-us', function () {
     return view('pages.about-us');
