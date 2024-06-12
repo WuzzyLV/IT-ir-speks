@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Helpers;
+use App\Models\Application;
 use App\Models\Files;
 
 class FileUtils{
@@ -8,7 +9,14 @@ class FileUtils{
     public static function store($file, $subPath= "images"): Files
     {
         $fileName = $file->getClientOriginalName();
-        $filePath = $file->store($subPath, 'public');
+
+        $storage=null;
+        if ($subPath == "cv") {
+            $storage = 'private';
+        } else {
+            $storage = 'public';
+        }
+        $filePath = $file->store($subPath, $storage);
 
         echo $fileName;
         // Store file information in the database
@@ -19,4 +27,5 @@ class FileUtils{
 
         return $file;
     }
+    
 }

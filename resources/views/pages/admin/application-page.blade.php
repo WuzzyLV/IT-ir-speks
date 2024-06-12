@@ -91,13 +91,13 @@
                                         <span
                                             class="hidden flex-shrink-0 text-gray-400 xs:block"
                                         >
-                                        {{intval(Storage::disk('public')->size($application->file()->first()->file_path)/1024) }} KB
+                                        {{intval(Storage::disk('private')->size($application->file()->first()->file_path)/1024) }} KB
                                         </span>
                                     </div>
                                 </div>
                                 <div class="ml-4 flex-shrink-0">
                                     <a
-                                        href="{{ Storage::url($application->file()->first()->file_path) }}"
+                                        href="{{route("cv-application", $application->id)}}"
                                         class="font-medium text-accent1 hover:text-dark1"
                                         download
                                     >
