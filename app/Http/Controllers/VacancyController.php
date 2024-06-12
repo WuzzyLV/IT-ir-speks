@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\FileUtils;
 use App\Models\Role;
 use App\Models\Vacancy;
 use App\Roles;
@@ -36,11 +37,12 @@ class VacancyController extends Controller
             'deadline' => 'required',
         ]);
 
+        $file=null;
         if ($request->hasFile('image')) {
             $request->validate([
                 'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:20480',
             ]);
-
+            $file = FileUtils::store($request->file('image'),"logos");
         }
 
         $vacancy = new Vacancy();
@@ -49,11 +51,13 @@ class VacancyController extends Controller
         $vacancy->desc = $request->desc;
         $vacancy->content = $request->content;
         $vacancy->website = $request->website;
-        // $vacancy->file_id = $request->file_id;
         $vacancy->city = $request->city;
         $vacancy->workload = $request->workload;
         $vacancy->salary = $request->salary;
         $vacancy->deadline = $request->deadline;
+        if ($file){
+            $vacancy->file_id = $file->id;
+        }
         $vacancy->save();
 
         return redirect()->route('admin-vacancies');
@@ -84,11 +88,12 @@ class VacancyController extends Controller
             'deadline' => 'required',
         ]);
 
+        $file=null;
         if ($request->hasFile('image')) {
             $request->validate([
                 'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:20480',
             ]);
-
+            $file = FileUtils::store($request->file('image'),"logos");
         }
 
         $vacancy = Vacancy::find($request->id);
@@ -97,11 +102,13 @@ class VacancyController extends Controller
         $vacancy->desc = $request->desc;
         $vacancy->content = $request->content;
         $vacancy->website = $request->website;
-        // $vacancy->file_id = $request->file_id;
         $vacancy->city = $request->city;
         $vacancy->workload = $request->workload;
         $vacancy->salary = $request->salary;
         $vacancy->deadline = $request->deadline;
+        if ($file){
+            $vacancy->file_id = $file->id;
+        }
         $vacancy->save();
 
         return redirect()->route('admin-vacancies');
@@ -113,7 +120,7 @@ class VacancyController extends Controller
         if (!$vacancy) {
             return redirect()->back()->withErrors(['error' => 'Vakance nav atrasta']);
         }
-       
+
         $vacancy->delete();
 
         return redirect()->route('admin-vacancies');
