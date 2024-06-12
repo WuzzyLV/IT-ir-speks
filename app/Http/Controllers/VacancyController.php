@@ -21,12 +21,13 @@ class VacancyController extends Controller
         ]);
     }
 
-    public function handleNew(Request $request)
+    public function handleNew(Request $request): RedirectResponse
     {
         $request->validate([
             'title' => 'required',
             'company' => 'required',
             'desc' => 'required',
+            'content' => 'required',
             'website' => 'required',
             // 'file_id' => 'required',
             'city' => 'required',
@@ -46,6 +47,7 @@ class VacancyController extends Controller
         $vacancy->title = $request->title;
         $vacancy->company = $request->company;
         $vacancy->desc = $request->desc;
+        $vacancy->content = $request->content;
         $vacancy->website = $request->website;
         // $vacancy->file_id = $request->file_id;
         $vacancy->city = $request->city;
@@ -54,7 +56,7 @@ class VacancyController extends Controller
         $vacancy->deadline = $request->deadline;
         $vacancy->save();
 
-        // return redirect()->route('admin-vacancies');
+        return redirect()->route('admin-vacancies');
     }
 
     public function edit(Request $request): View
@@ -67,13 +69,53 @@ class VacancyController extends Controller
         ]);
     }
 
-    public function handleEdit(Request $request)
+    public function handleEdit(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'title' => 'required',
+            'company' => 'required',
+            'desc' => 'required',
+            'content' => 'required',
+            'website' => 'required',
+            // 'file_id' => 'required',
+            'city' => 'required',
+            'workload' => Rule::in(['Pilna', 'Nepilna']),
+            'salary' => 'required',
+            'deadline' => 'required',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $request->validate([
+                'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:20480',
+            ]);
+
+        }
+
+        $vacancy = Vacancy::find($request->id);
+        $vacancy->title = $request->title;
+        $vacancy->company = $request->company;
+        $vacancy->desc = $request->desc;
+        $vacancy->content = $request->content;
+        $vacancy->website = $request->website;
+        // $vacancy->file_id = $request->file_id;
+        $vacancy->city = $request->city;
+        $vacancy->workload = $request->workload;
+        $vacancy->salary = $request->salary;
+        $vacancy->deadline = $request->deadline;
+        $vacancy->save();
+
+        return redirect()->route('admin-vacancies');
+    }
+
+    public function destroy(Request $request): RedirectResponse
     {
         $vacancy = Vacancy::find($request->id);
+        if (!$vacancy) {
+            return redirect()->back()->withErrors(['error' => 'Vakance nav atrasta']);
+        }
+       
+        $vacancy->delete();
 
-        return view('pages.admin.forms.edit-vacancy', [
-            'vacancy' => $vacancy,
-            'new' => false,
-        ]);
+        return redirect()->route('admin-vacancies');
     }
 }

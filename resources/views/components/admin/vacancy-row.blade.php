@@ -19,11 +19,21 @@
     </td>
     <td>
         <div class="flex items-center justify-center gap-x-2">
-            <a class="btn btn-circle btn-outline btn-sm shadow">
+            <a
+                href="{{ route("edit-vacancy", $vacancy->id) }}"
+                class="btn btn-circle btn-outline btn-sm shadow"
+            >
                 <i class="fa-solid fa-pencil text-accent1"></i>
             </a>
-            <a class="btn btn-circle btn-outline btn-sm shadow">
-                <i class="fa-solid fa-trash-can text-red-500"></i>
-            </a>
+            <form action="{{ route("delete-vacancy", $vacancy->id) }}" method="post">
+                @csrf
+                @method("DELETE")
+                <button
+                    type="submit"
+                    class="btn btn-circle btn-outline btn-sm shadow"
+                >
+                    <i class="fa-solid fa-trash-can text-red-500"></i>
+                </button>
+            </form>
     </td>
 </tr>

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('company');
+            $table->text('content');
             $table->text('desc');
             $table->string('website');
             $table->unsignedBigInteger('file_id')->nullable();

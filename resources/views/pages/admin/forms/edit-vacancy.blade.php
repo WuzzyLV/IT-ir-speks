@@ -19,7 +19,7 @@
         </div>
         @endif
         <div class="flex flex-grow flex-col">
-            <form class="mx-8">
+            <form class="mx-8" method="post">
                 @csrf
                 <input type="submit" value="submit" x-ref="submit" hidden>
 
@@ -52,13 +52,27 @@
                             </div>
                         </div>
 
-
+                        <div class="col-span-full">
+                            <label for="desc" class="block text-sm font-medium leading-6 text-gray-900">
+                                Apraksts
+                            </label>
+                            <div class="mt-2">
+                                <textarea type="text" name="desc" id="desc" placeholder="Ievadi mazu aprakstu" required class="block h-40 w-full rounded-md border-0 bg-white py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-accent1 sm:text-sm sm:leading-6">{{$vacancy ? $vacancy->desc : ""}}</textarea>
+                            </div>
+                        </div>
 
                         <div class="sm:col-span-6">
                             <label for="title" class="block text-sm font-medium leading-6 text-gray-900">
-                                Apraksts
+                                Teksts
                             </label>
-                            <x-text-editor class="sm:col-span-6 mt-4" value="{{$vacancy ? $vacancy->desc : ""}}" />
+                            <x-text-editor class="mt-4 sm:col-span-6">
+                                @if ($vacancy)
+                                {!! $vacancy->content !!}
+                                @else
+                                <h1>Tava ģeniālā darba iespēja</h1>
+                                <p>Apraksti savu karjeras iespēju</p>
+                                @endif
+                            </x-text-editor>
 
                         </div>
 
@@ -91,7 +105,7 @@
                                 Pilseta
                             </label>
                             <div class="mt-2">
-                                <input type="text" name="website" id="website" placeholder="https://kaka.lv/" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{$vacancy ? $vacancy->city : ""}}" />
+                                <input type="text" name="city" id="city" placeholder="Liepāja" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{$vacancy ? $vacancy->city : ""}}" />
                             </div>
                         </div>
 
@@ -117,11 +131,11 @@
 
 
                         <div class="sm:col-span-2">
-                            <label for="date" class="block text-sm font-medium leading-6 text-gray-900">
+                            <label for="deadline" class="block text-sm font-medium leading-6 text-gray-900">
                                 Pieteikšanās termiņš
                             </label>
                             <div class="mt-2 flex items-center h-[36px] ">
-                                <input name="date" type="date" class="w-full bg-white rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{$vacancy ? $vacancy->deadline : ""}}" />
+                                <input name="deadline" type="date" class="w-full bg-white rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{$vacancy ? $vacancy->deadline : ""}}" />
 
                             </div>
                         </div>
