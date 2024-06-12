@@ -22,34 +22,34 @@
                     <!-- Sidebar content here -->
                     <li class="border-b border-gray-300">
 
-                        <a href="{{ route("dashboard") }}" class="flex justify-centera items-center"> <i class="fa-solid fa-house text-lg text-gray-900 m-1 pb-1 w-5"></i>
+                        <a href="{{ route("dashboard") }}" class="m-2"> <i class="fa-solid fa-house text-lg text-gray-900 m-1 pb-1 w-5"></i>
                             <p class="text-lg text-gray-900"> Sākums</p>
                         </a>
                     </li>
 
                     <li class="border-b border-gray-300">
-                        <a href="{{ route("applications") }}">
-                            <i class="fas fa-envelope text-lg text-gray-900 my-2 mx-1  w-5"></i>
-                            <p class="text-lg text-gray-900" > Pieteikumi</p>
+                        <a href="{{ route("applications") }}" class="m-2">
+                            <i class="fas fa-envelope text-lg text-gray-900 my-2 mx-1 w-5"></i>
+                            <p class="text-lg text-gray-900"> Pieteikumi</p>
                         </a>
                     </li>
 
                     @if (Auth::user()->role->name == "root" || Auth::user()->role->name == "admin")
                     <li>
-                        <a href="{{ route("users") }}"><i class="fa-solid fa-user text-lg my-2 mx-1  w-5 text-gray-900"></i>
+                        <a href="{{ route("users") }}" class="m-2"><i class="fa-solid fa-user text-lg my-2 mx-1  w-5 text-gray-900"></i>
                             <p class="text-lg text-gray-900"> Lietotāji</p>
                         </a>
                     </li>
                     @endif
 
                     <li>
-                        <a href="{{ route("admin-vacancies") }}">
+                        <a href="{{ route("admin-vacancies") }}" class="m-2">
                             <i class="fas fa-briefcase text-lg my-2 mx-1 w-5 text-gray-900"></i>
                             <p class="text-lg text-gray-900"> Vakances</p>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route("admin-news") }}">
+                        <a href="{{ route("admin-news") }}" class="m-2">
                             <i class="fa-solid fa-newspaper text-lg my-2 mx-1 w-5 text-gray-900"></i>
                             <p class="text-lg text-gray-900"> Aktualitātes</p>
                         </a>
