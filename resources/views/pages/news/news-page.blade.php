@@ -23,7 +23,7 @@
                         >
                             {{ $news->title }}
                         </h1>
-                        <p class="mt-6 text-xl leading-8 text-gray-700">
+                        <p class="mt-4 text-xl leading-8 text-gray-700">
                             {{ $news->desc }}
                         </p>
                     </div>
@@ -42,7 +42,7 @@
                     alt=""
                 />
             </div>
-            <div class="lg:mx-auto lg:w-full lg:gap-x-8 lg:px-8">
+            <div class="mt-6 lg:mx-auto lg:w-full lg:gap-x-8 lg:px-8">
                 <div class="lg:pr-4">
                     <div
                         id="richEditor"
