@@ -23,6 +23,21 @@ class ApplicationController extends Controller
             'cv' => 'required|file|mimes:pdf,doc,docx|max:2048',
         ]);
 
+        //check if there arent applications to this vacancy with the same email or name and surname
+        $existingApplication = Application::where('vacancy_id', $request->id)
+            ->where(function ($query) use ($request) {
+                $query->where('email', $request->email)
+                    ->orWhere(function ($query) use ($request) {
+                        $query->where('name', $request->name)
+                            ->where('surname', $request->surname);
+                    });
+            })
+            ->first();
+
+        if ($existingApplication) {
+            return back()->withErrors(['Tu jau esi pieteicies šai vakancei!']);
+        }
+
         $file = FileUtils::store($request->file('cv'),"cv"); //make private somehow
 
         $application = new Application();
@@ -38,8 +53,5 @@ class ApplicationController extends Controller
             ->with('success', 'Pieteikums nosūtīts');
     }
 
-    public function test()
-    {
-        echo "test1243213";
-    }
+
 }
