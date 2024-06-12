@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -76,10 +77,9 @@ Route::get('/vacancies', function () {
     return view('pages.vacancies.vacancies');
 })->name('vacancies');
 
-Route::get('/vacancies/{id}', function ($id) {
-    $vacancy = Vacancy::findOrFail($id);
-    return view('pages.vacancies.vacancy-page', ['vacancy' => $vacancy]);
-})->name('vacancy');
+Route::get('/vacancies/{id}', [VacancyController::class, "view"])->name('vacancy');
+
+Route::post('/vacancies/{id}', [ApplicationController::class, "apply"])->name('apply');
 
 Route::get('/news', function () {
     return view('pages.news.news');

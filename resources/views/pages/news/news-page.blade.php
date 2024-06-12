@@ -1,6 +1,6 @@
 <x-app-layout>
     <div
-        class="relative isolate overflow-hidden bg-light1 px-6 py-8 sm:py-32 lg:overflow-visible lg:px-0"
+        class="isolate flex flex-col items-center overflow-hidden bg-light1 px-6 py-8 sm:py-32 lg:overflow-visible lg:px-0"
     >
         <div
             class="mx-auto grid max-w-5xl grid-cols-1 gap-x-8 gap-y-8 lg:mx-0 lg:items-start"
@@ -23,7 +23,7 @@
                         >
                             {{ $news->title }}
                         </h1>
-                        <p class="mt-6 text-xl leading-8 text-gray-700">
+                        <p class="mt-4 text-xl leading-8 text-gray-700">
                             {{ $news->desc }}
                         </p>
                     </div>
@@ -42,7 +42,7 @@
                     alt=""
                 />
             </div>
-            <div class="lg:mx-auto lg:w-full lg:gap-x-8 lg:px-8">
+            <div class="mt-6 lg:mx-auto lg:w-full lg:gap-x-8 lg:px-8">
                 <div class="lg:pr-4">
                     <div
                         id="richEditor"

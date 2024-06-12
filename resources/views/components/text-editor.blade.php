@@ -2,15 +2,6 @@
     "class" => "",
 ])
 
-<style>
-    @import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);
-
-    .active\:bg-gray-50:active {
-        --tw-bg-opacity: 1;
-        background-color: rgba(249, 250, 251, var(--tw-bg-opacity));
-    }
-</style>
-
 <div class="{{ $class }} flex items-center justify-center" x-data="app()">
     <div class="mx-auto w-full rounded-xl bg-white p-2 text-black shadow">
         <div class="overflow-hidden rounded-md border border-gray-200">

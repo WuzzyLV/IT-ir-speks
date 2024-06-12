@@ -1,7 +1,13 @@
+@props(['vacancyId'])
+
 <form
-    class="hidden rounded-lg border !border-b-2 !border-gray-900/25 p-6"
+    class="hidden rounded-lg border !border-b-2 !border-gray-900/25 mx-0 sm:mx-6 p-6"
     id="apply-form"
+    method="post"
+    enctype="multipart/form-data"
 >
+@csrf
+<input type="text" hidden name="id" value="{{$vacancyId}}">
     <div class="space-y-12">
         <div class="border-b border-gray-900/10 pb-12">
             <h2
@@ -36,7 +42,7 @@
 
                 <div class="sm:col-span-3">
                     <label
-                        for="last-name"
+                        for="surname"
                         class="block text-sm font-medium leading-6 text-gray-900"
                     >
                         Uzvārds
@@ -44,8 +50,8 @@
                     <div class="mt-2">
                         <input
                             type="text"
-                            name="last-name"
-                            id="last-name"
+                            name="surname"
+                            id="surname"
                             autocomplete="family-name"
                             placeholder="Kakiņš"
                             required
@@ -76,7 +82,7 @@
 
                 <div class="sm:col-span-2">
                     <label
-                        for="last-name"
+                        for="phone"
                         class="block text-sm font-medium leading-6 text-gray-900"
                     >
                         Telefona numurs
@@ -84,8 +90,8 @@
                     <div class="mt-2">
                         <input
                             type="tel"
-                            name="phone-number"
-                            id="phone-number"
+                            name="phone"
+                            id="phone"
                             autocomplete="tel"
                             placeholder="25 851 572"
                             pattern="[0-9]*"
@@ -99,7 +105,7 @@
             </div>
             <div class="col-span-full mt-6">
                 <label
-                    for="cover-photo"
+                    for="cv"
                     class="block text-sm font-medium leading-6 text-gray-900"
                 >
                     Tavs CV
@@ -120,8 +126,10 @@
                                 <span id="file-result">Augšupieladē failu</span>
                                 <input
                                     id="file-upload"
-                                    name="file-upload"
+                                    name="cv"
                                     type="file"
+                                    accept=".pdf,.doc,.docx"
+                                    required
                                     class="sr-only"
                                 />
                             </label>

@@ -66,8 +66,8 @@ body::-webkit-scrollbar-thumb {
 #richEditor p:not(:first-child) {
     margin-top: 2rem;
 }
-#richEditor h1,
-h2,
+#richEditor h1:not(:first-child),
+h2:not(:first-child),
 h3:not(:first-child) {
     margin-top: 2.5rem;
 }
