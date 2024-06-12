@@ -2,14 +2,14 @@
     "news",
 ])
 
-<tr class="my-4 border-b-0">
+<tr class="border-b-0">
     <td class="text-center">
         <p class="mb-1 text-base font-medium">
             {{ $news->title }}
         </p>
     </td>
 
-    <td class="hidden items-center justify-center xs:flex">
+    <td class="hidden h-[56px] items-center justify-center xs:flex">
         <time datetime="{{ date_format($news->created_at, "Y-m-d") }}">
             {{ BladeUtils::formatDate($news->created_at) }}
         </time>

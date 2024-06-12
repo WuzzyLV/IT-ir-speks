@@ -12,26 +12,14 @@ class NewsController extends Controller
 {
     public function adminNews(Request $request)
     {
-        $perPage = 10; // Number of items per page
-        $currentPage = $request->query('page', 1); // Current page, default to 1
+        $perPage= 8;
+        $page= $request->input('page', 1);
 
-        // Retrieve total news count (for pagination)
-        $totalNewsCount = News::count();
-        $totalPages = ceil($totalNewsCount / $perPage); // Calculate total pages
-
-        // Calculate offset
-        $offset = ($currentPage - 1) * $perPage;
-
-        // Fetch news for the current page
-        $newsList = News::orderBy('created_at', 'desc')
-            ->skip($offset)
-            ->take($perPage)
-            ->get();
-
+        $total_pages= ceil(News::count()/$perPage);
         return view('pages.admin.news', [
-            'newsList' => $newsList,
-            'currentPage' => $currentPage,
-            'totalPages' => $totalPages,
+            'page' => $page,
+            'total_pages' => $total_pages,
+            'news' => News::paginate($perPage, ['*'], 'page', $page),
         ]);
     }
     public function new(Request $request)

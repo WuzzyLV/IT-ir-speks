@@ -1,42 +1,42 @@
-<x-staff-layout class="w-full flex flex-col text-gray-900">
-    <div class=" flex items-center justify-between border-b border-gray-300 px-6 py-4 shadow lg:px-8">
-        <h2 class="tracking-tight sm:text-xl text-lg font-bold">Aktualitātes</h2>
-        <a href="{{route("new-news")}}" class="btn btn-sm border-accent1 bg-transparent text-accent1">
+<x-staff-layout class="flex w-full flex-col text-gray-900">
+    <div
+        class="flex items-center justify-between border-b border-gray-300 px-6 py-4 shadow lg:px-8"
+    >
+        <h2 class="text-lg font-bold tracking-tight sm:text-xl">
+            Aktualitātes
+        </h2>
+        <a
+            href="{{ route("new-news") }}"
+            class="btn btn-sm border-accent1 bg-transparent text-accent1"
+        >
             Jauna aktualitāte
         </a>
     </div>
-    <div class="flex-grow flex flex-col">
-        <div class="mx-8 overflow-x-auto border-b-gray-300 border-b flex-grow ">
+    <div class="flex flex-grow flex-col">
+        <div class="mx-8 flex-grow overflow-x-auto border-b border-b-gray-300">
             <table class="table">
                 <!-- head -->
                 <thead class="">
-                    <tr class="text-gray-600 text-center border-b-gray-300">
+                    <tr class="border-b-gray-300 text-center text-gray-600">
                         <th class="">Virsraksts</th>
                         <th class="hidden xs:table-cell">Datums</th>
-                        <th class="flex justify-center items-center h-11"><i class="fa-solid fa-circle text-4xs"></i></th>
+                        <th class="flex h-11 items-center justify-center">
+                            <i class="fa-solid fa-circle text-4xs"></i>
+                        </th>
                     </tr>
                 </thead>
-                <tbody>
-                    @foreach(\App\Models\News::all() as $news)
-                        <x-admin.news-row :news="$news"/>
+                <tbody class="">
+                    @foreach ($news as $new)
+                        <x-admin.news-row :news="$new" />
                     @endforeach
                 </tbody>
             </table>
         </div>
-        <div class="flex justify-center my-4">
-            
-            {{-- Manual pagination --}}
-            <div class="join border-gray-300">
-                @if ($currentPage > 1)
-                    <a href="{{ route('admin-news', ['page' => $currentPage - 1]) }}" class="join-item btn bg-transparent text-gray-900 !border-gray-300 hover:bg-gray-300/50">«</a>
-                @endif
-                @for ($i = 1; $i <= $totalPages; $i++)
-                    <a href="{{ route('admin-news', ['page' => $i]) }}" class="join-item btn bg-transparent text-gray-900 !border-gray-300 hover:bg-gray-300/50 px-6">{{ $i }}</a>
-                @endfor
-                @if ($currentPage < $totalPages)
-                    <a href="{{ route('admin-news', ['page' => $currentPage + 1]) }}" class="join-item btn bg-transparent text-gray-900 !border-gray-300 hover:bg-gray-300/50">»</a>
-                @endif
-            </div>
+        <div class="my-4 flex justify-center">
+            <x-admin.pagination
+                page="{{$page}}"
+                totalPages="{{$total_pages}}"
+            />
         </div>
     </div>
 </x-staff-layout>
