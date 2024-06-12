@@ -6,9 +6,9 @@
             class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-6"
         >
             <div
-                class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
+                class="mt-4 lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
             >
-                <div class="lg:pr-4">
+                <div class="">
                     <x-breadcrumbs
                         currentRoute="Vecakais UML diagrammu specalists"
                     />
@@ -31,9 +31,9 @@
                 </div>
             </div>
             <div
-                class="px-12 py-4 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-4 lg:row-start-1 lg:overflow-hidden"
+                class="lg:sticky lg:top-4 lg:col-start-2 lg:row-span-4 lg:row-start-1 lg:overflow-hidden"
             >
-                <div id="preview">
+                <div id="preview" class="px-12 py-4">
                     <div
                         class="relative flex flex-col items-center gap-x-4 px-4 sm:px-0"
                     >
@@ -80,7 +80,7 @@
                                 <dd
                                     class="mt-1 text-sm leading-6 text-gray-700 sm:mt-0"
                                 >
-                                    {{ $vacancy->salary }}
+                                    {{ $vacancy->salary }} €
                                 </dd>
                             </div>
                             <div

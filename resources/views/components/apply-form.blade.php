@@ -1,5 +1,5 @@
 <form
-    class="hidden rounded-lg border !border-b-2 !border-gray-900/25 p-6"
+    class="hidden rounded-lg border !border-b-2 !border-gray-900/25 mx-0 sm:mx-6 p-6"
     id="apply-form"
 >
     <div class="space-y-12">
