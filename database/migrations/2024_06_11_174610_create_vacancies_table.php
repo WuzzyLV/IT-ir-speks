@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('website');
             $table->unsignedBigInteger('file_id')->nullable();
             $table->string('city');
-            $table->tinyInteger('workload');
+            $table->string('workload');
             $table->double('salary');
             $table->date('deadline');
             $table->timestamps();
