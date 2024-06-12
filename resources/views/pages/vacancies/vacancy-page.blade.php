@@ -3,7 +3,7 @@
         class="relative isolate overflow-hidden bg-light1 px-6 py-8 sm:py-24 lg:overflow-visible lg:px-0"
     >
         <div
-            class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10"
+            class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-6"
         >
             <div
                 class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
@@ -14,7 +14,7 @@
                     />
                     <div class="lg:max-w-lg">
                         <p
-                            class="text-base font-semibold leading-7 text-indigo-600"
+                            class="text-base font-semibold leading-7 text-accent1"
                         >
                             Līdz
                             {{ BladeUtils::formatDate($vacancy->deadline) }}
@@ -24,11 +24,14 @@
                         >
                             {{ $vacancy->title }}
                         </h1>
+                        <p class="mt-4 text-xl leading-8 text-gray-700">
+                            {{ $vacancy->desc }}
+                        </p>
                     </div>
                 </div>
             </div>
             <div
-                class="px-12 py-4 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden"
+                class="px-12 py-4 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-4 lg:row-start-1 lg:overflow-hidden"
             >
                 <div id="preview">
                     <div
@@ -146,7 +149,7 @@
                 <x-apply-form />
             </div>
             <div
-                class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
+                class="mt-4 lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
             >
                 <div class="lg:pr-4">
                     <div
