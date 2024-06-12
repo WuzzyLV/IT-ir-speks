@@ -28,7 +28,7 @@
             @endif
 
             <!-- Page Content -->
-            <main class="{{ $class }}">
+            <main class="w-full {{ $class }}">
                 {{ $slot }}
             </main>
 
