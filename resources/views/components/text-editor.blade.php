@@ -104,29 +104,6 @@
                 </button>
             </div>
             <div class="w-full">
-                <style>
-                    #richEditor p {
-                    }
-                    #richEditor h1 {
-                        font-size: 2em;
-                    }
-                    #richEditor h2 {
-                        font-size: 1.5em;
-                    }
-                    #richEditor h3 {
-                        font-size: 1.17em;
-                    }
-                    #richEditor ul,
-                    #richEditor ol {
-                        padding-left: 1.5rem;
-                    }
-                    #richEditor ul {
-                        list-style-type: disc;
-                    }
-                    #richEditor ol {
-                        list-style-type: decimal;
-                    }
-                </style>
                 <div
                     id="richEditor"
                     contenteditable="true"

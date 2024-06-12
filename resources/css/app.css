@@ -61,3 +61,40 @@ body::-webkit-scrollbar-thumb {
         scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
     }
 }
+
+/* Text editor content */
+#richEditor p:not(:first-child) {
+    margin-top: 2rem;
+}
+#richEditor h1,
+h2,
+h3:not(:first-child) {
+    margin-top: 2.5rem;
+}
+#richEditor h1,
+h2,
+h3 {
+    color: rgb(17 24 39);
+    font-weight: bold;
+    letter-spacing: -0.025em;
+}
+
+#richEditor h1 {
+    font-size: 2rem;
+}
+#richEditor h2 {
+    font-size: 1.75rem;
+}
+#richEditor h3 {
+    font-size: 1.5rem;
+}
+#richEditor ul,
+#richEditor ol {
+    padding-left: 2.5rem;
+}
+#richEditor ul {
+    list-style-type: disc;
+}
+#richEditor ol {
+    list-style-type: decimal;
+}

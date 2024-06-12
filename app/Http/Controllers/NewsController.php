@@ -94,4 +94,13 @@ class NewsController extends Controller
 
         return redirect()->route('admin-news');
     }
+
+    public function view(Request $request)
+    {
+        $news = News::find($request->id);
+
+        return view('pages.news.news-page', [
+            'news' => $news,
+        ]);
+    }
 }
