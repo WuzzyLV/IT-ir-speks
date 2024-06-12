@@ -168,27 +168,7 @@
                 e.stopPropagation();
             }
 
-            // Highlight drop area when item is dragged over it
-            ['dragenter', 'dragover'].forEach((eventName) => {
-                dropArea.addEventListener(
-                    eventName,
-                    () => {
-                        dropArea.classList.add('bg-accent1/50');
-                    },
-                    false,
-                );
-            });
 
-            ['dragleave', 'drop'].forEach((eventName) => {
-                dropArea.addEventListener(
-                    eventName,
-                    () => {
-                        console.log('i leave');
-                        dropArea.classList.remove('bg-accent1/50');
-                    },
-                    false,
-                );
-            });
 
             // Handle dropped files
             dropArea.addEventListener('drop', handleDrop, false);
