@@ -39,7 +39,7 @@
                                 Nosaukums
                             </label>
                             <div class="mt-4">
-                                <input required type="text" name="title" id="title" placeholder="Vecakais UML diagrammu specalists" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{$vacancy ? $vacancy->title : ""}}" />
+                                <input required type="text" name="title" id="title" placeholder="Vecakais UML diagrammu specalists" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-accent1 sm:text-sm sm:leading-6" value="{{$vacancy ? $vacancy->title : ""}}" />
                             </div>
                         </div>
 
@@ -48,7 +48,7 @@
                                 Uzņēmums
                             </label>
                             <div class="mt-4">
-                                <input required type="text" name="company" id="company" placeholder="SIA Kaka" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{$vacancy ? $vacancy->company : ""}}" />
+                                <input required type="text" name="company" id="company" placeholder="SIA Kaka" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-accent1 sm:text-sm sm:leading-6" value="{{$vacancy ? $vacancy->company : ""}}" />
                             </div>
                         </div>
 
@@ -85,7 +85,7 @@
                                 Mājaslapa
                             </label>
                             <div class="mt-2">
-                                <input required type="text" name="website" id="website" placeholder="https://kaka.lv/" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{$vacancy ? $vacancy->website : ""}}" />
+                                <input required type="text" name="website" id="website" placeholder="https://kaka.lv/" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-accent1 sm:text-sm sm:leading-6" value="{{$vacancy ? $vacancy->website : ""}}" />
                             </div>
                         </div>
 
@@ -107,7 +107,7 @@
                                 @endif
                             </label>
                             <div
-                                class="mt-2 flex min-h-[36px] w-full items-center rounded-md border-0 bg-white text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                class="mt-2 flex min-h-[36px] w-full items-center rounded-md border-0 bg-white text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-accent1 sm:text-sm sm:leading-6"
                             >
                                 <input
                                     name="image"
@@ -128,7 +128,7 @@
                                 Pilseta
                             </label>
                             <div class="mt-2">
-                                <input required type="text" name="city" id="city" placeholder="Liepāja" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{$vacancy ? $vacancy->city : ""}}" />
+                                <input required type="text" name="city" id="city" placeholder="Liepāja" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-accent1 sm:text-sm sm:leading-6" value="{{$vacancy ? $vacancy->city : ""}}" />
                             </div>
                         </div>
 
@@ -137,20 +137,57 @@
                                 Slodze
                             </label>
                             <div class="mt-2">
-                                <select required id="workload" name="workload" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{$vacancy ? $vacancy->workload : ""}}">
+                                <select required id="workload" name="workload" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-accent1 sm:text-sm sm:leading-6" value="{{$vacancy ? $vacancy->workload : ""}}">
                                     <option value="Pilna" @if(isset($vacancy) && $vacancy->workload == 'Pilna') selected @endif>Pilna</option>
                                     <option value="Nepilna" @if(isset($vacancy) && $vacancy->workload == 'Nepilna') selected @endif>Nepilna</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="sm:col-span-2">
+                        <!-- <div class="sm:col-span-2">
                             <label for="salary" class="block text-sm font-medium leading-6 text-gray-900">
                                 Alga €
                             </label>
                             <div class="mt-2">
-                                <input required id="salary" name="salary" type="number" min="0" placeholder="600" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{$vacancy ? $vacancy->salary : ""}}" />
+                                <input required id="salary" name="salary" type="number" min="0" placeholder="600" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-accent1 sm:text-sm sm:leading-6" value="{{$vacancy ? $vacancy->salary : ""}}" />
+                            </div>
+                        </div> -->
+
+                        @php
+                            $isRange = "false";
+                            if ($vacancy) {
+                                $isRange = $vacancy->salary_min == $vacancy->salary_max ? "false" : "true";
+                            }
+
+                        @endphp
+                        <div x-data="{ isRange: {{$isRange}} }" class="sm:col-span-2">
+                            <div class="flex justify-between">
+                            <label for="salary" class="block text-sm font-medium leading-6 text-gray-900">
+                            Alga €
+                        </label>
+                            <label class="flex items-center text-sm font-medium leading-6 text-gray-900 ">
+                                <input type="checkbox" x-model="isRange" class="rounded  focus:ring-accent1 mr-2"> Diapazons?
+                            </label>
+                            </div>
+
+                        <div class="mt-2">
+
+                            <!-- Single salary input -->
+                            <input x-show="!isRange" :disabled="isRange" required id="salary" name="salary" type="number" min="0" placeholder="600"
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-accent1 sm:text-sm sm:leading-6"
+                                value="{{$vacancy ? $vacancy->salary_min : ''}}">
+
+                            <!-- Range salary inputs -->
+                            <div x-show="isRange" class="flex  items-center">
+                                <input required :disabled="!isRange" id="salary_min" name="salary_min" type="number" min="0" placeholder="2000"
+                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-accent1 sm:text-sm sm:leading-6"
+                                    value="{{$vacancy ? $vacancy->salary_min : ''}}">
+                                <span class="mx-1">:</span>
+                                <input required :disabled="!isRange" id="salary_max" name="salary_max" type="number" min="0" placeholder="2500"
+                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-accent1 sm:text-sm sm:leading-6"
+                                    value="{{$vacancy ? $vacancy->salary_max : ''}}">
                             </div>
                         </div>
+                    </div>
 
 
                         <div class="sm:col-span-2">
@@ -158,7 +195,7 @@
                                 Pieteikšanās termiņš
                             </label>
                             <div class="mt-2 flex items-center h-[36px] ">
-                                <input required name="deadline" type="date" class="w-full bg-white rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{$vacancy ? $vacancy->deadline : ""}}" />
+                                <input required name="deadline" type="date" class="w-full bg-white rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-accent1 sm:text-sm sm:leading-6" value="{{$vacancy ? $vacancy->deadline : ""}}" />
                             </div>
                         </div>
 

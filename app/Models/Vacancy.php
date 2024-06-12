@@ -17,7 +17,8 @@ class Vacancy extends Model
         // 'file_id',
         'city',
         'workload',
-        'salary',
+        'salary_min',
+        'salary_max',
         'deadline'
     ];
 
