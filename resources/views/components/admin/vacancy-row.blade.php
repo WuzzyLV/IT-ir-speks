@@ -9,7 +9,13 @@
     </td>
     <td class="hidden justify-center items-center xs:flex ">
         <div class="relative flex items-center gap-x-4">
-            <img src="https://logos-world.net/wp-content/uploads/2020/06/Accenture-Emblem.png" alt="" class="h-10 w-10 rounded-full  bg-gray-50 object-contain" />
+            @if ($vacancy->file()->exists())
+                <img src="{{ Storage::url($vacancy->file()->get()[0]->file_path) }}" alt="" class="h-10 w-10 rounded-full  bg-gray-50 object-contain" />
+            @else
+                <div class="flex justify-center items-center h-10 w-10 rounded-full  bg-gray-50">
+                    <i class="fa-solid fa-building "></i>
+                </div>
+            @endif
             <div class="leading-6">
                 <p class="text-">
                     <a href="#" class="">{{$vacancy->company}}</a>
