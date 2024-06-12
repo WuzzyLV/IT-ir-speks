@@ -14,13 +14,21 @@
         <div
             class="mx-auto mt-10 grid max-w-2xl grid-cols-1 border-y border-gray-300 sm:mt-16 sm:gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3"
         >
-            @foreach (\App\Models\Vacancy::all() as $vacancy)
-                <x-vacancy-card
-                    h3Color="gray-900"
-                    textColor="gray-600"
-                    :vacancy="$vacancy"
-                />
-            @endforeach
+            @php
+                $vacancies = \App\Models\Vacancy::all();
+            @endphp
+
+            @if($vacancies->isEmpty())
+                <p class="text-center text-lg text-gray-600 col-span-full">Nav pieejamu vakanču!</p>
+            @else
+                @foreach ($vacancies as $vacancy)
+                    <x-vacancy-card
+                        h3Color="gray-900"
+                        textColor="gray-600"
+                        :vacancy="$vacancy"
+                    />
+                @endforeach
+            @endif
         </div>
     </div>
 </x-app-layout>
