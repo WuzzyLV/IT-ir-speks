@@ -33,6 +33,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::delete('/dashboard/users/{id}', [UserController::class, "destroy"])
             ->name('delete-user');
 
+        // NEWS
         Route::get('/dashboard/news', function () {
             return view('pages.admin.news');
         })
@@ -49,7 +50,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
             ->name('handle-edit-news');
         Route::delete('/dashboard/news/{id}', [NewsController::class, "destroy"])
             ->name('delete-news');
-
+            
+        // VACANCIES
         Route::get('/dashboard/vacancies', [VacancyController::class, 'viewCards'])
             ->name('admin-vacancies');
         Route::get('/dashboard/vacancies/new', [VacancyController::class, "new"])
