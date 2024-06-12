@@ -33,7 +33,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::delete('/dashboard/users/{id}', [UserController::class, "destroy"])
             ->name('delete-user');
 
-        Route::get('/dashboard/news', [NewsController::class, 'adminNews'])->name('admin-news');
+            
+        Route::get('/dashboard/vacancies', function () {
+            return view('pages.admin.vacancies');
+        })
+            ->name('admin-vacancies');
+
+            Route::get('/dashboard/news', [NewsController::class, 'adminNews'])->name('admin-news');
 
         Route::get('/dashboard/news/new', [NewsController::class, "new"])
             ->name('new-news');
