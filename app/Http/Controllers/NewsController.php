@@ -30,7 +30,7 @@ class NewsController extends Controller
         $file = null;
         if ($request->hasFile('image')) {
             $request->validate([
-                'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:20480',
+                'image' => 'image|mimes:jpeg,png,webp,jpg,gif,svg|max:20480',
             ]);
             $file = FileUtils::store($request->file('image'));
         }
@@ -66,7 +66,7 @@ class NewsController extends Controller
         $file = null;
         if ($request->hasFile('image')) {
             $request->validate([
-                'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:20480',
+                'image' => 'image|mimes:jpeg,png,webp,jpg,gif,svg|max:20480',
             ]);
             $file = FileUtils::store($request->file('image'));
         }
