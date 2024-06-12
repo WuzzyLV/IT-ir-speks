@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Activity;
 
 class User extends Authenticatable
 {
@@ -66,5 +67,13 @@ class User extends Authenticatable
     function test()
     {
         (Role::class)($this->role()->getModel())->getEnum();
+    }
+
+    // Assuming your users table is 'users' and the primary key is 'id'
+    protected $table = 'users';
+
+    public function activities()
+    {
+        return $this->hasMany(Activity::class, 'who', 'id');
     }
 }
