@@ -33,40 +33,39 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::delete('/dashboard/users/{id}', [UserController::class, "destroy"])
             ->name('delete-user');
 
-            
-        Route::get('/dashboard/vacancies', function () {
-            return view('pages.admin.vacancies');
-        })
-            ->name('admin-vacancies');
-
-            Route::get('/dashboard/news', [NewsController::class, 'adminNews'])->name('admin-news');
-
-        Route::get('/dashboard/news/new', [NewsController::class, "new"])
-            ->name('new-news');
-        Route::post('/dashboard/news/new', [NewsController::class, "handleNew"])
-            ->name('handle-new-news');
-
-        Route::get('/dashboard/news/{id}', [NewsController::class, "edit"])
-            ->name('edit-news');
-        Route::post('/dashboard/news/{id}', [NewsController::class, "handleEdit"])
-            ->name('handle-edit-news');
-        Route::delete('/dashboard/news/{id}', [NewsController::class, "destroy"])
-            ->name('delete-news');
-
-        Route::get('/dashboard/vacancies', [VacancyController::class, 'viewCards'])
-            ->name('admin-vacancies');
-        Route::get('/dashboard/vacancies/new', [VacancyController::class, "new"])
-            ->name('new-vacancy');
-        Route::post('/dashboard/vacancies/new', [VacancyController::class, "handleNew"])
-            ->name('handle-new-vacancy');
-
-        Route::get('/dashboard/vacancies/{id}', [VacancyController::class, "edit"])
-            ->name('edit-vacancy');
-        Route::post('/dashboard/vacancies/{id}', [VacancyController::class, "handleEdit"])
-            ->name('handle-edit-vacancy');
-        Route::delete('/dashboard/vacancies/{id}', [VacancyController::class, "destroy"])
-            ->name('delete-vacancy');
+        
     });
+
+    // NEWS
+    Route::get('/dashboard/news', [NewsController::class, "adminNews"])
+        ->name('admin-news');
+
+    Route::get('/dashboard/news/new', [NewsController::class, "new"])
+        ->name('new-news');
+    Route::post('/dashboard/news/new', [NewsController::class, "handleNew"])
+        ->name('handle-new-news');
+
+    Route::get('/dashboard/news/{id}', [NewsController::class, "edit"])
+        ->name('edit-news');
+    Route::post('/dashboard/news/{id}', [NewsController::class, "handleEdit"])
+        ->name('handle-edit-news');
+    Route::delete('/dashboard/news/{id}', [NewsController::class, "destroy"])
+        ->name('delete-news');
+        
+    // VACANCIES
+    Route::get('/dashboard/vacancies', [VacancyController::class, 'viewCards'])
+        ->name('admin-vacancies');
+    Route::get('/dashboard/vacancies/new', [VacancyController::class, "new"])
+        ->name('new-vacancy');
+    Route::post('/dashboard/vacancies/new', [VacancyController::class, "handleNew"])
+        ->name('handle-new-vacancy');
+
+    Route::get('/dashboard/vacancies/{id}', [VacancyController::class, "edit"])
+        ->name('edit-vacancy');
+    Route::post('/dashboard/vacancies/{id}', [VacancyController::class, "handleEdit"])
+        ->name('handle-edit-vacancy');
+    Route::delete('/dashboard/vacancies/{id}', [VacancyController::class, "destroy"])
+        ->name('delete-vacancy');
 
     Route::get('/dashboard/applications', [ApplicationController::class, "view"])
         ->name('applications');
