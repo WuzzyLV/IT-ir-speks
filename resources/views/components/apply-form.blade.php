@@ -111,7 +111,7 @@
                     Tavs CV
                 </label>
                 <div
-                    class="shdow mt-2 transition-all border-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 bg-white px-6 py-10 shadow"
+                    class="mt-2 transition-all border-2 flex justify-center rounded-lg border-dashed border-gray-900/25 bg-white px-6 py-10 shadow"
                     id="drop-area"
                 >
                     <div class="text-center">
