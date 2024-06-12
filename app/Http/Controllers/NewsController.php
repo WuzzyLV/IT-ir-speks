@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\News;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+
 
 class NewsController extends Controller
 {
@@ -14,7 +17,7 @@ class NewsController extends Controller
             'new' => true,
         ]);
     }
-    public function handleNew(Request $request)
+    public function handleNew(Request $request): RedirectResponse
     {
         $request->validate([
             'title' => 'required|unique:news,title',
@@ -32,9 +35,10 @@ class NewsController extends Controller
         $news = new News();
         $news->title = $request->title;
         $news->content = $request->desc;
+        $news->date = Carbon::now(); // Set the date to the current date and time
         $news->save();
 
-//        return redirect()->route('admin-news');
+       return redirect()->route('admin-news');
     }
 
     public function edit(Request $request)
@@ -54,5 +58,17 @@ class NewsController extends Controller
             'news' => $news,
             'new' => false,
         ]);
+    }
+
+    public function destroy(Request $request): RedirectResponse
+    {
+        $news = News::find($request->id);
+        if (!$news) {
+            return redirect()->back()->withErrors(['error' => 'Aktualitāte nav atrasta']);
+        }
+       
+        $news->delete();
+
+        return redirect()->route('admin-news');
     }
 }

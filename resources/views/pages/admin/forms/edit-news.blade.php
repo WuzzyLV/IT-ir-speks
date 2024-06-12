@@ -26,8 +26,9 @@
     @endif
     <div class="flex flex-grow flex-col">
         <form class="mx-8" method="post">
+            @csrf
             <input type="submit" value="submit" x-ref="submit" hidden>
-                @csrf
+                
                 <div class="pb-12">
 
                     <div

@@ -1,7 +1,7 @@
 <x-staff-layout class="flex w-full flex-col text-gray-900">
 <div x-data>
     <div class="flex items-center justify-between px-6 py-4 shadow lg:px-8">
-        <h2 class="text-lg font-bold tracking-tight sm:text-xl">Vecakais UML diagrammu specalists</h2>
+        <h2 class="text-lg font-bold tracking-tight sm:text-xl">{{$new ? "Jauna vakance" : "Vecakais UML diagrammu specalists}"}}</h2>
         <div class="flex gap-1 flex-wrap justify-center">
             <a
                 href="{{ route('admin-vacancies') }}"
@@ -10,8 +10,7 @@
                 Atpakaļ
             </a>
             <button
-                x-on:click="$refs.submit.click()"
-                href="{{ route('admin-vacancies') }}"
+                @click="$refs.submit.click()"
                 class="btn btn-sm border-accent1 bg-transparent text-accent1"
             >
                 Saglabat
@@ -27,7 +26,9 @@
     @endif
     <div class="flex flex-grow flex-col">
             <form class="mx-8">
+                @csrf
                 <input type="submit" value="submit" x-ref="submit" hidden>
+                
                 <div class="pb-12">
                     <div class="my-6 border-b border-b-gray-300 pb-4">
                         <h2
@@ -79,6 +80,8 @@
                             </div>
                         </div>
 
+                        
+
                         <div class="sm:col-span-6">
                             <label
                                 for="title"
@@ -89,6 +92,10 @@
                             <x-text-editor class="sm:col-span-6 mt-4"/>
 
                         </div>
+
+                        
+
+                        
 
                         <div class="sm:col-span-3">
                             <label
@@ -107,6 +114,8 @@
                                 />
                             </div>
                         </div>
+
+                        
                         <div class="sm:col-span-3">
                         <label
                                 for="logo"
@@ -117,6 +126,24 @@
                             <div class="mt-2 flex items-center min-h-[36px] w-full bg-white rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 <input name="logo" type="file" class="ml-1" />
 
+                            </div>
+                        </div>
+
+                        <div class="sm:col-span-2">
+                            <label
+                                for="website"
+                                class="block text-sm font-medium leading-6 text-gray-900"
+                            >
+                                Pilseta
+                            </label>
+                            <div class="mt-2">
+                                <input
+                                    type="text"
+                                    name="website"
+                                    id="website"
+                                    placeholder="https://kaka.lv/"
+                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                />
                             </div>
                         </div>
 
