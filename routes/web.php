@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\CVController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -70,8 +71,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard/applications/{id}', [ApplicationController::class, "view"])
         ->name('view-application');
 
-        Route::delete('/dashboard/applications/{id}', [ApplicationController::class, "destroy"])
-            ->name('delete-application');
+    Route::delete('/dashboard/applications/{id}', [ApplicationController::class, "destroy"])
+        ->name('delete-application');
+
+//    Route::get('/dashboard/applications/{id}/cv', [CVController::class, "view"])
+//        ->name('cv-application');
+    Route::get('/dashboard/applications/{id}/cv', [CVController::class, "view" ] )
+        ->name('cv-application');
+
 });
 
 

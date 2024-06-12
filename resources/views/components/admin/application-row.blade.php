@@ -20,7 +20,7 @@
                         </td>
 
                         <td class="text-center hidden sm:table-cell">
-                            <a href="{{Storage::url($application->file()->first()->file_path)}}" target="_blank" >
+                            <a href="{{route("cv-application", $application->id)}}" target="_blank" >
                                 <i class="fa-solid fa-paperclip text-center text-accent1 hover:underline"></i>
                             </a>
                         </td>
