@@ -28,8 +28,9 @@
                     <ul
                         class="menu h-screen w-72 flex-1 rounded-br bg-light1 p-4 text-gray-900 lg:h-auto lg:flex-grow"
                     >
-                        <li class="border-b border-gray-300">
-                            <a href="{{ route("dashboard") }}">Sākums</a>
+                        <li class="border-b border-gray-300 flex flex-row">
+                            
+                            <a href="{{ route("dashboard") }}"> <i class="fa-solid fa-house"></i> Sākums</a>
                         </li>
                         <!-- Sidebar content here -->
                         <li class="border-b border-gray-300">

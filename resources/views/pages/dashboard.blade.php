@@ -2,6 +2,7 @@
     <div
         class="flex items-center justify-between border-b border-gray-300 px-6 py-4 shadow lg:px-8"
     >
+        
         <h2 class="tracking-tight sm:text-xl text-lg font-bold">Sākums</h2>
     </div>
     <dl class="grid grid-cols-1 text-center md:grid-cols-2 lg:grid-cols-3">

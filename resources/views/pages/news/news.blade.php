@@ -13,7 +13,7 @@
         </div>
 
         @php
-        $news = \App\Models\Vacancy::all();
+        $news = \App\Models\News::all();
         @endphp
 
 
