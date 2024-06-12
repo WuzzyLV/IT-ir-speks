@@ -19,7 +19,7 @@
         </div>
         @endif
         <div class="flex flex-grow flex-col">
-            <form class="mx-8" method="post">
+            <form class="mx-8" method="post" enctype="multipart/form-data">
                 @csrf
                 <input type="submit" value="submit" x-ref="submit" hidden>
 
@@ -90,13 +90,36 @@
                         </div>
 
 
+                        <!-- image -->
                         <div class="sm:col-span-3">
-                            <label for="logo" class="block text-sm font-medium leading-6 text-gray-900">
+                            <label
+                                for="image"
+                                class="block text-sm font-medium leading-6 text-gray-900"
+                            >
                                 Logo
+                                @if ($vacancy)
+                                    @if ($vacancy->file()->exists())
+                                        <a
+                                                class="fa-solid fa-link cursor-pointer text-accent1 transition-all hover:scale-105"
+                                                href="{{ Storage::url($vacancy->file()->get()[0]->file_path) }}"
+                                            ></a>
+                                    @endif
+                                @endif
                             </label>
-                            <div class="mt-2 flex items-center min-h-[36px] w-full bg-white rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                <input name="logo" type="file" class="ml-1" value="{{$vacancy ? $vacancy->file_id : ""}}" />
-
+                            <div
+                                class="mt-2 flex min-h-[36px] w-full items-center rounded-md border-0 bg-white text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            >
+                                <input
+                                    name="image"
+                                    type="file"
+                                    id="image"
+                                    name="image"
+                                    type="file"
+                                    accept="image/*"
+                                    autocomplete="new-image"
+                                    placeholder="attels"
+                                    class="ml-1"
+                                />
                             </div>
                         </div>
 
@@ -115,8 +138,8 @@
                             </label>
                             <div class="mt-2">
                                 <select id="workload" name="workload" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{$vacancy ? $vacancy->workload : ""}}">
-                                    <option>Pilna</option>
-                                    <option>Nepilna</option>
+                                <option value="Pilna" @if(isset($vacancy) && $vacancy->workload == 'Pilna') selected @endif>Pilna</option>
+                                <option value="Nepilna" @if(isset($vacancy) && $vacancy->workload == 'Nepilna') selected @endif>Nepilna</option>
                                 </select>
                             </div>
                         </div>
