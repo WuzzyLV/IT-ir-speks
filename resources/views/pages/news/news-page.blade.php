@@ -3,11 +3,9 @@
         class="relative isolate overflow-hidden bg-light1 px-6 py-8 sm:py-32 lg:overflow-visible lg:px-0"
     >
         <div
-            class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start"
+            class="mx-auto grid max-w-5xl grid-cols-1 gap-x-8 gap-y-8 lg:mx-0 lg:items-start"
         >
-            <div
-                class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
-            >
+            <div class="lg:mx-auto lg:w-full lg:gap-x-8 lg:px-8">
                 <div class="lg:pr-4">
                     <x-breadcrumbs currentRoute="{{ $news->title }}" />
                     <div class="">
@@ -32,10 +30,10 @@
                 </div>
             </div>
             <div
-                class="position m-0 p-4 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:-ml-12 lg:-mt-12 lg:overflow-hidden lg:p-12"
+                class="m-0 flex justify-center px-4 lg:mx-8 lg:overflow-hidden lg:px-12"
             >
                 <img
-                    class="w-full max-w-none rounded-xl bg-gray-900 object-cover shadow-xl ring-1 ring-gray-400/10 lg:h-[48rem] lg:w-[48rem]"
+                    class="w-full max-w-5xl rounded-xl bg-gray-900 object-cover shadow-xl ring-1 ring-gray-400/10"
                     @if ($news->file()->exists())
                         src="{{ asset("storage/" . $news->file->file_path) }}"
                     @else
@@ -44,12 +42,11 @@
                     alt=""
                 />
             </div>
-            <div
-                class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
-            >
+            <div class="lg:mx-auto lg:w-full lg:gap-x-8 lg:px-8">
                 <div class="lg:pr-4">
                     <div
-                        class="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg"
+                        id="richEditor"
+                        class="text-base leading-7 text-gray-700"
                     >
                         {!! $news->content !!}
                     </div>
