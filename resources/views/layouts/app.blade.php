@@ -6,7 +6,9 @@
 
     <body class="font-sans antialiased">
         {{-- {{var_dump($nav)}} --}}
-        <div class="min-h-screen bg-light1">
+        <div class="min-h-screen flex flex-col items-center justify-between min-w-screen bg-light1">
+            <div class="w-full">
+
             @if ($nav == "true")
                 @if ($landing == "true")
                     @include("layouts.landing-navigation")
@@ -14,6 +16,8 @@
                     @include("layouts.navigation")
                 @endif
             @endif
+            </div>
+
 
             @if (isset($header))
                 <header class="\ shadow">
