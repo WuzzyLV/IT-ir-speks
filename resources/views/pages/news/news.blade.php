@@ -11,16 +11,24 @@
                 Uzzini, kas jauns un aktuāls IT nozarē visā pasaulē.
             </p>
         </div>
-        <div
-            class="mx-auto mt-10 grid max-w-2xl grid-cols-1 border-y border-gray-300 sm:mt-16 sm:gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3"
-        >
-            @foreach (\App\Models\News::all() as $news)
-                <x-news-card
-                    h3Color="gray-900"
-                    textColor="gray-600"
-                    :news="$news"
-                />
-            @endforeach
-        </div>
+
+        @php
+        $news = \App\Models\News::all();
+        @endphp
+
+
+
+        @if($news->isEmpty())
+
+        <x-empty-state :isVacancies="false" />
+
+
+        @else
+            <div class="mx-auto mt-10 grid max-w-2xl grid-cols-1 border-y border-gray-300 sm:mt-16 sm:gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+                @foreach ($news as $news)
+                    <x-news-card h3Color="gray-900" textColor="gray-600" :news="$news" />
+                @endforeach
+            </div>
+        @endif
     </div>
 </x-app-layout>
