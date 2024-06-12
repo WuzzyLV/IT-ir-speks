@@ -1,7 +1,7 @@
 <x-staff-layout class="flex w-full flex-col text-gray-900">
 <div x-data>
     <div class="flex items-center justify-between px-6 py-4 shadow lg:px-8" >
-        <h2 class="text-lg font-bold tracking-tight sm:text-xl">{{$new ? "Jauna aktualitāte" : "Anglijā izgudro 6G internetu}"}}</h2>
+        <h2 class="text-lg font-bold tracking-tight sm:text-xl">{{$new ? "Jauna aktualitāte" : $news->title}}</h2>
         <div class="flex gap-1 flex-wrap justify-center">
             <a
                 href="{{ route('admin-news') }}"
@@ -43,6 +43,7 @@
                             </label>
                             <div class="mt-2">
                                 <input
+                                    value="{{$new ? "" : $news->title}}"
                                     type="text"
                                     name="title"
                                     id="title"
@@ -60,8 +61,14 @@
                             >
                                 Teksts
                             </label>
-                            <x-text-editor class="sm:col-span-6 mt-4"/>
-
+                                 <x-text-editor class="sm:col-span-6 mt-4">
+                                    @if ($news)
+                                        {!!$news->content!!}
+                                    @else
+                                        <h1>Tava ģeniālā darba iespēja </h1>
+                                        <p>Apraksti savu karjieras iespēju</p>
+                                    @endif
+                                 </x-text-editor>
                         </div>
 
                         <!-- image -->

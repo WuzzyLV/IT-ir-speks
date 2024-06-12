@@ -1,9 +1,5 @@
 @props([
     "class" => "",
-    "content" => "
-    <h1>Labākā darba vieta</h1>
-    <p>Apraksti savu karjieras iespēju</p>
-",
 ])
 
 <style>
@@ -139,12 +135,19 @@
                     class="h-96 w-full overflow-y-auto text-gray-900"
                     x-on:input="$refs.desc.value = $event.target.innerHTML"
                 >
-                    {!! $content !!}
+                    {!! $slot !!}
                 </div>
             </div>
         </div>
     </div>
-    <input type="text" id="desc" x-ref="desc" hidden required name="desc" />
+    <input
+        type="text"
+        id="content"
+        x-ref="desc"
+        hidden
+        required
+        name="content"
+    />
 </div>
 
 <script>
