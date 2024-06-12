@@ -17,7 +17,13 @@
             <div class=" -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
                 <div id="preview">
                     <div class="relative flex flex-col items-center gap-x-4 px-4 sm:px-0">
-                        <img src="https://logos-world.net/wp-content/uploads/2020/06/Accenture-Emblem.png" alt="" class="h-10 w-10 rounded-full border border-gray-400 bg-gray-50 object-contain" />
+                        <img @if ($vacancy->file()->exists())
+                        src="{{ asset("storage/" . $vacancy->file->file_path) }}"
+                        @else
+                        src="https://logos-world.net/wp-content/uploads/2020/06/Accenture-Emblem.png"
+                        @endif
+                        class="h-10 w-10 rounded-full border border-gray-400 bg-gray-50 object-contain"
+                        />
                         <div class="leading-6">
                             <p class="text-gray-900">
                                 <a href="#" class="">{{ $vacancy->company }}</a>
@@ -65,7 +71,7 @@
                                     Pieteikšanās termiņš
                                 </dt>
                                 <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-0">
-                                    {{ $vacancy->deadline }}
+                                    Līdz {{ BladeUtils::formatDate($vacancy->deadline) }}
                                 </dd>
                             </div>
                             <div class="flex justify-center px-4 py-6 sm:px-0">
@@ -73,8 +79,8 @@
                                     Pieteikties
                                 </button>
                             </div>
-                            
-                            
+
+
                             {{-- --------------------------- --}}
 
                             {{-- --------------------------- --}}
@@ -85,7 +91,7 @@
             </div>
             <div class=" -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
                 <div id="preview">
-                    
+
                 </div>
                 <x-apply-form />
             </div>
