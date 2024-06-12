@@ -16,7 +16,7 @@ class VacancyController extends Controller
     public function new(Request $request): View
     {
         return view('pages.admin.forms.edit-vacancy', [
-            'user' => null,
+            'vacancy' => null,
             'new' => true,
         ]);
     }
@@ -30,7 +30,7 @@ class VacancyController extends Controller
             'website' => 'required',
             // 'file_id' => 'required',
             'city' => 'required',
-            'workload' => 'required',
+            'workload' => Rule::in(['Pilna', 'Nepilna']),
             'salary' => 'required',
             'deadline' => 'required',
         ]);

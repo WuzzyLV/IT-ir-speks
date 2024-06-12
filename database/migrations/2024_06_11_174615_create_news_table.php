@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('content');
+            $table->text('desc');
             $table->unsignedBigInteger('file_id')->nullable();
             $table->timestamps();
 
