@@ -22,18 +22,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach(\App\Models\User::all() as $user)
+                    @foreach($users as $user)
                         <x-admin.user-row :user="$user"/>
                     @endforeach
                 </tbody>
             </table>
         </div>
-        <div class="flex justify-center my-4">
-            <div class="join border-gray-300">
-                <button class="join-item btn bg-transparent text-gray-900 !border-gray-300 hover:bg-gray-300/50">«</button>
-                <button class="join-item btn bg-transparent text-gray-900 !border-gray-300 hover:bg-gray-300/50 px-6">1</button>
-                <button class="join-item btn bg-transparent text-gray-900 !border-gray-300 hover:bg-gray-300/50">»</button>
-            </div>
+        <div class="flex justify-center my-2">
+              <x-admin.pagination page="{{$page}}" totalPages="{{$total_pages}}"/>
         </div>
     </div>
 </x-staff-layout>
