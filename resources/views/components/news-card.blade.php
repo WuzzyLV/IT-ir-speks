@@ -1,7 +1,4 @@
 @props(["textColor" => "", "h3Color" => "", "news" => null])
-@php
-    setlocale(LC_TIME, "lv_LV");
-@endphp
 
 <article
     class="max-w m-6 mx-4 flex max-w-xl flex-col items-start justify-start"
