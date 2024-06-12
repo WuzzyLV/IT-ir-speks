@@ -21,7 +21,8 @@ class NewsController extends Controller
     {
         $request->validate([
             'title' => 'required|unique:news,title',
-            'desc' => 'required',
+            'content' => 'required',
+            'desc' => 'required'
         ]);
         echo "here";
 
@@ -34,7 +35,8 @@ class NewsController extends Controller
 
         $news = new News();
         $news->title = $request->title;
-        $news->content = $request->desc;
+        $news->content = $request->content;
+        $news->desc = $request->desc;
         $news->save();
 
        return redirect()->route('admin-news');
