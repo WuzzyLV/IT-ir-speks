@@ -1,7 +1,7 @@
 <x-staff-layout class="flex w-full flex-col text-gray-900">
     <div x-data>
         <div class="flex items-center justify-between px-6 py-4 shadow lg:px-8">
-            <h2 class="text-lg font-bold tracking-tight sm:text-xl">{{$vacancy->name ?? "Jauna vakance"}}</h2>
+            <h2 class="text-lg font-bold tracking-tight sm:text-xl">{{$vacancy->title ?? "Jauna vakance"}}</h2>
             <div class="flex gap-1 flex-wrap justify-center">
                 <a href="{{ route('admin-vacancies') }}" class="btn btn-sm border-red-500 bg-transparent text-red-500">
                     Atpakaļ
@@ -39,16 +39,16 @@
                                 Nosaukums
                             </label>
                             <div class="mt-4">
-                                <input type="text" name="title" id="title" placeholder="Vecakais UML diagrammu specalists" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{$vacancy ? $vacancy->name : ""}}" />
+                                <input type="text" name="title" id="title" placeholder="Vecakais UML diagrammu specalists" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{$vacancy ? $vacancy->title : ""}}" />
                             </div>
                         </div>
 
                         <div class="sm:col-span-2">
-                            <label for="title" class="block text-sm font-medium leading-6 text-gray-900">
+                            <label for="company" class="block text-sm font-medium leading-6 text-gray-900">
                                 Kompanija
                             </label>
                             <div class="mt-4">
-                                <input type="text" name="title" id="title" placeholder="SIA Kaka" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{$vacancy ? $vacancy->company : ""}}" />
+                                <input type="text" name="company" id="company" placeholder="SIA Kaka" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{$vacancy ? $vacancy->company : ""}}" />
                             </div>
                         </div>
 

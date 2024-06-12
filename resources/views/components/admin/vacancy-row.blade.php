@@ -3,7 +3,7 @@
 <tr class="border-b-0 my-4">
     <td class="text-center">
         <p class="mb-1 text-base font-medium">
-            {{$vacancy->name}}
+            {{$vacancy->title}}
         </p>
 
     </td>

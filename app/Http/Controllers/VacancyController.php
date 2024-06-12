@@ -24,7 +24,7 @@ class VacancyController extends Controller
     public function handleNew(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'title' => 'required',
             'company' => 'required',
             'desc' => 'required',
             'website' => 'required',
@@ -43,7 +43,7 @@ class VacancyController extends Controller
         }
 
         $vacancy = new Vacancy();
-        $vacancy->name = $request->name;
+        $vacancy->title = $request->title;
         $vacancy->company = $request->company;
         $vacancy->desc = $request->desc;
         $vacancy->website = $request->website;

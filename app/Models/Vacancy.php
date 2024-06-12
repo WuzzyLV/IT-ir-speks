@@ -10,7 +10,7 @@ class Vacancy extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
+        'title',
         'desc',
         'website',
         // 'file_id',
