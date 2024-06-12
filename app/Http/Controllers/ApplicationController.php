@@ -53,5 +53,11 @@ class ApplicationController extends Controller
             ->with('success', 'Pieteikums nosūtīts');
     }
 
+    public function destroy(Request $request){
+        $application = Application::findOrFail($request->id);
+        $application->delete();
+        return redirect()->route('applications');
+    }
+
 
 }

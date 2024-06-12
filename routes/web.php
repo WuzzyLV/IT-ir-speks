@@ -70,6 +70,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard/applications/{id}', function ($id) {
         return view('pages.admin.application', ['id' => $id]); })
         ->name('view-application');
+
+        Route::delete('/dashboard/applications/{id}', [ApplicationController::class, "destroy"])
+            ->name('delete-application');
 });
 
 
