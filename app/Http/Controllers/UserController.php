@@ -13,6 +13,18 @@ use Illuminate\View\View;
 
 class UserController extends Controller
 {
+    public function view(Request $request): View
+    {
+        $perPage= 7;
+        $page= $request->input('page', 1);
+
+        $total_pages= ceil(User::count()/$perPage);
+        return view('pages.admin.users', [
+            'page' => $page,
+            'total_pages' => $total_pages,
+            'users' => User::with('role')->paginate($perPage, ['*'], 'page', $page),
+        ]);
+    }
 
     public function new(Request $request): View
     {

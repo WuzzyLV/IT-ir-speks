@@ -19,9 +19,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('dashboard');
 
     Route::middleware(['role:admin'])->group(function () {
-        Route::get('/dashboard/users', function () {
-            return view('pages.admin.users');
-        })
+        Route::get('/dashboard/users', [UserController::class, "view"])
             ->name('users');
         Route::get('/dashboard/users/new', [UserController::class, "new"])
             ->name('new-user');
@@ -36,7 +34,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             ->name('delete-user');
 
         Route::get('/dashboard/news', [NewsController::class, 'adminNews'])->name('admin-news');
-        
+
         Route::get('/dashboard/news/new', [NewsController::class, "new"])
             ->name('new-news');
         Route::post('/dashboard/news/new', [NewsController::class, "handleNew"])
