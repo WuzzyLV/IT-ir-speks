@@ -6,7 +6,7 @@
                     <x-breadcrumbs currentRoute="Vecakais UML diagrammu specalists" />
                     <div class="lg:max-w-lg">
                         <p class="text-base font-semibold leading-7 text-indigo-600">
-                            Līdz {{ BladeUtils::formatDate($vacancy->deadline, true) }}
+                            Līdz {{ BladeUtils::formatDate($vacancy->deadline) }}
                         </p>
                         <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                             {{ $vacancy->title }}
@@ -92,7 +92,7 @@
             <div class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
                 <div class="lg:pr-4">
                     <div class="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg">
-                        {{ $vacancy->content }}
+                        {!! $vacancy->content !!}
                     </div>
                 </div>
             </div>
