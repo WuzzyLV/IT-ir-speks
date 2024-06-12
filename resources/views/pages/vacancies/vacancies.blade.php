@@ -10,17 +10,13 @@
             </p>
         </div>
         @php
-        $vacancies = \App\Models\Vacancy::all();
+            $vacancies = \App\Models\Vacancy::all();
         @endphp
 
 
 
         @if($vacancies->isEmpty())
-
-        <x-empty-state :isVacancies="true" />
-
-        
-
+            <x-empty-state :isVacancies="true" />
         @else
             <div class="mx-auto mt-10 grid max-w-2xl grid-cols-1 border-y border-gray-300 sm:mt-16 sm:gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
                 @foreach ($vacancies as $vacancy)
