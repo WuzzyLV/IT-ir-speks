@@ -13,7 +13,6 @@
                     Atpakaļ
                 </a>
                 <button
-                    href="{{ route('users') }}"
                     class="btn btn-sm border-accent1 bg-transparent text-accent1"
                     x-on:click="$refs.formBtn.click()"
                 >
