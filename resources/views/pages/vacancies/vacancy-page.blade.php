@@ -4,34 +4,18 @@
     >
         <!-- errors -->
         @if ($errors->any())
-            <div
-                class="relative rounded border border-red-400 bg-red-100 px-4 py-3 text-center text-red-700"
-                role="alert"
-            >
-                <strong
-                    class="fa-solid fa-triangle-exclamation font-bold"
-                ></strong>
-                <span class="block sm:inline">{{ $errors->first() }}</span>
-            </div>
+            <x-alert type="error">
+                @foreach ($errors->all() as $error)
+                    {{ $error }}
+                    <br />
+                @endforeach
+            </x-alert>
         @endif
 
         @if (session("success"))
-            <div
-                x-data="{ show: true }"
-                x-show="show"
-                x-transition
-                x-init="setTimeout(() => (show = false), 5000)"
-            >
-                <div
-                    class="relative rounded border border-green-400 bg-green-100 px-4 py-3 text-center text-green-700 opacity-100 transition-all"
-                    role="alert"
-                >
-                    <strong class="fa-solid fa-check font-bold"></strong>
-                    <span class="block sm:inline">
-                        {{ session("success") }}
-                    </span>
-                </div>
-            </div>
+            <x-alert type="success">
+                {{ session("success") }}
+            </x-alert>
         @endif
 
         <div
