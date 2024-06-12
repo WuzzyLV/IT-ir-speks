@@ -23,7 +23,7 @@
         <h3
             class="text-lg text-{{ $h3Color }} mt-3 font-semibold leading-6 group-hover:text-accent1"
         >
-            <a href="{{ route("news-page", 1) }}">
+            <a href="{{ route("news-page", $news->id) }}">
                 <span class="absolute inset-0"></span>
                 {{ $news->title }}
             </a>
