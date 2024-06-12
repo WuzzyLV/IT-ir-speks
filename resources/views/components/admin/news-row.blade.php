@@ -11,7 +11,7 @@
 
     <td class="hidden items-center justify-center xs:flex">
         <time datetime="{{ date_format($news->created_at, "Y-m-d") }}">
-            {{ date_format($news->created_at, "Y-m-d") }}
+            {{ BladeUtils::formatDate($news->created_at) }}
         </time>
     </td>
     <td>
