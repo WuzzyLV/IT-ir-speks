@@ -6,10 +6,10 @@
                     <x-breadcrumbs currentRoute="Vecakais UML diagrammu specalists" />
                     <div class="lg:max-w-lg">
                         <p class="text-base font-semibold leading-7 text-indigo-600">
-                            2024. g. 1. marts
+                            Līdz {{ BladeUtils::formatDate($vacancy->deadline) }}
                         </p>
                         <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                            Vecākais UML diagrammu speciālists
+                            {{ $vacancy->title }}
                         </h1>
                     </div>
                 </div>
@@ -20,7 +20,7 @@
                         <img src="https://logos-world.net/wp-content/uploads/2020/06/Accenture-Emblem.png" alt="" class="h-10 w-10 rounded-full border border-gray-400 bg-gray-50 object-contain" />
                         <div class="leading-6">
                             <p class="text-gray-900">
-                                <a href="#" class="">Accenture</a>
+                                <a href="#" class="">{{ $vacancy->company }}</a>
                             </p>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                                     Slodze
                                 </dt>
                                 <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-0">
-                                    Pilna
+                                    {{ $vacancy->workload }}
                                 </dd>
                             </div>
                             <div class="px-4 py-6 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-0">
@@ -39,7 +39,7 @@
                                     Alga
                                 </dt>
                                 <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-0">
-                                    950 € - 1,110 €
+                                    {{ $vacancy->salary }}
                                 </dd>
                             </div>
                             <div class="px-4 py-6 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-0">
@@ -47,7 +47,7 @@
                                     Atrašanās vieta
                                 </dt>
                                 <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-0">
-                                    Piltenes iela 34, Liepāja
+                                    {{ $vacancy->city }}
                                 </dd>
                             </div>
                             <div class="px-4 py-6 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-0">
@@ -55,8 +55,8 @@
                                     Mājaslapa
                                 </dt>
                                 <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-0">
-                                    <a href="https://www.accenture.lv" class="text-accent1 hover:underline">
-                                        www.accenture.lv
+                                    <a href="{{ $vacancy->website }}" class="text-accent1 hover:underline">
+                                        {{ $vacancy->website }}
                                     </a>
                                 </dd>
                             </div>
@@ -65,7 +65,7 @@
                                     Pieteikšanās termiņš
                                 </dt>
                                 <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-0">
-                                    2024. g. 15. marts
+                                    {{ $vacancy->deadline }}
                                 </dd>
                             </div>
                             <div class="flex justify-center px-4 py-6 sm:px-0">
@@ -92,67 +92,7 @@
             <div class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
                 <div class="lg:pr-4">
                     <div class="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg">
-                        <p>
-                            Faucibus commodo massa rhoncus, volutpat. Dignissim
-                            sed eget risus enim. Mattis mauris semper sed amet
-                            vitae sed turpis id. Id dolor praesent donec est.
-                            Odio penatibus risus viverra tellus varius sit neque
-                            erat velit. Faucibus commodo massa rhoncus,
-                            volutpat. Dignissim sed eget risus enim. Mattis
-                            mauris semper sed amet vitae sed turpis id.
-                        </p>
-                        <ul role="list" class="mt-8 space-y-8 text-gray-600">
-                            <li class="flex gap-x-3">
-                                <span>
-                                    <strong class="font-semibold text-gray-900">
-                                        Push to deploy.
-                                    </strong>
-                                    Lorem ipsum, dolor sit amet consectetur
-                                    adipisicing elit. Maiores impedit
-                                    perferendis suscipit eaque, iste dolor
-                                    cupiditate blanditiis ratione.
-                                </span>
-                            </li>
-                            <li class="flex gap-x-3">
-                                <span>
-                                    <strong class="font-semibold text-gray-900">
-                                        SSL certificates.
-                                    </strong>
-                                    Anim aute id magna aliqua ad ad non deserunt
-                                    sunt. Qui irure qui lorem cupidatat commodo.
-                                </span>
-                            </li>
-                            <li class="flex gap-x-3">
-                                <span>
-                                    <strong class="font-semibold text-gray-900">
-                                        Database backups.
-                                    </strong>
-                                    Ac tincidunt sapien vehicula erat auctor
-                                    pellentesque rhoncus. Et magna sit morbi
-                                    lobortis.
-                                </span>
-                            </li>
-                        </ul>
-                        <p class="mt-6">
-                            Et vitae blandit facilisi magna lacus commodo. Vitae
-                            sapien duis odio id et. Id blandit molestie auctor
-                            fermentum dignissim. Lacus diam tincidunt ac cursus
-                            in vel. Mauris varius vulputate et ultrices hac
-                            adipiscing egestas. Iaculis convallis ac tempor et
-                            ut. Ac lorem vel integer orci.
-                        </p>
-                        <h2 class="my-6 text-2xl font-bold tracking-tight text-gray-900">
-                            No server? No problem.
-                        </h2>
-                        <p class="mt-6">
-                            Id orci tellus laoreet id ac. Dolor, aenean leo, ac
-                            etiam consequat in. Convallis arcu ipsum urna nibh.
-                            Pharetra, euismod vitae interdum mauris enim,
-                            consequat vulputate nibh. Maecenas pellentesque id
-                            sed tellus mauris, ultrices mauris. Tincidunt enim
-                            cursus ridiculus mi. Pellentesque nam sed nullam sed
-                            diam turpis ipsum eu a sed convallis diam
-                        </p>
+                        {!! $vacancy->content !!}
                     </div>
                 </div>
             </div>

@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VacancyController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Vacancy;
 
 Route::get('/', function () {
     return view('pages.landing');
@@ -76,7 +77,8 @@ Route::get('/vacancies', function () {
 })->name('vacancies');
 
 Route::get('/vacancies/{id}', function ($id) {
-    return view('pages.vacancies.vacancy-page', ['id' => $id]);
+    $vacancy = Vacancy::findOrFail($id);
+    return view('pages.vacancies.vacancy-page', ['vacancy' => $vacancy]);
 })->name('vacancy');
 
 Route::get('/news', function () {
