@@ -10,8 +10,8 @@
     </td>
 
     <td class="hidden items-center justify-center xs:flex">
-        <time datetime="2020-03-16">
-            {{ $news->created_at }}
+        <time datetime="{{ date_format($news->created_at, "Y-m-d") }}">
+            {{ date_format($news->created_at, "Y-m-d") }}
         </time>
     </td>
     <td>
