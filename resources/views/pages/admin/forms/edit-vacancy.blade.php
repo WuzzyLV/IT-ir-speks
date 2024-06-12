@@ -138,8 +138,8 @@
                             </label>
                             <div class="mt-2">
                                 <select id="workload" name="workload" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{$vacancy ? $vacancy->workload : ""}}">
-                                    <option>Pilna</option>
-                                    <option>Nepilna</option>
+                                    <option @selected($vacancy ?? false)>Pilna</option>
+                                    <option @selected($vacancy ?? false)>Nepilna</option>
                                 </select>
                             </div>
                         </div>
