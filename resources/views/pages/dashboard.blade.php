@@ -37,7 +37,7 @@
             <h2
                 class="text-lg sm:text-lg mx-6 flex items-center border-b border-b-gray-300 py-4 font-bold tracking-tight"
             >
-                Pēdējās aktualītātes
+                Pēdējās darbības
             </h2>
             <table class="table">
                 <!-- head -->
