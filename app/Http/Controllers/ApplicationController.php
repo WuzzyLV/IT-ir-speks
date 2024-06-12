@@ -11,11 +11,25 @@ use Illuminate\View\View;
 
 class ApplicationController extends Controller
 {
+
     public function view(Request $request): View
+    {
+        $perPage= 7;
+        $page= $request->input('page', 1);
+
+        $total_pages= ceil(Application::count()/$perPage);
+        return view('pages.admin.applications', [
+            'page' => $page,
+            'total_pages' => $total_pages,
+            'applications' => Application::paginate($perPage, ['*'], 'page', $page),
+        ]);
+    }
+    public function viewPage(Request $request): View
     {
         $application = Application::findOrFail($request->id);
         return view('pages.admin.application-page', ['application' => $application]);
     }
+
 
     public function apply(Request $request)
     {

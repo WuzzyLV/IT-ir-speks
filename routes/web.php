@@ -68,12 +68,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
             ->name('delete-vacancy');
     });
 
-    Route::get('/dashboard/applications', function () {
-        return view('pages.admin.applications');
-    })
+    Route::get('/dashboard/applications', [ApplicationController::class, "view"])
         ->name('applications');
 
-    Route::get('/dashboard/applications/{id}', [ApplicationController::class, "view"])
+    Route::get('/dashboard/applications/{id}', [ApplicationController::class, "viewPage"])
         ->name('view-application');
 
     Route::delete('/dashboard/applications/{id}', [ApplicationController::class, "destroy"])
