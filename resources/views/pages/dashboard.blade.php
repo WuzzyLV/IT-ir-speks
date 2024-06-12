@@ -1,43 +1,29 @@
 <x-staff-layout class="text-gray-900">
-    <div
-        class="flex items-center justify-between border-b border-gray-300 px-6 py-4 shadow lg:px-8"
-    >
-        
+    <div class="flex items-center justify-between border-b border-gray-300 px-6 py-4 shadow lg:px-8">
+
         <h2 class="tracking-tight sm:text-xl text-lg font-bold">Sākums</h2>
     </div>
     <dl class="grid grid-cols-1 text-center md:grid-cols-2 lg:grid-cols-3">
-        <div
-            class="mx-auto flex w-full flex-col gap-y-2 border-r border-r-gray-300 py-4"
-        >
+        <div class="mx-auto flex w-full flex-col gap-y-2 border-r border-r-gray-300 py-4">
             <dt class="text-base leading-7 text-gray-600">Pieteikumi</dt>
-            <dd
-                class="order-first text-2xl font-semibold tracking-tight text-gray-900 sm:text-3xl"
-            >
-                13
+            <dd class="order-first text-2xl font-semibold tracking-tight text-gray-900 sm:text-3xl">
+                {{ \App\Models\Application::count() }}
             </dd>
         </div>
-        <div
-            class="mx-auto flex w-full flex-col gap-y-2 border-r border-r-gray-300 py-4"
-        >
+        <div class="mx-auto flex w-full flex-col gap-y-2 border-r border-r-gray-300 py-4">
             <dt class="text-base leading-7 text-gray-600">Vakances</dt>
-            <dd
-                class="order-first text-2xl font-semibold tracking-tight text-gray-900 sm:text-3xl"
-            >
-                7
+            <dd class="order-first text-2xl font-semibold tracking-tight text-gray-900 sm:text-3xl">
+                {{ \App\Models\Vacancy::count() }}
             </dd>
         </div>
         <div class="mx-auto flex w-full flex-col gap-y-2 py-4">
             <dt class="text-base leading-7 text-gray-600">Aktualitātes</dt>
-            <dd
-                class="order-first text-2xl font-semibold tracking-tight text-gray-900 sm:text-3xl"
-            >
-                3
+            <dd class="order-first text-2xl font-semibold tracking-tight text-gray-900 sm:text-3xl">
+                {{ \App\Models\News::count() }}
             </dd>
         </div>
         <div class="col-span-3 h-full border-t border-t-gray-300">
-            <h2
-                class="text-lg sm:text-lg mx-6 flex items-center border-b border-b-gray-300 py-4 font-bold tracking-tight"
-            >
+            <h2 class="text-lg sm:text-lg mx-6 flex items-center border-b border-b-gray-300 py-4 font-bold tracking-tight">
                 Pēdējās darbības
             </h2>
             <table class="table">
@@ -58,12 +44,8 @@
                             <p class="text-gray-400">coolman@auth.lv</p>
                         </td>
                         <td class="items-center justify-center text-center">
-                            <div
-                                class="badge badge-outline h-auto gap-2 border-gray-400 py-1 shadow"
-                            >
-                                <i
-                                    class="fa-solid fa-shield text-base text-accent1"
-                                ></i>
+                            <div class="badge badge-outline h-auto gap-2 border-gray-400 py-1 shadow">
+                                <i class="fa-solid fa-shield text-base text-accent1"></i>
                                 <p class="text-sm">Administrators</p>
                             </div>
                         </td>
@@ -82,12 +64,8 @@
                             <p class="text-gray-400">coolman@auth.lv</p>
                         </td>
                         <td class="items-center justify-center text-center">
-                            <div
-                                class="badge badge-outline h-auto gap-2 border-gray-400 py-1 shadow"
-                            >
-                                <i
-                                    class="fa-solid fa-shield-halved text-base text-accent1"
-                                ></i>
+                            <div class="badge badge-outline h-auto gap-2 border-gray-400 py-1 shadow">
+                                <i class="fa-solid fa-shield-halved text-base text-accent1"></i>
                                 <p class="text-sm">Moderators</p>
                             </div>
                         </td>
