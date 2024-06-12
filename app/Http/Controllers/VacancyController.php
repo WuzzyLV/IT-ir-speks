@@ -14,6 +14,11 @@ use Illuminate\View\View;
 
 class VacancyController extends Controller
 {
+    public function view(Request $request): View
+    {
+        $vacancy = Vacancy::findOrFail($request->id);
+        return view('pages.vacancies.vacancy-page', ['vacancy' => $vacancy]);
+    }
     public function new(Request $request): View
     {
         return view('pages.admin.forms.edit-vacancy', [
@@ -21,6 +26,7 @@ class VacancyController extends Controller
             'new' => true,
         ]);
     }
+
 
     public function handleNew(Request $request): RedirectResponse
     {
@@ -40,7 +46,7 @@ class VacancyController extends Controller
         $file=null;
         if ($request->hasFile('image')) {
             $request->validate([
-                'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:20480',
+                'image' => 'image|mimes:jpeg,png,webp,jpg,gif,svg|max:20480',
             ]);
             $file = FileUtils::store($request->file('image'),"logos");
         }
@@ -91,7 +97,7 @@ class VacancyController extends Controller
         $file=null;
         if ($request->hasFile('image')) {
             $request->validate([
-                'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:20480',
+                'image' => 'image|mimes:jpeg,png,webp,jpg,gif,svg|max:20480',
             ]);
             $file = FileUtils::store($request->file('image'),"logos");
         }
