@@ -7,9 +7,15 @@ use App\Models\Application;
 use App\Models\Vacancy;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class ApplicationController extends Controller
 {
+    public function view(Request $request): View
+    {
+        $application = Application::findOrFail($request->id);
+        return view('pages.admin.application-page', ['application' => $application]);
+    }
 
     public function apply(Request $request)
     {
@@ -51,6 +57,12 @@ class ApplicationController extends Controller
 
         return redirect()->route('vacancy', ['id' => $request->id])
             ->with('success', 'Pieteikums nosūtīts');
+    }
+
+    public function destroy(Request $request){
+        $application = Application::findOrFail($request->id);
+        $application->delete();
+        return redirect()->route('applications');
     }
 
 

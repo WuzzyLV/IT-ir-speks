@@ -12,12 +12,23 @@
                 </p>
             </div>
 
+            <div>
             <a
                 href="{{ route("applications") }}"
                 class="btn btn-sm border-red-500 bg-transparent text-red-500"
             >
                 Atpakaļ
             </a>
+            <form action="{{ route("delete-application", $application->id) }}" method="post" class="inline-block">
+                @csrf
+                @method("DELETE")
+                <button type="submit" class="btn ml-4 btn-sm border-red-500 bg-transparent text-red-500">
+                <i class="fa-solid fa-circle-exclamation "></i>
+                Dzēst
+                </button>
+            </form>
+            </div>
+
         </div>
         <div class="mt-4 border-t border-gray-100">
             <dl class="divide-y divide-gray-100">
@@ -28,7 +39,7 @@
                     <dd
                         class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"
                     >
-                        Peteriks Volteris
+                        {{ $application->name }} {{ $application->surname }}
                     </dd>
                 </div>
                 <div class="py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -42,7 +53,7 @@
                             href="{{ route("vacancy", 1) }}"
                             class="text-accent1 hover:underline"
                         >
-                            Vecakais UML diagrammu specalists
+                            {{ $application->vacancy()->first()->title }}
                         </a>
                     </dd>
                 </div>
@@ -53,7 +64,7 @@
                     <dd
                         class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"
                     >
-                        ppSlayer123@inbox.lv
+                        {{ $application->email }}
                     </dd>
                 </div>
                 <div class="py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -75,19 +86,20 @@
                                 <div class="flex w-0 flex-1 items-center">
                                     <div class="ml-4 flex min-w-0 flex-1 gap-2">
                                         <span class="truncate font-medium">
-                                            Labakais_CV.pdf
+                                            {{ $application->file()->first()->filename }}
                                         </span>
                                         <span
                                             class="hidden flex-shrink-0 text-gray-400 xs:block"
                                         >
-                                            582.2mb
+                                        {{intval(Storage::disk('public')->size($application->file()->first()->file_path)/1024) }} KB
                                         </span>
                                     </div>
                                 </div>
                                 <div class="ml-4 flex-shrink-0">
                                     <a
-                                        href="#"
+                                        href="{{ Storage::url($application->file()->first()->file_path) }}"
                                         class="font-medium text-accent1 hover:text-dark1"
+                                        download
                                     >
                                         <i
                                             class="fa-solid fa-download mr-2"
