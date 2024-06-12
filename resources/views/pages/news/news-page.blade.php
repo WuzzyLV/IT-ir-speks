@@ -1,6 +1,6 @@
 <x-app-layout>
     <div
-        class="relative isolate overflow-hidden bg-light1 px-6 py-8 sm:py-32 lg:overflow-visible lg:px-0"
+        class="isolate flex flex-col items-center overflow-hidden bg-light1 px-6 py-8 sm:py-32 lg:overflow-visible lg:px-0"
     >
         <div
             class="mx-auto grid max-w-5xl grid-cols-1 gap-x-8 gap-y-8 lg:mx-0 lg:items-start"
