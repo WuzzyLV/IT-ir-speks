@@ -17,7 +17,7 @@ class UserObserver
             'desc' => $user->role()->first()->name,
             'action' => 'create user',
         ]);
-        $activity->user()->associate(Auth::user());
+        $activity->user()->associate($user);
         $activity->save();
     }
 
@@ -38,7 +38,7 @@ class UserObserver
             'desc' => $user->role()->first()->name,
             'action' => 'delete user',
         ]);
-        $activity->user()->associate(Auth::user());
+        $activity->user()->associate($user);
         $activity->save();
     }
 
