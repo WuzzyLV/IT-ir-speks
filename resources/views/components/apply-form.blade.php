@@ -111,7 +111,7 @@
                     Tavs CV
                 </label>
                 <div
-                    class="shdow mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 bg-white px-6 py-10 shadow"
+                    class="shdow mt-2 transition-all border-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 bg-white px-6 py-10 shadow"
                     id="drop-area"
                 >
                     <div class="text-center">
@@ -194,12 +194,40 @@
             dropArea.addEventListener('drop', handleDrop, false);
 
             function handleDrop(e) {
+                e.preventDefault();  // Prevent default behavior (Prevent file from being opened)
+                
                 let dt = e.dataTransfer;
                 let files = dt.files;
-                // Pass the file to the input element
-                fileInput.files = files;
-                handleUploadVisually(files[0].name);
+                
+                // Define accepted file types based on fileInput accept attribute
+                let acceptedTypes = fileInput.accept.split(',').map(type => type.trim());
+
+                console.log(files);
+                console.log(acceptedTypes);
+
+                // Check if the dropped file matches the accepted file types
+                let isValidType = Array.from(files).every(file => {
+                    return acceptedTypes.includes(file.type) || acceptedTypes.some(type => type.startsWith(file.type.split('/')[0] + '/*'));
+                });
+
+                if (isValidType) {
+                    // Pass the file to the input element
+                    fileInput.files = files;
+                    handleUploadVisually(files[0].name);
+                } else {
+                    dropArea.classList.add('border-red-400');
+                    dropArea.classList.add('bg-red-200');
+                    setTimeout(() => {
+                        dropArea.classList.remove('border-red-400');
+                        dropArea.classList.remove('bg-red-200');
+                    }, 1000);
+                }
             }
+
+            fileInput.addEventListener('change', () => {
+                handleUploadVisually(fileInput.files[0].name);
+            });
+
 
             function handleUploadVisually(fileName) {
                 fileResult.textContent = fileName;
