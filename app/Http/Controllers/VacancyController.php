@@ -48,6 +48,11 @@ class VacancyController extends Controller
                 'salary_min' => 'required|numeric',
                 'salary_max' => 'required|numeric',
             ]);
+            if ($request->salary_min>$request->salary_max){
+                $temp=$request->salary_min;
+                $request->salary_min=$request->salary_max;
+                $request->salary_max=$temp;
+            }
             $isSalaryRange=true;
         }else{
             $request->validate([
@@ -121,6 +126,11 @@ class VacancyController extends Controller
                 'salary_min' => 'required|numeric',
                 'salary_max' => 'required|numeric',
             ]);
+            if ($request->salary_min>$request->salary_max){
+                $temp=$request->salary_min;
+                $request->salary_min=$request->salary_max;
+                $request->salary_max=$temp;
+            }
             $isSalaryRange=true;
         }else{
             $request->validate([
