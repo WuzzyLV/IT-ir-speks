@@ -2,6 +2,38 @@
     <div
         class="relative isolate overflow-hidden bg-light1 px-6 py-8 sm:py-24 lg:overflow-visible lg:px-0"
     >
+        <!-- errors -->
+        @if ($errors->any())
+            <div
+                class="relative rounded border border-red-400 bg-red-100 px-4 py-3 text-center text-red-700"
+                role="alert"
+            >
+                <strong
+                    class="fa-solid fa-triangle-exclamation font-bold"
+                ></strong>
+                <span class="block sm:inline">{{ $errors->first() }}</span>
+            </div>
+        @endif
+
+        @if (session("success"))
+            <div
+                x-data="{ show: true }"
+                x-show="show"
+                x-transition
+                x-init="setTimeout(() => (show = false), 5000)"
+            >
+                <div
+                    class="relative rounded border border-green-400 bg-green-100 px-4 py-3 text-center text-green-700 opacity-100 transition-all"
+                    role="alert"
+                >
+                    <strong class="fa-solid fa-check font-bold"></strong>
+                    <span class="block sm:inline">
+                        {{ session("success") }}
+                    </span>
+                </div>
+            </div>
+        @endif
+
         <div
             class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-6"
         >
@@ -146,7 +178,7 @@
                         </dl>
                     </div>
                 </div>
-                <x-apply-form />
+                <x-apply-form vacancy-id="{{$vacancy->id}}" />
             </div>
             <div
                 class="mt-4 lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
