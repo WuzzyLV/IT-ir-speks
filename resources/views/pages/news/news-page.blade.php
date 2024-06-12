@@ -10,7 +10,7 @@
                     <x-breadcrumbs currentRoute="{{ $news->title }}" />
                     <div class="">
                         <p
-                            class="text-base font-semibold leading-7 text-indigo-600"
+                            class="text-base font-semibold leading-7 text-accent1"
                         >
                             <time
                                 datetime="{{ $news->created_at->format("Y-m-j") }}"
