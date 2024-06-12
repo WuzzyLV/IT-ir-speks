@@ -25,7 +25,7 @@ class NewsController extends Controller
             'content' => 'required',
             'desc' => 'required'
         ]);
-        
+
 
         $file = null;
         if ($request->hasFile('image')) {
@@ -61,9 +61,9 @@ class NewsController extends Controller
             'content' => 'required',
             'desc' => 'required'
         ]);
-        
 
-        $news;
+
+        $file = null;
         if ($request->hasFile('image')) {
             $request->validate([
                 'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:20480',
