@@ -3,7 +3,7 @@
 
         <h2 class="tracking-tight sm:text-xl text-lg font-bold">Sākums</h2>
     </div>
-    <dl class="grid grid-cols-1 text-center md:grid-cols-2 lg:grid-cols-3">
+    <dl class="grid grid-cols-3 text-center">
         <div class="mx-auto flex w-full flex-col gap-y-2 border-r border-r-gray-300 py-4">
             <dt class="text-base leading-7 text-gray-600">Pieteikumi</dt>
             <dd class="order-first text-2xl font-semibold tracking-tight text-gray-900 sm:text-3xl">
@@ -16,7 +16,7 @@
                 {{ \App\Models\Vacancy::count() }}
             </dd>
         </div>
-        <div class="mx-auto flex w-full flex-col gap-y-2 py-4">
+        <div class="mx-auto flex w-full flex-col gap-y-2 border-r border-r-gray-300 py-4">
             <dt class="text-base leading-7 text-gray-600">Aktualitātes</dt>
             <dd class="order-first text-2xl font-semibold tracking-tight text-gray-900 sm:text-3xl">
                 {{ \App\Models\News::count() }}
