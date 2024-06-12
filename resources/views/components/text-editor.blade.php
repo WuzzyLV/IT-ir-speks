@@ -1,4 +1,10 @@
-@props(["class" => ""])
+@props([
+    "class" => "",
+    "content" => "
+    <h1>Labākā darba vieta</h1>
+    <p>Apraksti savu karjieras iespēju</p>
+",
+])
 
 <style>
     @import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);
@@ -133,8 +139,7 @@
                     class="h-96 w-full overflow-y-auto text-gray-900"
                     x-on:input="$refs.desc.value = $event.target.innerHTML"
                 >
-                    <h1>Labākā darba vieta</h1>
-                    <p>Apraksti savu karjieras iespēju</p>
+                    {!! $content !!}
                 </div>
             </div>
         </div>
