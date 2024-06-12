@@ -77,13 +77,9 @@ Route::get('/vacancies', function () {
 })->name('vacancies');
 
 Route::get('/vacancies/{id}', function ($id) {
-    return view('pages.vacancies.vacancy-page', ['id' => $id]);
-})->name('vacancy');
-
-Route::get('/vacancies/{id}', function ($id) {
     $vacancy = Vacancy::findOrFail($id);
     return view('pages.vacancies.vacancy-page', ['vacancy' => $vacancy]);
-})->name('news-page');
+})->name('vacancy');
 
 Route::get('/news', function () {
     return view('pages.news.news');
