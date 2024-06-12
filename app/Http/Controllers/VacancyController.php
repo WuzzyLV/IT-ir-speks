@@ -117,7 +117,7 @@ class VacancyController extends Controller
             // 'file_id' => 'required',
             'city' => 'required',
             'workload' => Rule::in(['Pilna', 'Nepilna']),
-            'deadline' => 'required',
+            'deadline' => 'required|date',
         ]);
 
         $isSalaryRange=false;

@@ -30,84 +30,10 @@
                 <!-- head -->
 
                 <tbody>
-                    <!-- row 1 -->
-                    <tr class="my-4 border-b-0 align-middle">
-                        <td class="text-center">
-                            <p class="mb-1 text-base font-medium">
-                                Izveidots lietotājs
-                            </p>
-                        </td>
-                        <td class="text-center">
-                            <p class="mb-1 text-base font-medium">
-                                MegaMind123
-                            </p>
-                            <p class="text-gray-400">coolman@auth.lv</p>
-                        </td>
-                        <td class="items-center justify-center text-center">
-                            <div class="badge badge-outline h-auto gap-2 border-gray-400 py-1 shadow">
-                                <i class="fa-solid fa-shield text-base text-accent1"></i>
-                                <p class="text-sm">Administrators</p>
-                            </div>
-                        </td>
-                    </tr>
-                    <!-- row 2 -->
-                    <tr class="my-4 border-b-0 align-middle">
-                        <td class="text-center">
-                            <p class="mb-1 text-base font-medium">
-                                Izveidots lietotājs
-                            </p>
-                        </td>
-                        <td class="text-center">
-                            <p class="mb-1 text-base font-medium">
-                                MegaMind123
-                            </p>
-                            <p class="text-gray-400">coolman@auth.lv</p>
-                        </td>
-                        <td class="items-center justify-center text-center">
-                            <div class="badge badge-outline h-auto gap-2 border-gray-400 py-1 shadow">
-                                <i class="fa-solid fa-shield-halved text-base text-accent1"></i>
-                                <p class="text-sm">Moderators</p>
-                            </div>
-                        </td>
-                    </tr>
-                    <!-- row 3 -->
-                    <tr class="my-4 border-b-0 align-middle">
-                        <td class="text-center">
-                            <p class="mb-1 text-base font-medium">
-                                Jauna aktualitāte
-                            </p>
-                        </td>
-                        <td class="text-center">
-                            <p class="mb-1 text-base font-medium">
-                                ProAdmin123
-                            </p>
-                            <p class="text-gray-400">admin@auth.lv</p>
-                        </td>
-                        <td class="text-center">
-                            <p class="mb-1 line-clamp-1 text-base font-normal">
-                                Kā 6g ieteikmē tavas smadzenes!?!?!
-                            </p>
-                        </td>
-                    </tr>
-                    <!-- row 4 -->
-                    <tr class="my-4 border-b-0 align-middle">
-                        <td class="text-center">
-                            <p class="mb-1 text-base font-medium">
-                                Jauna vakance
-                            </p>
-                        </td>
-                        <td class="text-center">
-                            <p class="mb-1 text-base font-medium">
-                                ProAdmin123
-                            </p>
-                            <p class="text-gray-400">admin@auth.lv</p>
-                        </td>
-                        <td class="text-center">
-                            <p class="mb-1 line-clamp-1 text-base font-normal">
-                                UML vecakais zimetājs
-                            </p>
-                        </td>
-                    </tr>
+                    @foreach(\App\Models\Activity::latest()->take(6)->get() as $activity)
+                        <x-admin.activity-row :activity="$activity"/>
+                    @endforeach
+
                 </tbody>
             </table>
         </div>

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Activity extends Model
 {
@@ -13,11 +14,11 @@ class Activity extends Model
     protected $table = 'activities';
 
     protected $fillable = [
-        'who', 'desc', 'action', 'role_id'
+        'desc', 'action'
     ];
 
-    public function user()
+    public function user(): belongsTo
     {
-        return $this->belongsTo(User::class, 'who', 'id');
+        return $this->belongsTo(User::class, 'who');
     }
 }

@@ -13,12 +13,10 @@ return new class extends Migration
     {
         Schema::create('activities', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('who')->references('id')->on('users');
+            $table->foreignId('who')->nullable()->references('id')->on('users');
             $table->string('desc');
             $table->string('action');
             $table->timestamps();
-
-            $table->foreignId('role_id')->nullable()->references('id')->on('roles');
         });
     }
 
