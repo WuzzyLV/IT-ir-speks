@@ -6,8 +6,8 @@
 >
 @switch($status)
     @case('pending')
-    <i class="fa-solid fa-triangle-exclamation text-base text-yellow-400"></i>
-            <p class="text-sm">Gaida apstiprinājumu</p>
+    <i class="fa-solid  fa-triangle-exclamation text-base text-yellow-400"></i>
+            <p class="text-sm">Neizlemts</p>
         @break
     @case('accepted')
             <i
