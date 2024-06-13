@@ -90,13 +90,13 @@
                                 Attēls
                                 @if ($news && $news->file)
                                     <a
-                                        class="fa-solid fa-link cursor-pointer text-accent1 transition-all hover:scale-105"
+                                        class="fa-solid fa-link cursor-pointer p-1 text-accent1 transition-all hover:scale-105"
                                         href="{{ Storage::url($news->file->file_path) }}"
                                         target="_blank"
                                     ></a>
                                     <button
                                         @click.prevent="deleteImage()"
-                                        class="fa-solid fa-trash cursor-pointer text-red-500 hover:text-red-700"
+                                        class="fa-solid fa-trash cursor-pointer p-1 text-red-500 transition-all hover:scale-105 hover:text-red-700"
                                     ></button>
                                 @endif
                             </label>
