@@ -20,7 +20,7 @@ class VacancyController extends Controller
 
     public function deleteImage($id)
     {
-        $vacancy = News::find($id);
+        $vacancy = Vacancy::find($id);
 
         if (!$vacancy) {
             return response()->json(['error' => 'Vakance nav atrasta'], 404);
@@ -157,7 +157,7 @@ class VacancyController extends Controller
         $vacancy->visible = $this->isVisible($request);
         $vacancy->save();
 
-        return redirect()->route('admin-vacancies');
+        return redirect()->route('admin-vacancies')->with('success', 'Vakance veiksmīgi pievienota');
     }
 
     public function edit(Request $request): View
@@ -235,7 +235,7 @@ class VacancyController extends Controller
         }
         $vacancy->save();
 
-        return redirect()->route('admin-vacancies');
+        return redirect()->route('admin-vacancies')->with('success', 'Vakance veiksmīgi rediģēta');
     }
 
     public function destroy(Request $request): RedirectResponse
@@ -247,7 +247,7 @@ class VacancyController extends Controller
 
         $vacancy->delete();
 
-        return redirect()->route('admin-vacancies');
+        return redirect()->route('admin-vacancies')->with('success', 'Vakance veiksmīgi izdzēsta');
     }
 
     private function isVisible(Request $request): bool

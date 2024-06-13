@@ -50,7 +50,7 @@ class UserController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
 
-        return redirect()->route('users');
+        return redirect()->route('users')->with('success', 'Lietotājs veiksmīgi izveidots');
     }
 
     public function edit(Request $request): View
@@ -102,7 +102,7 @@ class UserController extends Controller
         //return with errors
 //        return redirect()->back()->withErrors(['error' => 'User cannot be edited']);
         //redirect to users
-        return redirect()->route('users');
+        return redirect()->route('users')->with('success', 'Lietotājs veiksmīgi rediģēts');
     }
 
     public function destroy(Request $request): RedirectResponse
@@ -116,6 +116,6 @@ class UserController extends Controller
         }
         $user->delete();
 
-        return redirect()->route('users');
+        return redirect()->route('users')->with('success', 'Lietotājs veiksmīgi izdzēsts');
     }
 }

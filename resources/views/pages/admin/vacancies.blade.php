@@ -5,6 +5,11 @@
             Jauna vakance
         </a>
     </div>
+    @if (session("success"))
+        <x-alert type="success">
+            {{ session("success") }}
+        </x-alert>
+        @endif
     <div class="flex-grow flex flex-col">
         <div class="mx-8 overflow-x-auto border-b-gray-300 border-b flex-grow ">
             <table class="table">

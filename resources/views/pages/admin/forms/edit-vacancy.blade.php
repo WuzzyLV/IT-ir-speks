@@ -1,5 +1,23 @@
 <x-staff-layout class="flex w-full flex-col text-gray-900">
-    <div x-data>
+    <div x-data="{
+            deleting: false,
+            deleteImage() {
+                this.deleting = true
+                axios
+                    .delete(
+                        '{{ $vacancy && $vacancy->file ? route("delete-vacancy-image", ["id" => $vacancy->id]) : "" }}',
+                    )
+                    .then((response) => {
+                        this.deleting = false
+                        console.log('Image deleted:', response)
+                        window.location.reload()
+                    })
+                    .catch((error) => {
+                        console.error('Error deleting image:', error)
+                        this.deleting = false
+                    })
+            },
+        }">
         <div class="flex items-center justify-between px-6 py-4 shadow lg:px-8">
             <h2 class="text-lg font-bold tracking-tight sm:text-xl">{{$vacancy->title ?? "Jauna vakance"}}</h2>
             <div class="flex gap-1 flex-wrap justify-center">
@@ -99,16 +117,21 @@
                         <div class="sm:col-span-3">
                             <label
                                 for="image"
+
                                 class="block text-sm font-medium leading-6 text-gray-900"
                             >
                                 Logo
                                 @if ($vacancy)
                                     @if ($vacancy->file()->exists())
                                         <a
-                                                class="fa-solid fa-link cursor-pointer text-accent1 transition-all hover:scale-105"
+                                                class="fa-solid fa-link cursor-pointer p-1 text-accent1 transition-all hover:scale-105"
                                                 href="{{ Storage::url($vacancy->file()->get()[0]->file_path) }}"
                                                 target="_blank"
                                             ></a>
+                                            <button
+                                        @click.prevent="deleteImage()"
+                                        class="fa-solid fa-trash cursor-pointer p-1 text-red-500 transition-all hover:scale-105 hover:text-red-700"
+                                    ></button>
                                     @endif
                                 @endif
                             </label>

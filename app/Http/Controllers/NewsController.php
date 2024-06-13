@@ -43,7 +43,7 @@ class NewsController extends Controller
                     // Remove the file reference from the news entry
                     $news->file_id = null;
                     $news->save();
-                    
+
                     // Delete the file record from the database
                     $file->delete();
 
@@ -99,7 +99,7 @@ class NewsController extends Controller
         $news->file_id = $file ? $file->id : null;
         $news->save();
 
-        return redirect()->route('admin-news');
+        return redirect()->route('admin-news')->with('success', 'Aktualitāte veiksmīgi izveidota');
     }
 
     public function edit(Request $request)
@@ -138,7 +138,7 @@ class NewsController extends Controller
         }
         $news->save();
 
-        return redirect()->route('admin-news');
+        return redirect()->route('admin-news')->with('success', 'Aktualitāte veiksmīgi rediģēta');
     }
 
     public function destroy(Request $request): RedirectResponse
@@ -150,7 +150,7 @@ class NewsController extends Controller
 
         $news->delete();
 
-        return redirect()->route('admin-news');
+        return redirect()->route('admin-news')->with('success', 'Aktualitāte veiksmīgi izdzēsta');
     }
 
     public function view(Request $request)
