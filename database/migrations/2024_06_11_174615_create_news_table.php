@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('content');
             $table->text('desc');
-            $table->boolean('visibility');
+            $table->boolean('visible');
             $table->unsignedBigInteger('file_id')->nullable();
             $table->timestamps();
 
