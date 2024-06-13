@@ -10,9 +10,9 @@
     <td class="hidden justify-center items-center xs:flex ">
         <div class="relative flex items-center gap-x-4">
             @if ($vacancy->file()->exists())
-                <img src="{{ Storage::url($vacancy->file()->get()[0]->file_path) }}" alt="" class="h-10 w-10 rounded-full  bg-gray-50 object-contain" />
+                <img src="{{ Storage::url($vacancy->file()->get()[0]->file_path) }}" alt="" class="h-10 w-10 rounded-full  bg-gray-50 object-contain border border-accent1" />
             @else
-                <div class="flex justify-center items-center h-10 w-10 rounded-full  bg-gray-50">
+                <div class="flex justify-center items-center h-10 w-10 rounded-full  bg-gray-50 border border-accent1">
                     <i class="fa-solid fa-building "></i>
                 </div>
             @endif
