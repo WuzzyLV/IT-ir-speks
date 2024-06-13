@@ -102,6 +102,7 @@
                                         <a
                                                 class="fa-solid fa-link cursor-pointer text-accent1 transition-all hover:scale-105"
                                                 href="{{ Storage::url($vacancy->file()->get()[0]->file_path) }}"
+                                                target="_blank"
                                             ></a>
                                     @endif
                                 @endif
