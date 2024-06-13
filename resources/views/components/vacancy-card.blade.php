@@ -6,14 +6,14 @@
             Līdz {{ BladeUtils::formatDate($vacancy->deadline, true) }}
         </time>
         <form action="">
-            <button type="submit" name="workload" value="{{$vacancy->workload}}" class="relative z-10 rounded-full bg-gray-200 px-3 py-1.5 font-medium text-dark1 hover:bg-accent1">
-                <i class="fa-regular fa-clock"></i> {{ $vacancy->workload }}
+            <button type="submit" name="workload" value="{{$vacancy->workload}}" class="flex flex-row items-center justify-center relative z-10 rounded-full bg-gray-200 px-3 py-1.5 font-medium text-dark1 hover:bg-accent1">
+                <i class="fa-regular fa-clock mr-1"></i> {{ $vacancy->workload }}
             </button>
         </form>
 
         <form action="">
-            <button type="submit" name="city" value="{{$vacancy->city}}" class="relative z-10 rounded-full bg-gray-200 px-3 py-1.5 font-medium text-dark1 hover:bg-accent1">
-            <i class="fa-regular fa-location-dot"></i> {{ $vacancy->city }}
+            <button type="submit" name="city" value="{{$vacancy->city}}" class="flex flex-row items-center justify-center relative z-10 rounded-full bg-gray-200 px-3 py-1.5 font-medium text-dark1 hover:bg-accent1">
+            <i class="fa-regular fa-location-dot mr-1"></i> {{ $vacancy->city }}
             </button>
         </form>
     </div>
