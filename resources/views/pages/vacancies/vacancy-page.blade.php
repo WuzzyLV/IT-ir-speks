@@ -2,18 +2,18 @@
     <div class="relative isolate overflow-hidden bg-light1 px-6 py-8 sm:py-24 lg:overflow-visible lg:px-0">
         <!-- errors -->
         @if ($errors->any())
-            <x-alert type="error">
-                @foreach ($errors->all() as $error)
-                    {{ $error }}
-                    <br />
-                @endforeach
-            </x-alert>
+        <x-alert type="error">
+            @foreach ($errors->all() as $error)
+            {{ $error }}
+            <br />
+            @endforeach
+        </x-alert>
         @endif
 
         @if (session("success"))
-            <x-alert type="success">
-                {{ session("success") }}
-            </x-alert>
+        <x-alert type="success">
+            {{ session("success") }}
+        </x-alert>
         @endif
 
         <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-6">
@@ -67,7 +67,11 @@
                                     Alga
                                 </dt>
                                 <dd class="mt-1 text-sm leading-6 text-gray-700 sm:mt-0">
-                                    {{ $vacancy->salary }} €
+                                    @if ($vacancy->salary_min == $vacancy->salary_max)
+                                    {{ $vacancy->salary_min }} €
+                                    @else
+                                    {{ $vacancy->salary_min }} - {{$vacancy->salary_max}} €
+                                    @endif
                                 </dd>
                             </div>
                             <div class="px-4 py-6 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-0">
