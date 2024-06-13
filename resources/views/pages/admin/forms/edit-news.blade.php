@@ -1,5 +1,16 @@
 <x-staff-layout class="flex w-full flex-col text-gray-900">
-    <div x-data="{ deleting: false, deleteImage() { this.deleting = true; axios.delete('{{ route('delete-news-image', ['id' => $news->id]) }}').then(response => { this.deleting = false; window.location.reload(); }).catch(error => { console.error(error); this.deleting = false; alert('Error deleting image'); }); } }">
+    <div x-data="{ deleting: false, deleteImage() { 
+        this.deleting = true; 
+        axios.delete('{{ $news && $news->file ? route('delete-news-image', ['id' => $news->id]) : '' }}')
+            .then(response => { 
+                this.deleting = false; 
+                window.location.reload(); 
+            })
+            .catch(error => { 
+                console.error('Error deleting image:', error); 
+                this.deleting = false; 
+            }); 
+        }}">
         <div class="flex items-center justify-between px-6 py-4 shadow lg:px-8">
             <h2 class="text-lg font-bold tracking-tight sm:text-xl">
                 {{ $new ? "Jauna aktualitāte" : $news->title }}
@@ -41,14 +52,9 @@
                         <div class="sm:col-span-3">
                             <label for="image" class="block text-sm font-medium leading-6 text-gray-900">
                                 Attēls
-                                @if($news->file()->exists())
-                                    @if ($news && $news->file()->first())
-                                        <a class="fa-solid fa-link cursor-pointer text-accent1 transition-all hover:scale-105" href="{{ Storage::url($news->file()->first()->file_path) }}" target="_blank"></a>
-                                        <button @click="deleteImage" class="fa-solid fa-trash text-red-500 hover:text-red-700 cursor-pointer" :disabled="deleting">
-                                            <span x-show="deleting" class="fa-solid fa-spinner fa-spin"></span>
-
-                                        </button>
-                                    @endif
+                                @if ($news && $news->file)
+                                    <a class="fa-solid fa-link cursor-pointer text-accent1 transition-all hover:scale-105" href="{{ Storage::url($news->file->file_path) }}" target="_blank"></a>
+                                    <button @click.prevent="deleteImage()" class="fa-solid fa-trash text-red-500 hover:text-red-700 cursor-pointer"></button>
                                 @endif
 
                             </label>
