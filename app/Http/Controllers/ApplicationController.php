@@ -40,7 +40,7 @@ class ApplicationController extends Controller
             'surname' => 'required',
             'email' => 'required|email',
             'phone' => 'required',
-            'cv' => 'required|file|mimes:pdf,doc,docx|max:2048',
+            'cv' => 'required|file|mimes:pdf,doc,docx|max:10240',
         ]);
 
         //check if there arent applications to this vacancy with the same email or name and surname
