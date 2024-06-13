@@ -5,12 +5,17 @@
         <time datetime="2020-03-16" class="text-gray-400">
             Līdz {{ BladeUtils::formatDate($vacancy->deadline, true) }}
         </time>
-        <a href="#" class="relative z-10 rounded-full bg-gray-200 px-3 py-1.5 font-medium text-dark1 hover:bg-accent1">
-            <i class="fa-regular fa-clock"></i> {{ $vacancy->workload }}
-        </a>
-        <a href="#" class="relative z-10 rounded-full bg-gray-200 px-3 py-1.5 font-medium text-dark1 hover:bg-accent1">
+        <form action="">
+            <button type="submit" name="workload" value="{{$vacancy->workload}}" class="relative z-10 rounded-full bg-gray-200 px-3 py-1.5 font-medium text-dark1 hover:bg-accent1">
+                <i class="fa-regular fa-clock"></i> {{ $vacancy->workload }}
+            </button>
+        </form>
+
+        <form action="">
+            <button type="submit" name="city" value="{{$vacancy->city}}" class="relative z-10 rounded-full bg-gray-200 px-3 py-1.5 font-medium text-dark1 hover:bg-accent1">
             <i class="fa-regular fa-location-dot"></i> {{ $vacancy->city }}
-        </a>
+            </button>
+        </form>
     </div>
     <div class="group relative">
         <h3 class="text-lg text-{{ $h3Color }} mt-3 font-semibold leading-6 group-hover:text-accent1">
