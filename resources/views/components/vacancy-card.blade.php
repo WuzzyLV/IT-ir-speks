@@ -6,10 +6,10 @@
             Līdz {{ BladeUtils::formatDate($vacancy->deadline, true) }}
         </time>
         <a href="#" class="relative z-10 rounded-full bg-gray-200 px-3 py-1.5 font-medium text-dark1 hover:bg-accent1">
-            <i class="fa-solid fa-clock"></i> {{ $vacancy->workload }}
+            <i class="fa-regular fa-clock"></i> {{ $vacancy->workload }}
         </a>
         <a href="#" class="relative z-10 rounded-full bg-gray-200 px-3 py-1.5 font-medium text-dark1 hover:bg-accent1">
-            <i class="fa-solid fa-location-pin"></i> {{ $vacancy->city }}
+            <i class="fa-regular fa-location-dot"></i> {{ $vacancy->city }}
         </a>
     </div>
     <div class="group relative">
@@ -43,7 +43,11 @@
             <div class="stat py-0 pr-0">
                 <div class="text-lg stat-title">Alga</div>
                 <div class="text-{{ $h3Color }} lg:text-lg stat-value text-sm">
-                    {{ $vacancy->salary }} €
+                    @if ($vacancy->salary_min == $vacancy->salary_max)
+                        {{ $vacancy->salary_min }} €
+                    @else
+                        {{ $vacancy->salary_min }} - {{$vacancy->salary_max}} €
+                    @endif
                 </div>
             </div>
 
