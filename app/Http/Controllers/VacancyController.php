@@ -231,7 +231,7 @@ class VacancyController extends Controller
         }
         $vacancy->save();
 
-        return redirect()->route('admin-vacancies')->with('success', 'Vakance veiksmīgi pievienota');
+        return redirect()->route('admin-vacancies')->with('success', 'Vakance veiksmīgi rediģēta');
     }
 
     public function destroy(Request $request): RedirectResponse
@@ -243,7 +243,7 @@ class VacancyController extends Controller
 
         $vacancy->delete();
 
-        return redirect()->route('admin-vacancies');
+        return redirect()->route('admin-vacancies')->with('success', 'Vakance veiksmīgi izdzēsta');
     }
 
     private function isVisible(Request $request): bool

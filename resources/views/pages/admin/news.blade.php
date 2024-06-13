@@ -12,6 +12,12 @@
             Jauna aktualitāte
         </a>
     </div>
+    @if (session("success"))
+        <x-alert type="success">
+            {{ session("success") }}
+        </x-alert>
+    @endif
+
     <div class="flex flex-grow flex-col">
         <div class="mx-8 flex-grow overflow-x-auto border-b border-b-gray-300">
             <table class="table">
