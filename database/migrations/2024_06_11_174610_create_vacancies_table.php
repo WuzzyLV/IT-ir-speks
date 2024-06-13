@@ -24,6 +24,7 @@ return new class extends Migration
             $table->double('salary_min');
             $table->double('salary_max');
             $table->date('deadline');
+            $table->boolean('visible');
             $table->timestamps();
             
             $table->foreign('file_id')->references('id')->on('files');
