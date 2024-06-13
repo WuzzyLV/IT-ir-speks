@@ -84,17 +84,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 
-Route::get('/vacancies', function () {
-    return view('pages.vacancies.vacancies');
-})->name('vacancies');
+Route::get('/vacancies', [VacancyController::class, "clientVacancies"])->name('vacancies');
 
 Route::get('/vacancies/{id}', [VacancyController::class, "view"])->name('vacancy');
 
 Route::post('/vacancies/{id}', [ApplicationController::class, "apply"])->name('apply');
 
-Route::get('/news', function () {
-    return view('pages.news.news');
-})->name('news');
+Route::get('/news', [NewsController::class, "clientNews"])->name('news');
 
 Route::get('/news/{id}', [NewsController::class, "view"])->name('news-page');
 

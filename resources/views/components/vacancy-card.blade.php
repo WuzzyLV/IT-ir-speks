@@ -26,9 +26,9 @@
     <div class="mt-6 flex w-full items-end justify-between">
         <div class="relative flex items-center gap-x-4">
             @if ($vacancy->file()->exists())
-                <img src="{{ Storage::url($vacancy->file()->get()[0]->file_path) }}" alt="" class="h-10 w-10 rounded-full  bg-gray-50 object-contain" />
+                <img src="{{ Storage::url($vacancy->file()->get()[0]->file_path) }}" alt="" class="h-10 w-10 rounded-full border border-accent1 bg-gray-50 object-contain" />
             @else
-                <div class="flex justify-center items-center h-10 w-10 rounded-full  bg-gray-50">
+                <div class="flex justify-center items-center h-10 w-10 rounded-full border border-accent1 bg-gray-50">
                     <i class="fa-solid fa-building "></i>
                 </div>
             @endif  

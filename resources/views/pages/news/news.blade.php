@@ -12,26 +12,28 @@
             </p>
         </div>
 
-        @php
-            $news = \App\Models\News::latest()
-                ->where("visible", true)
-                ->get();
-        @endphp
-
         @if ($news->isEmpty())
             <x-empty-state :isVacancies="false" />
         @else
             <div
                 class="mx-auto mt-10 grid max-w-2xl grid-cols-1 border-y border-gray-300 sm:mt-16 sm:gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3"
             >
-                @foreach ($news as $news)
+                @foreach ($news as $new)
                     <x-news-card
                         h3Color="gray-900"
                         textColor="gray-600"
-                        :news="$news"
+                        :news="$new"
                     />
                 @endforeach
             </div>
         @endif
     </div>
+    @if ($news->isNotEmpty())
+        <div class="my-4 flex justify-center">
+            <x-admin.pagination
+                page="{{$page}}"
+                totalPages="{{$total_pages}}"
+            />
+        </div>
+    @endif
 </x-app-layout>

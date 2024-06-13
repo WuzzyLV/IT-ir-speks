@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\FileUtils;
+use App\Models\News;
 use App\Models\Role;
 use App\Models\Vacancy;
 use App\Roles;
@@ -21,6 +22,18 @@ class VacancyController extends Controller
             return view('errors.404');
         }
         return view('pages.vacancies.vacancy-page', ['vacancy' => $vacancy]);
+    }
+    public function clientVacancies(Request $request){
+//        echo "client news";
+        $perPage= 3;
+        $page= $request->input('page', 1);
+
+        $total_pages= ceil(Vacancy::where('visible', true)->count()/$perPage);
+        return view('pages.vacancies.vacancies', [
+            'page' => $page,
+            'total_pages' => $total_pages,
+            'vacancies' => Vacancy::where('visible', true)->paginate($perPage, ['*'], 'page', $page),
+        ]);
     }
 
     public function viewCards(Request $request): View

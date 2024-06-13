@@ -11,11 +11,6 @@
                 Atrodi savu sapņa darba vietu.
             </p>
         </div>
-        @php
-            $vacancies = \App\Models\Vacancy::latest()
-                ->where("visible", true)
-                ->get();
-        @endphp
 
         @if ($vacancies->isEmpty())
             <x-empty-state :isVacancies="true" />
@@ -33,4 +28,12 @@
             </div>
         @endif
     </div>
+    @if ($vacancies->isNotEmpty())
+        <div class="my-4 flex justify-center">
+            <x-admin.pagination
+                page="{{$page}}"
+                totalPages="{{$total_pages}}"
+            />
+        </div>
+    @endif
 </x-app-layout>

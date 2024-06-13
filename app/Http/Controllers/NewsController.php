@@ -10,6 +10,20 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
+
+    public function clientNews(Request $request){
+//        echo "client news";
+        $perPage= 9;
+        $page= $request->input('page', 1);
+
+        $total_pages= ceil(News::where('visible', true)->count()/$perPage);
+        return view('pages.news.news', [
+            'page' => $page,
+            'total_pages' => $total_pages,
+            'news' => News::where('visible', true)->paginate($perPage, ['*'], 'page', $page),
+        ]);
+    }
+
     public function adminNews(Request $request)
     {
         $perPage= 8;
