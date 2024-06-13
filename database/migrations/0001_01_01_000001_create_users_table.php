@@ -41,8 +41,9 @@ return new class extends Migration
             'name' => env('ROOT_NAME', 'Galvenais'),
             'email' => env('ROOT_EMAIL', 'root@itirspeks.lv'),
             'password' => Hash::make(env('ROOT_PASS', '12345678')),
+            'role_id' => Role::where('name', 'root')->firstOrFail()->id,
         ]);
-        $user->setRole('root');
+        // $user->setRole('root');
 
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
