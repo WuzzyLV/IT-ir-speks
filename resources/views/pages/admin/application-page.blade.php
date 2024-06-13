@@ -1,5 +1,5 @@
 <x-staff-layout class="flex w-full flex-col text-gray-900">
-    <div class="mx-12">
+    <div class="mx-12" x-data>
         <div class="flex items-center justify-between border-b border-gray-300 py-4">
             <div>
                 <h3 class="text-base font-semibold leading-7 text-gray-900">
@@ -23,26 +23,31 @@
                     </button>
                 </form> -->
                 @if($application->status()->first()->status != "pending")
-                    <form action="{{ route("handle-edit-application", $application->id) }}" method="post" class="inline-block">
+                    <!-- <form action="{{ route("handle-edit-application", $application->id) }}" method="post" class="inline-block">
                         @csrf
                         @method("POST") 
                         <button type="submit" class="btn btn-sm border-accent1 bg-transparent text-accent1">
                             Saglabāt
                         </button>
-                    </form>
+                    </form> -->
+                    <button type="submit" class="btn btn-sm border-accent1 bg-transparent text-accent1" @click="$refs.submit.click()">
+                            Saglabāt
+                        </button>
                     @else
-                    <form action="{{ route("handle-application", $application->id) }}" method="post" class="inline-block">
+                    <form action="{{ route("handle-edit-application", $application->id) }}" method="post" class="inline-block ml-1 border-gray-300 pl-2 border-l">
                         @csrf
                         <input type="text" hidden name="status" value="denied">
                         <button type="submit" class="btn btn-sm border-red-500 bg-transparent text-red-500">
                             Noraidīt
+                            <i class="fa-solid fa-x"></i>
                         </button>
                     </form>
-                    <form action="{{ route("handle-application", $application->id) }}" method="post" class="inline-block">
+                    <form action="{{ route("handle-edit-application", $application->id) }}" method="post" class="inline-block ml-2">
                         @csrf
                         <input type="text" hidden name="status" value="accepted">
                         <button type="submit" class="btn btn-sm border-accent1 bg-transparent text-accent1">
                             Apstiprināt
+                            <i class="fa-solid fa-check"></i>
                         </button>
                     </form>
                 @endif
@@ -51,13 +56,6 @@
         </div>
         <div class="mt-4 border-t border-gray-100">
             <dl class="divide-y divide-gray-100">
-                @if($application->status()->first()->status == "pending")
-                <div class="w-full flex justify-center">
-                    <div>
-                    Ur hoe pending
-                    </div>
-                </div>
-                @endif
                 <div class="py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt class="text-sm font-medium leading-6 text-gray-900">
                         Vārds uzvārds
@@ -84,33 +82,40 @@
                         {{ $application->email }}
                     </dd>
                 </div>
-                <div class="py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                    <dt class="text-sm font-medium leading-6 text-gray-900">
-                        Statuss
-                    </dt>
-                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                        <select required id="status" name="status" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-accent1 sm:text-sm sm:leading-6">
-                            @foreach( \App\Models\Status::all() as $status)
-                            <option value="{{ $status->status }}" {{ $application && $application->status_id == $status->id ? 'selected' : '' }}>
-                                @switch($status->status)
-                                    @case('pending')
-                                        Gaida apstiprinājumu
-                                        @break
-                                    @case('accepted')
-                                        Apstiprināts
-                                        @break
-                                    @case('denied')
-                                        Noraidīts
-                                        @break
-                                    @default
-                                        Unknown Status
-                                @endswitch
-                            </option>
-                            @endforeach
-                        </select>
+                @if($application->status()->first()->status != "pending")
+                <form action="{{ route("handle-edit-application", $application->id) }}" method="post" >
+                    @csrf
+                    <input type="submit" value="" hidden x-ref="submit">
+                    <div class="py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                        <dt class="text-sm font-medium leading-6 text-gray-900">
+                            Statuss
+                        </dt>
+                        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                            <select required id="status" name="status" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-accent1 sm:text-sm sm:leading-6">
+                                @foreach( \App\Models\Status::all() as $status)
+                                <option value="{{ $status->status }}" {{ $application && $application->status_id == $status->id ? 'selected' : '' }}>
+                                    @switch($status->status)
+                                        @case('pending')
+                                            Gaida apstiprinājumu
+                                            @break
+                                        @case('accepted')
+                                            Apstiprināts
+                                            @break
+                                        @case('denied')
+                                            Noraidīts
+                                            @break
+                                        @default
+                                            Unknown Status
+                                    @endswitch
+                                </option>
+                                @endforeach
+                            </select>
 
-                    </dd>
-                </div>
+                        </dd>
+                    </div>
+                </form>
+   
+                @endif
                 <div class="py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt class="align-middle text-sm font-medium leading-6 text-gray-900">
                         Curriculum Vitae
