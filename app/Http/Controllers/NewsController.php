@@ -50,6 +50,7 @@ class NewsController extends Controller
         $news->title = $request->title;
         $news->content = $request->content;
         $news->desc = $request->desc;
+        $news->visible = $this->isVisible($request);
         $news->file_id = $file ? $file->id : null;
         $news->save();
 
@@ -86,6 +87,7 @@ class NewsController extends Controller
         $news->title = $request->title;
         $news->content = $request->content;
         $news->desc = $request->desc;
+        $news->visible = $this->isVisible($request);
         if ($file) {
             $news->file_id = $file->id;
         }
@@ -113,5 +115,12 @@ class NewsController extends Controller
         return view('pages.news.news-page', [
             'news' => $news,
         ]);
+    }
+    private function isVisible(Request $request): bool
+    {
+        if (!$request->visible){
+            return false;
+        }
+        return $request->visible === 'on';
     }
 }

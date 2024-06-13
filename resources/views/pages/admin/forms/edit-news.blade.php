@@ -62,18 +62,20 @@
                         </div>
 
                         <!-- image -->
-                        <div class="sm:col-span-3">
+                        <div class="sm:col-span-2">
                             <label
                                 for="image"
                                 class="block text-sm font-medium leading-6 text-gray-900"
                             >
                                 Attēls
-                                @if ($news && $news->file()->get()[0])
-                                    <a
-                                        class="fa-solid fa-link cursor-pointer text-accent1 transition-all hover:scale-105"
-                                        href="{{ Storage::url($news->file()->get()[0]->file_path) }}"
-                                        target="_blank"
-                                    ></a>
+                                @if ($news->file()->exists())
+                                    @if ($news->file()->get()[0])
+                                        <a
+                                            class="fa-solid fa-link cursor-pointer text-accent1 transition-all hover:scale-105"
+                                            href="{{ Storage::url($news->file()->get()[0]->file_path) }}"
+                                            target="_blank"
+                                        ></a>
+                                    @endif
                                 @endif
                             </label>
                             <div
@@ -88,9 +90,25 @@
                                     accept="image/*"
                                     autocomplete="new-image"
                                     placeholder="attels"
-                                    required
                                     class="ml-1"
                                 />
+                            </div>
+                        </div>
+                        <div class="flex items-end">
+                            <div
+                                class="min-h-[36px]w-full mt-2 flex items-center pb-2"
+                            >
+                                <label
+                                    class="font-base flex items-center text-base leading-6 text-gray-900"
+                                >
+                                    <input
+                                        type="checkbox"
+                                        name="visible"
+                                        @checked($news->visible ?? true)
+                                        class="mr-2 rounded focus:ring-accent1"
+                                    />
+                                    Redzams?
+                                </label>
                             </div>
                         </div>
 
