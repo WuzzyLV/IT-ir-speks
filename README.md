@@ -5,16 +5,24 @@ Run to create user, test@test.com 12345678
  - Moderator has less priveledges mod@itirspeks.lv 123
 
 ## Features
-- Pagination
-- Upload CV
-- Admin panel
-- Recent activities in panel
-- List of users (cant delete or change root)
-- Visible / not visible articles and vacanies
-- Upload or change or delete logo / image for articles and vacancies
-- Salary interval
-- Landing page stats
-- Admin page stats
-- Breadcrumbs
+### Major
 - Text editor (vacancy and article content)
+- Admin page stats
+- Landings stats
+- Pagination
 - Profile (change your email, username and passsword)
+- Logs
+- Visibility
+
+### Mid
+- Salary interval
+- Breadcrumbs
+- Landing page stats
+- Upload/Delete images
+- categories for applications
+- sorting in vacancies client
+
+### Minor
+ - 404
+ - Empty states
+ - Alerts
