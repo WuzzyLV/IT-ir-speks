@@ -18,7 +18,7 @@ class VacancyController extends Controller
 {
     public function deleteImage($id)
     {
-        $vacancy = News::find($id);
+        $vacancy = Vacancy::find($id);
 
         if (!$vacancy) {
             return response()->json(['error' => 'Vakance nav atrasta'], 404);

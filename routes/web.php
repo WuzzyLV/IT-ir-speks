@@ -85,6 +85,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::delete('/dashboard/news/{id}/image', [NewsController::class, 'deleteImage'])->name('delete-news-image');
 
+    Route::delete('/dashboard/vacancies/{id}/image', [VacancyController::class, 'deleteImage'])->name('delete-vacancy-image');
 
 
 
