@@ -8,6 +8,9 @@
         @if(request()->has('city'))
         <input type="hidden" name="city" value="{{request()->city}}">
         @endif
+        @if(request()->has('status'))
+        <input type="hidden" name="status" value="{{request()->status}}">
+        @endif
         <input type="hidden" name="page" value="{{$page-1}}">
         <button {{$page-1==0 ? "disabled" : "" }} class="{{$page-1==0 ? "btn-disabled" : "" }} join-item btn bg-transparent btn-sm !rounded-l-lg !text-gray-900  !border-gray-300 hover:bg-gray-300/50">«</button>
     </form>
@@ -18,6 +21,9 @@
         @endif
         @if(request()->has('city'))
             <input type="hidden" name="city" value="{{request()->city}}">
+        @endif
+        @if(request()->has('status'))
+        <input type="hidden" name="status" value="{{request()->status}}">
         @endif
         <input type="hidden" name="page" value="{{$page+1}}">
         <button class="{{$page+1>$totalPages ? "btn-disabled" : "" }} join-item btn bg-transparent btn-sm !rounded-r-lg !text-gray-900 !border-gray-300 hover:bg-gray-300/50">»</button>
