@@ -60,11 +60,33 @@ class VacancyController extends Controller
         $perPage = 6;
         $page = $request->input('page', 1);
 
-        $total_pages = ceil(Vacancy::where('visible', true)->count() / $perPage);
+        $city = $request->input('city', null);
+        $workload = $request->input('workload', null);
+
+        $query = Vacancy::where('visible', true);
+
+        $msg= "Visas vakances";
+
+        if ($city) {
+            $query->where('city', $city);
+            $msg= "Vakances pēc pilsētas: ".$city;
+        }
+
+        if ($workload) {
+            $query->where('workload', $workload);
+            $msg= "Vakances pēc darba slodzes: ".$workload;
+        }
+
+        $vacancies = $query->orderBy('created_at', 'desc');
+        $total_pages = ceil($vacancies->count() / $perPage);
+
+        $vacancies = $vacancies->paginate($perPage, ['*'], 'page', $page);
+
         return view('pages.vacancies.vacancies', [
             'page' => $page,
             'total_pages' => $total_pages,
-            'vacancies' => Vacancy::where('visible', true)->paginate($perPage, ['*'], 'page', $page),
+            'vacancies' => $vacancies,
+            'msg' => $msg,
         ]);
     }
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Status;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -19,15 +20,14 @@ return new class extends Migration
 
         // Define the statuses to insert
         $statuses = [
-            ['status' => 'Iesniegts pieteikums'],
-            ['status' => 'Apstiprināts pieteikums'],
-            ['status' => 'Pārbaudīti dokumenti'],
-            ['status' => 'Noraidīts'],
+            ['status' => 'pending'],
+            ['status' => 'accepted'],
+            ['status' => 'denied'],
         ];
 
         // Insert the statuses into the table
         foreach ($statuses as $status) {
-            DB::table('statuses')->insert($status);
+            Status::create($status);
         }
     }
 
