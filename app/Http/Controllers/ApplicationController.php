@@ -84,5 +84,11 @@ class ApplicationController extends Controller
         return redirect()->route('applications')->with('success', 'Pieteikums veiksmīgi dzēsts');
     }
 
+    public function edit(Request $request)
+{
+    $statuses = Status::all();
+    return view('view-application', compact('application', 'statuses'));
+}
+
 
 }

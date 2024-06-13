@@ -21,9 +21,10 @@ return new class extends Migration
 
             $table->unsignedBigInteger('vacancy_id')->nullable();
             $table->unsignedBigInteger('file_id')->nullable();
+            $table->unsignedBigInteger('status_id')->nullable();
             $table->foreign('file_id')->references('id')->on('files');
             $table->foreign('vacancy_id')->references('id')->on('vacancies');
-            $table->foreignId('status_id')->default(1)->constrained('statuses');
+            $table->foreign('status_id')->references('id')->on('statuses');
             $table->timestamps();
         });
     }

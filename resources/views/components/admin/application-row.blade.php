@@ -25,6 +25,12 @@
                             </a>
                         </td>
 
+                        <td class="text-center hidden sm:table-cell">
+                            <p class="mb-1 font-medium">
+                                {{ $application->status->status }}
+                            </p>
+                        </td>
+
                         <td>
                             <div class="flex items-center justify-center gap-x-2">
                                 <a class="btn btn-circle btn-outline btn-sm shadow" href="{{route("view-application", $application->id)}}">

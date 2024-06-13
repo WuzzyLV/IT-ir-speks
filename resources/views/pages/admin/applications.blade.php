@@ -28,6 +28,7 @@
                         <th class="hidden md:table-cell">E-pasts</th>
                         <th class="">Vakance</th>
                         <th class="hidden sm:table-cell">CV</th>
+                        <th class="hidden sm:table-cell">Statuss</th>
                         <th class="flex justify-center items-center h-11"><i class="fa-solid fa-circle text-4xs"></i></th>
                     </tr>
                 </thead>
