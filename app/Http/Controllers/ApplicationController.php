@@ -76,7 +76,7 @@ class ApplicationController extends Controller
     public function destroy(Request $request){
         $application = Application::findOrFail($request->id);
         $application->delete();
-        return redirect()->route('applications');
+        return redirect()->route('applications')->with('success', 'Pieteikums veiksmīgi dzēsts');
     }
 
 
