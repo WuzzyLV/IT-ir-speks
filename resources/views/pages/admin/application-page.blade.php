@@ -91,7 +91,7 @@
                                         <span
                                             class="hidden flex-shrink-0 text-gray-400 xs:block"
                                         >
-                                        {{intval(Storage::disk('private')->size($application->file()->first()->file_path)/1024) }} KB
+                                        {{\App\Helpers\FileUtils::formatBytes(Storage::disk('private')->size($application->file()->first()->file_path))}}
                                         </span>
                                     </div>
                                 </div>
