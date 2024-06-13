@@ -25,7 +25,7 @@ class VacancyController extends Controller
     }
     public function clientVacancies(Request $request){
 //        echo "client news";
-        $perPage= 3;
+        $perPage= 9;
         $page= $request->input('page', 1);
 
         $total_pages= ceil(Vacancy::where('visible', true)->count()/$perPage);
