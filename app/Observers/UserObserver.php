@@ -13,15 +13,19 @@ class UserObserver
      */
     public function created(User $user): void
     {
-        if (!$user){
+        try{
+            if (!$user){
+                return;
+            }
+            $activity = Activity::create([
+                'desc' => $user->role()->first()->name,
+                'action' => 'create user',
+            ]);
+            $activity->user()->associate($user);
+            $activity->save();
+        } catch (\Exception $e){
             return;
         }
-        $activity = Activity::create([
-            'desc' => $user->role()->first()->name,
-            'action' => 'create user',
-        ]);
-        $activity->user()->associate($user);
-        $activity->save();
     }
 
     /**
