@@ -1,6 +1,9 @@
 Run to create user, test@test.com 12345678
 `php artisan db:seed --class=UserSeeder`
 
+## To show
+ - Moderator has less priveledges mod@itirspeks.lv 123
+
 ## Features
 - Pagination
 - Upload CV
