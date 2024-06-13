@@ -1,8 +1,14 @@
 @props(['vacancy'])
 
-<tr class="border-b-0 my-4">
+<tr class="border-b-0 my-4 ">
     <td class="text-center">
+        
         <p class="mb-1 text-base font-medium">
+             @if (!$vacancy->visible)
+                <i class="fa-solid fa-eye-slash mr-2"></i>
+            @else
+                <i class="fa-solid fa-eye mr-2"></i>
+            @endif
             {{$vacancy->title}}
         </p>
 
@@ -10,14 +16,14 @@
     <td class="hidden justify-center items-center xs:flex ">
         <div class="relative flex items-center gap-x-4">
             @if ($vacancy->file()->exists())
-                <img src="{{ Storage::url($vacancy->file()->get()[0]->file_path) }}" alt="" class="h-10 w-10 rounded-full  bg-gray-50 object-contain" />
+                <img src="{{ Storage::url($vacancy->file()->get()[0]->file_path) }}" alt="" class="h-10 w-10 rounded-full  bg-gray-50 object-contain border border-accent1" />
             @else
-                <div class="flex justify-center items-center h-10 w-10 rounded-full  bg-gray-50">
+                <div class="flex justify-center items-center h-10 w-10 rounded-full  bg-gray-50 border border-accent1">
                     <i class="fa-solid fa-building "></i>
                 </div>
             @endif
             <div class="leading-6">
-                <p class="text-">
+                <p class="">
                 {{$vacancy->company}}
                 </p>
             </div>

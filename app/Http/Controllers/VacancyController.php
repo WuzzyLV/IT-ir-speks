@@ -17,6 +17,9 @@ class VacancyController extends Controller
     public function view(Request $request): View
     {
         $vacancy = Vacancy::findOrFail($request->id);
+        if (!$vacancy->visible) {
+            return view('errors.404');
+        }
         return view('pages.vacancies.vacancy-page', ['vacancy' => $vacancy]);
     }
 
@@ -102,9 +105,11 @@ class VacancyController extends Controller
 
 
         $vacancy->deadline = $request->deadline;
+        $vacancy->visible = $request->visible;
         if ($file){
             $vacancy->file_id = $file->id;
         }
+        $vacancy->visible = $this->isVisible($request);
         $vacancy->save();
 
         return redirect()->route('admin-vacancies');
@@ -179,6 +184,7 @@ class VacancyController extends Controller
 
 
         $vacancy->deadline = $request->deadline;
+        $vacancy->visible = $this->isVisible($request);
         if ($file){
             $vacancy->file_id = $file->id;
         }
@@ -197,5 +203,13 @@ class VacancyController extends Controller
         $vacancy->delete();
 
         return redirect()->route('admin-vacancies');
+    }
+
+    private function isVisible(Request $request): bool
+    {
+        if (!$request->visible){
+            return false;
+        }
+        return $request->visible === 'on';
     }
 }

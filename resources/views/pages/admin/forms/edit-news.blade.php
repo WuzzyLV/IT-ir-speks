@@ -41,16 +41,29 @@
                         <div class="sm:col-span-3">
                             <label for="image" class="block text-sm font-medium leading-6 text-gray-900">
                                 Attēls
-                                @if ($news && $news->file()->first())
-                                <a class="fa-solid fa-link cursor-pointer text-accent1 transition-all hover:scale-105" href="{{ Storage::url($news->file()->first()->file_path) }}" target="_blank"></a>
-                                <button @click="deleteImage" class="fa-solid fa-trash text-red-500 hover:text-red-700 cursor-pointer" :disabled="deleting">
-                                    <span x-show="deleting" class="fa-solid fa-spinner fa-spin"></span>
-                                    
-                                </button>
+                                @if($news->file()->exists())
+                                    @if ($news && $news->file()->first())
+                                        <a class="fa-solid fa-link cursor-pointer text-accent1 transition-all hover:scale-105" href="{{ Storage::url($news->file()->first()->file_path) }}" target="_blank"></a>
+                                        <button @click="deleteImage" class="fa-solid fa-trash text-red-500 hover:text-red-700 cursor-pointer" :disabled="deleting">
+                                            <span x-show="deleting" class="fa-solid fa-spinner fa-spin"></span>
+
+                                        </button>
+                                    @endif
                                 @endif
+
                             </label>
                             <div class="mt-2 flex min-h-[36px] w-full items-center rounded-md border-0 bg-white text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-accent1 sm:text-sm sm:leading-6">
                                 <input name="image" type="file" id="image" accept="image/*" autocomplete="new-image" placeholder="attels" @if (!$news || !$news->file()->first()) required @endif class="ml-1" />
+                            </div>
+                        </div>
+                        <div class="flex items-end">
+                            <div class="min-h-[36px]w-full mt-2 flex items-center pb-2">
+                                <label class="font-base flex items-center text-base leading-6 text-gray-900">
+                                    <input type="checkbox" name="visible" @checked($news->visible ?? true)
+                                    class="mr-2 rounded focus:ring-accent1"
+                                    />
+                                    Redzams?
+                                </label>
                             </div>
                         </div>
 
@@ -82,4 +95,3 @@
         </div>
     </div>
 </x-staff-layout>
-

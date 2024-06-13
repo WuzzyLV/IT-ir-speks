@@ -5,6 +5,11 @@
 <tr class="border-b-0">
     <td class="text-center">
         <p class="mb-1 text-base font-medium">
+            @if (! $news->visible)
+                <i class="fa-solid fa-eye-slash mr-2"></i>
+            @else
+                <i class="fa-solid fa-eye mr-2"></i>
+            @endif
             {{ $news->title }}
         </p>
     </td>
