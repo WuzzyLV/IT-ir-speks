@@ -24,14 +24,19 @@
                 <input type="submit" value="submit" x-ref="submit" hidden>
 
                 <div class="pb-12">
-                    <div class="my-6 border-b border-b-gray-300 pb-4">
-                        <h2 class="text-base font-semibold leading-7 text-gray-900">
-                            Vakance
-                        </h2>
-                        <p class="mt-1 text-sm leading-6 text-gray-600">
-                            Veic vakaņču datu apskati vai maiņu šeit.
+                    <div class="my-6 border-b border-b-gray-300 pb-4 flex justify-between">
+                        <div>
+                            <h2 class="text-base font-semibold leading-7 text-gray-900">
+                                Vakance
+                            </h2>
+                            <p class="mt-1 text-sm leading-6 text-gray-600">
+                                Veic vakaņču datu apskati vai maiņu šeit.
 
-                        </p>
+                            </p>
+                        </div>
+                        <label class="flex items-center text-base font-base leading-6 text-gray-900 ">
+                                <input type="checkbox" name="visible" @checked($vacancy->visible ?? true)  class="rounded  focus:ring-accent1 mr-2"> Redzams?
+                        </label>
                     </div>
                     <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                         <div class="sm:col-span-4">
