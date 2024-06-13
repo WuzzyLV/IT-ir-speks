@@ -16,6 +16,8 @@ use Storage;
 
 class VacancyController extends Controller
 {
+    
+
     public function deleteImage($id)
     {
         $vacancy = News::find($id);
@@ -27,21 +29,22 @@ class VacancyController extends Controller
         if ($vacancy->file_id) {
             $file = $vacancy->file()->first();
             if ($file) {
-                    Storage::delete($file->file_path);
+                Storage::delete($file->file_path);
 
-                    // Remove the file reference from the news entry
-                    $vacancy->file_id = null;
-                    $vacancy->save();
-                    
-                    // Delete the file record from the database
-                    $file->delete();
+                // Remove the file reference from the news entry
+                $vacancy->file_id = null;
+                $vacancy->save();
 
-                    return response()->json(['success' => 'Attēls veikmīgi dzēsts']);
+                // Delete the file record from the database
+                $file->delete();
+
+                return response()->json(['success' => 'Attēls veikmīgi dzēsts']);
             }
         }
 
         return response()->json(['error' => 'Attēls nav atrasts'], 404);
     }
+
 
     public function view(Request $request): View
     {
@@ -51,12 +54,13 @@ class VacancyController extends Controller
         }
         return view('pages.vacancies.vacancy-page', ['vacancy' => $vacancy]);
     }
-    public function clientVacancies(Request $request){
-//        echo "client news";
-        $perPage= 9;
-        $page= $request->input('page', 1);
+    public function clientVacancies(Request $request)
+    {
+        //        echo "client news";
+        $perPage = 9;
+        $page = $request->input('page', 1);
 
-        $total_pages= ceil(Vacancy::where('visible', true)->count()/$perPage);
+        $total_pages = ceil(Vacancy::where('visible', true)->count() / $perPage);
         return view('pages.vacancies.vacancies', [
             'page' => $page,
             'total_pages' => $total_pages,
@@ -66,10 +70,10 @@ class VacancyController extends Controller
 
     public function viewCards(Request $request): View
     {
-        $perPage= 7;
-        $page= $request->input('page', 1);
+        $perPage = 7;
+        $page = $request->input('page', 1);
 
-        $total_pages= ceil(Vacancy::count()/$perPage);
+        $total_pages = ceil(Vacancy::count() / $perPage);
         return view('pages.admin.vacancies', [
             'page' => $page,
             'total_pages' => $total_pages,
@@ -100,31 +104,31 @@ class VacancyController extends Controller
             'deadline' => 'required',
         ]);
         //check if salary or salary min max
-        $isSalaryRange=false;
-        if ($request->salary_min && $request->salary_max){
+        $isSalaryRange = false;
+        if ($request->salary_min && $request->salary_max) {
             $request->validate([
                 'salary_min' => 'required|numeric',
                 'salary_max' => 'required|numeric',
             ]);
-            if ($request->salary_min>$request->salary_max){
-                $temp=$request->salary_min;
-                $request->salary_min=$request->salary_max;
-                $request->salary_max=$temp;
+            if ($request->salary_min > $request->salary_max) {
+                $temp = $request->salary_min;
+                $request->salary_min = $request->salary_max;
+                $request->salary_max = $temp;
             }
-            $isSalaryRange=true;
-        }else{
+            $isSalaryRange = true;
+        } else {
             $request->validate([
                 'salary' => 'required|numeric',
             ]);
         }
 
 
-        $file=null;
+        $file = null;
         if ($request->hasFile('image')) {
             $request->validate([
                 'image' => 'image|mimes:jpeg,png,webp,jpg,gif,svg|max:20480',
             ]);
-            $file = FileUtils::store($request->file('image'),"logos");
+            $file = FileUtils::store($request->file('image'), "logos");
         }
 
         $vacancy = new Vacancy();
@@ -136,10 +140,10 @@ class VacancyController extends Controller
         $vacancy->city = $request->city;
         $vacancy->workload = $request->workload;
 
-        if ($isSalaryRange){
+        if ($isSalaryRange) {
             $vacancy->salary_min = $request->salary_min;
             $vacancy->salary_max = $request->salary_max;
-        }else{
+        } else {
             $vacancy->salary_min = $request->salary;
             $vacancy->salary_max = $request->salary;
         }
@@ -147,7 +151,7 @@ class VacancyController extends Controller
 
         $vacancy->deadline = $request->deadline;
         $vacancy->visible = $request->visible;
-        if ($file){
+        if ($file) {
             $vacancy->file_id = $file->id;
         }
         $vacancy->visible = $this->isVisible($request);
@@ -180,30 +184,30 @@ class VacancyController extends Controller
             'deadline' => 'required|date',
         ]);
 
-        $isSalaryRange=false;
-        if ($request->salary_min && $request->salary_max){
+        $isSalaryRange = false;
+        if ($request->salary_min && $request->salary_max) {
             $request->validate([
                 'salary_min' => 'required|numeric',
                 'salary_max' => 'required|numeric',
             ]);
-            if ($request->salary_min>$request->salary_max){
-                $temp=$request->salary_min;
-                $request->salary_min=$request->salary_max;
-                $request->salary_max=$temp;
+            if ($request->salary_min > $request->salary_max) {
+                $temp = $request->salary_min;
+                $request->salary_min = $request->salary_max;
+                $request->salary_max = $temp;
             }
-            $isSalaryRange=true;
-        }else{
+            $isSalaryRange = true;
+        } else {
             $request->validate([
                 'salary' => 'required|numeric',
             ]);
         }
 
-        $file=null;
+        $file = null;
         if ($request->hasFile('image')) {
             $request->validate([
                 'image' => 'image|mimes:jpeg,png,webp,jpg,gif,svg|max:20480',
             ]);
-            $file = FileUtils::store($request->file('image'),"logos");
+            $file = FileUtils::store($request->file('image'), "logos");
         }
 
         $vacancy = Vacancy::find($request->id);
@@ -215,10 +219,10 @@ class VacancyController extends Controller
         $vacancy->city = $request->city;
         $vacancy->workload = $request->workload;
 
-        if ($isSalaryRange){
+        if ($isSalaryRange) {
             $vacancy->salary_min = $request->salary_min;
             $vacancy->salary_max = $request->salary_max;
-        }else{
+        } else {
             $vacancy->salary_min = $request->salary;
             $vacancy->salary_max = $request->salary;
         }
@@ -226,7 +230,7 @@ class VacancyController extends Controller
 
         $vacancy->deadline = $request->deadline;
         $vacancy->visible = $this->isVisible($request);
-        if ($file){
+        if ($file) {
             $vacancy->file_id = $file->id;
         }
         $vacancy->save();
@@ -248,7 +252,7 @@ class VacancyController extends Controller
 
     private function isVisible(Request $request): bool
     {
-        if (!$request->visible){
+        if (!$request->visible) {
             return false;
         }
         return $request->visible === 'on';
