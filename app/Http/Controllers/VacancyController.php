@@ -16,7 +16,7 @@ use Storage;
 
 class VacancyController extends Controller
 {
-    
+
 
     public function deleteImage($id)
     {
@@ -57,7 +57,7 @@ class VacancyController extends Controller
     public function clientVacancies(Request $request)
     {
         //        echo "client news";
-        $perPage = 9;
+        $perPage = 6;
         $page = $request->input('page', 1);
 
         $total_pages = ceil(Vacancy::where('visible', true)->count() / $perPage);

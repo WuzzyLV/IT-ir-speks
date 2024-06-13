@@ -16,7 +16,7 @@ class NewsController extends Controller
 
     public function clientNews(Request $request){
 //        echo "client news";
-        $perPage= 9;
+        $perPage= 6;
         $page= $request->input('page', 1);
 
         $total_pages= ceil(News::where('visible', true)->count()/$perPage);
