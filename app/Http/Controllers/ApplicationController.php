@@ -45,7 +45,7 @@ class ApplicationController extends Controller
             ''
         ]);
 
-        $status = Status::where('status', 'Iesniegts pieteikums')->first(); 
+        $status = Status::where('status', 'pending')->first(); 
 
         //check if there arent applications to this vacancy with the same email or name and surname
         $existingApplication = Application::where('vacancy_id', $request->id)
