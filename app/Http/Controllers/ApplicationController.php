@@ -45,7 +45,7 @@ class ApplicationController extends Controller
             ''
         ]);
 
-        $status = Status::where('status', 'pending')->first(); 
+        $status = Status::where('status', 'pending')->first();
 
         //check if there arent applications to this vacancy with the same email or name and surname
         $existingApplication = Application::where('vacancy_id', $request->id)
@@ -62,7 +62,7 @@ class ApplicationController extends Controller
             return back()->withErrors(['Tu jau esi pieteicies šai vakancei!']);
         }
 
-        $file = FileUtils::store($request->file('cv'),"cv"); //make private somehow
+        $file = FileUtils::store($request->file('cv'), "cv"); //make private somehow
 
         $application = new Application();
         $application->name = $request->name;
@@ -78,17 +78,30 @@ class ApplicationController extends Controller
             ->with('success', 'Pieteikums nosūtīts');
     }
 
-    public function destroy(Request $request){
+    public function destroy(Request $request)
+    {
         $application = Application::findOrFail($request->id);
         $application->delete();
         return redirect()->route('applications')->with('success', 'Pieteikums veiksmīgi dzēsts');
     }
 
     public function edit(Request $request)
-{
-    $statuses = Status::all();
-    return view('view-application', compact('application', 'statuses'));
-}
+    {
+        $application = Application::findOrFail($request->id);
+        $application->delete();
+        return redirect()->route('applications')->with('success', 'Pieteikums veiksmīgi dzēsts');
+    }
 
+    public function handleEdit(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'status' => 'required'
+        ]);
+
+        $application = Application::find($request->id);
+        $application->save();
+
+        return redirect()->route('applications')->with('success', 'Vakance veiksmīgi rediģēta');
+    }
 
 }

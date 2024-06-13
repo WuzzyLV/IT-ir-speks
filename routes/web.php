@@ -74,8 +74,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard/applications/{id}', [ApplicationController::class, "viewPage"])
         ->name('view-application');
 
+    Route::post('/dashboard/applications/{id}', [ApplicationController::class, "handleEdit"])
+        ->name('handle-edit-application');
+
     Route::delete('/dashboard/applications/{id}', [ApplicationController::class, "destroy"])
         ->name('delete-application');
+
+    // Route::get('/dashboard/applications/{id}', [ApplicationController::class, "edit"])
+    //     ->name('edit-status');
+
+
 
     //    Route::get('/dashboard/applications/{id}/cv', [CVController::class, "view"])
 //        ->name('cv-application');

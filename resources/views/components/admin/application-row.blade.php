@@ -27,7 +27,23 @@
 
                         <td class="text-center hidden sm:table-cell">
                             <p class="mb-1 font-medium">
-                                {{ $application->status->status }}
+                                
+                            
+                                @switch($application->status()->first()->status)
+                                @case('pending')
+                                Gaida apstiprinājumu
+                                @break
+                                @case('accepted')
+                                Apstiprināts
+                                @break
+                                @case('denied')
+                                Noraidīts
+                                @break
+                                @default
+                                Unknown Status
+                                @endswitch
+                     
+                    
                             </p>
                         </td>
 
