@@ -13,6 +13,9 @@ class UserObserver
      */
     public function created(User $user): void
     {
+        if (!$user){
+            return;
+        }
         $activity = Activity::create([
             'desc' => $user->role()->first()->name,
             'action' => 'create user',
