@@ -18,6 +18,7 @@ class News extends Model
         'title',
         'content',
         'image',
+        'visible'
     ];
 
     public function file(): belongsTo

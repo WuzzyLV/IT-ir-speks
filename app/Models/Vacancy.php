@@ -23,6 +23,7 @@ class Vacancy extends Model
         'salary_min',
         'salary_max',
         'deadline'
+        'visible'
     ];
 
     public function file(): belongsTo
