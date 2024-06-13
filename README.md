@@ -19,10 +19,15 @@ Run to create user, test@test.com 12345678
 - Breadcrumbs
 - Landing page stats
 - Upload/Delete images
-- categories for applications
-- sorting in vacancies client
+- Categories for applications
+- Sorting in vacancies client
+- Responsive nav
+- Image preview
+- CV is private
 
 ### Minor
  - 404
  - Empty states
  - Alerts
+ - LV datetime
+ - Custom scroll bars
