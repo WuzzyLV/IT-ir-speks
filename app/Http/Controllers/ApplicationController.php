@@ -17,12 +17,16 @@ class ApplicationController extends Controller
     {
         $perPage= 7;
         $page= $request->input('page', 1);
+        $statusType= $request->input('status', 'all');
 
-        $total_pages= ceil(Application::count()/$perPage);
+        $applications= Status::where('status', $statusType)->firstOrFail()->applications();
+
+        $total_pages= ceil($applications->count()/$perPage);
+
         return view('pages.admin.applications', [
             'page' => $page,
             'total_pages' => $total_pages,
-            'applications' => Application::paginate($perPage, ['*'], 'page', $page),
+            'applications' => $applications->paginate($perPage, ['*'], 'page', $page)
         ]);
     }
     public function viewPage(Request $request): View
@@ -99,6 +103,7 @@ class ApplicationController extends Controller
         ]);
 
         $application = Application::find($request->id);
+        $application->status()->associate(Status::where('status', $request->status)->first());
         $application->save();
 
         return redirect()->route('applications')->with('success', 'Vakance veiksmīgi rediģēta');
