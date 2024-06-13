@@ -32,7 +32,7 @@ class VacancyController extends Controller
                     // Remove the file reference from the news entry
                     $vacancy->file_id = null;
                     $vacancy->save();
-                    
+
                     // Delete the file record from the database
                     $file->delete();
 
@@ -153,7 +153,7 @@ class VacancyController extends Controller
         $vacancy->visible = $this->isVisible($request);
         $vacancy->save();
 
-        return redirect()->route('admin-vacancies');
+        return redirect()->route('admin-vacancies')->with('success', 'Vakance veiksmīgi pievienota');
     }
 
     public function edit(Request $request): View
@@ -231,7 +231,7 @@ class VacancyController extends Controller
         }
         $vacancy->save();
 
-        return redirect()->route('admin-vacancies');
+        return redirect()->route('admin-vacancies')->with('success', 'Vakance veiksmīgi pievienota');
     }
 
     public function destroy(Request $request): RedirectResponse
