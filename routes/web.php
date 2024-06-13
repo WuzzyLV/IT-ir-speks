@@ -33,7 +33,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::delete('/dashboard/users/{id}', [UserController::class, "destroy"])
             ->name('delete-user');
 
-        
+
     });
 
     // NEWS
@@ -51,7 +51,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         ->name('handle-edit-news');
     Route::delete('/dashboard/news/{id}', [NewsController::class, "destroy"])
         ->name('delete-news');
-        
+
     // VACANCIES
     Route::get('/dashboard/vacancies', [VacancyController::class, 'viewCards'])
         ->name('admin-vacancies');
@@ -67,6 +67,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/dashboard/vacancies/{id}', [VacancyController::class, "destroy"])
         ->name('delete-vacancy');
 
+    //APPLICATIONS
     Route::get('/dashboard/applications', [ApplicationController::class, "view"])
         ->name('applications');
 
@@ -80,6 +81,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
 //        ->name('cv-application');
     Route::get('/dashboard/applications/{id}/cv', [CVController::class, "view"])
         ->name('cv-application');
+
+
+    Route::delete('/dashboard/news/{id}/image', [NewsController::class, 'deleteImage'])->name('delete-news-image');
+
+
+
+
+
+
 
 });
 

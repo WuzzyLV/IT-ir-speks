@@ -6,6 +6,9 @@ use App\Helpers\FileUtils;
 use App\Models\News;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\Storage;
+use Storage;
+use Illuminate\Http\JsonResponse;
 
 
 class NewsController extends Controller
@@ -24,12 +27,40 @@ class NewsController extends Controller
         ]);
     }
 
+    public function deleteImage($id)
+    {
+        $news = News::find($id);
+
+        if (!$news) {
+            return response()->json(['error' => 'News not found'], 404);
+        }
+
+        if ($news->file_id) {
+            $file = $news->file()->first();
+            if ($file) {
+                    Storage::delete($file->file_path);
+
+                    // Remove the file reference from the news entry
+                    $news->file_id = null;
+                    $news->save();
+                    
+                    // Delete the file record from the database
+                    $file->delete();
+
+                    return response()->json(['success' => 'Image deleted successfully']);
+            }
+        }
+
+        return response()->json(['error' => 'No image found for deletion'], 404);
+    }
+
+
     public function adminNews(Request $request)
     {
-        $perPage= 8;
-        $page= $request->input('page', 1);
+        $perPage = 8;
+        $page = $request->input('page', 1);
 
-        $total_pages= ceil(News::count()/$perPage);
+        $total_pages = ceil(News::count() / $perPage);
         return view('pages.admin.news', [
             'page' => $page,
             'total_pages' => $total_pages,
