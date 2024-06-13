@@ -2,7 +2,9 @@ Run to create user, test@test.com 12345678
 `php artisan db:seed --class=UserSeeder`
 
 ## To show
- - Moderator has less priveledges mod@itirspeks.lv 123
+ - Moderator has less priveledges 
+ - show empty state
+ - breadcrums
 
 ## Features
 ### Major
@@ -30,4 +32,3 @@ Run to create user, test@test.com 12345678
  - Empty states
  - Alerts
  - LV datetime
- - Custom scroll bars
