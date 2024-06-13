@@ -26,8 +26,14 @@ class BladeUtils {
 
         $formattedMonth = self::$dates[$month];
         if ($short) {
-            //cut off at 3 char
-            $formattedMonth=substr($formattedMonth, 0, 3);
+            if ($formattedMonth == 'jūnijs' || $formattedMonth == 'jūlijs') {
+                //cut off at 4 char
+                $formattedMonth=substr($formattedMonth, 0, 4);
+            }else{
+                //cut off at 3 char
+                $formattedMonth=substr($formattedMonth, 0, 3);
+            }
+            
         }
         // 2024. g. 19. maijs
         return "$year. g. $day. $formattedMonth";
