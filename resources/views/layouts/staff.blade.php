@@ -27,12 +27,57 @@
                         </a>
                     </li>
 
-                    <li class="border-b border-gray-300">
-                        <a href="{{ route("applications") }}" class="m-2">
-                            <i class="fas fa-envelope text-lg text-gray-900 my-2 mx-1 w-5"></i>
-                            <p class="text-lg text-gray-900"> Pieteikumi</p>
-                        </a>
-                    </li>
+                    <div x-data="{ open: {{ request()->routeIs("applications") == 1 ? "true" : "false"}} }" class="border-b border-gray-300">
+                        <li x-on:click="open = !open" class=" flex items-center justify-between hover:bg-gray-100 cursor-pointer">
+                            <div class="flex justify-between w-full py-2">
+                                <div class="m-2 mr-0 flex items-center">
+                                    <i class="fas fa-envelope text-lg text-gray-900 my-2 mx-1 w-5"></i>
+                                    <p class="text-lg text-gray-900">Pieteikumi</p>
+                                </div>
+                                <div class="m-2">
+                                    <i class="fa-solid fa-caret-down text-lg transition-all" :class="{ 'rotate-180': open }"></i>
+                                </div>
+                            </div>
+                        </li>
+                        <li x-show="open" x-transition class="ml-4 flex items-center justify-between hover:bg-gray-100 cursor-pointer">
+                            <form action="{{ route('applications') }}" class="m-2 !my-0 flex items-center w-full text-sm">
+                                <input type="text" hidden name="status" value="all">
+                                <button type="submit" class="flex items-center w-full">
+                                    <i class="fa-solid fa-share-all my-2 mx-1 w-5 text-gray-900"></i>
+                                    <p class=" text-gray-900"> Visi pieteikumi</p>
+                                </button>
+                            </form>
+                        </li>
+                        <li x-show="open" x-transition class="ml-4 flex items-center justify-between hover:bg-gray-100 cursor-pointer">
+                            <form action="{{ route('applications') }}" class="m-2 !my-0 flex items-center w-full text-sm">
+                                <input type="text" hidden name="status" value="pending">
+                                <button type="submit" class="flex items-center w-full">
+                                <i class="fa-solid fa-triangle-exclamation my-2 mx-1 w-5 text-gray-900"></i>
+                                <p class=" text-gray-900"> Gaida apstiprinājumu</p>
+                                </button>
+                            </form>
+                        </li>
+                        <li x-show="open" x-transition class="ml-4 flex items-center justify-between hover:bg-gray-100 cursor-pointer">
+                            <form action="{{ route('applications') }}" class="m-2 !my-0 flex items-center w-full text-sm">
+                                <input type="text" hidden name="status" value="accepted">
+                                <button type="submit" class="flex items-center w-full">
+                                <i class="fa-solid fa-check my-2 mx-1 w-5 text-gray-900"></i>
+                                <p class=" text-gray-900"> Apstiprināti</p>
+                                </button>
+                            </form>
+                        </li>
+                        <li x-show="open" x-transition class="ml-4 flex items-center justify-between hover:bg-gray-100 cursor-pointer">
+                            <form action="{{ route('applications') }}" class="m-2 !my-0 flex items-center w-full text-sm">
+                                <input type="text" hidden name="status" value="denied">
+                                <button type="submit" class="flex items-center w-full">
+                                <i class="fa-solid fa-x my-2 mx-1 w-5 text-gray-900"></i>
+                                <p class=" text-gray-900"> Noraidīti</p>
+                                </button>
+                            </form>
+                        </li>
+                    </div>
+
+
 
                     @if (Auth::user()->role->name == "root" || Auth::user()->role->name == "admin")
                     <li>

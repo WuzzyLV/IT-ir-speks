@@ -19,14 +19,21 @@ class ApplicationController extends Controller
         $page= $request->input('page', 1);
         $statusType= $request->input('status', 'all');
 
-        $applications= Status::where('status', $statusType)->firstOrFail()->applications();
+        $total_pages=0;
 
-        $total_pages= ceil($applications->count()/$perPage);
+        if ($statusType == 'all'){
+            $applications= Application::paginate($perPage, ['*'], 'page', $page);
+            $total_pages= ceil(Application::count()/$perPage);
+
+        } else{
+            $applications= Status::where('status', $statusType)->firstOrFail()->applications();
+            $total_pages= ceil($applications->count()/$perPage);
+        }
 
         return view('pages.admin.applications', [
             'page' => $page,
             'total_pages' => $total_pages,
-            'applications' => $applications->paginate($perPage, ['*'], 'page', $page)
+            'applications' => $applications
         ]);
     }
     public function viewPage(Request $request): View
