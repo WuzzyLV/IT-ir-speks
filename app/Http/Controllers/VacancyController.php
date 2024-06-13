@@ -12,9 +12,37 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
+use Storage;
 
 class VacancyController extends Controller
 {
+    public function deleteImage($id)
+    {
+        $vacancy = News::find($id);
+
+        if (!$vacancy) {
+            return response()->json(['error' => 'Vakance nav atrasta'], 404);
+        }
+
+        if ($vacancy->file_id) {
+            $file = $vacancy->file()->first();
+            if ($file) {
+                    Storage::delete($file->file_path);
+
+                    // Remove the file reference from the news entry
+                    $vacancy->file_id = null;
+                    $vacancy->save();
+                    
+                    // Delete the file record from the database
+                    $file->delete();
+
+                    return response()->json(['success' => 'Attēls veikmīgi dzēsts']);
+            }
+        }
+
+        return response()->json(['error' => 'Attēls nav atrasts'], 404);
+    }
+
     public function view(Request $request): View
     {
         $vacancy = Vacancy::findOrFail($request->id);
