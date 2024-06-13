@@ -8,6 +8,7 @@ use App\Models\Vacancy;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use App\Models\Status;
 
 class ApplicationController extends Controller
 {
@@ -41,7 +42,10 @@ class ApplicationController extends Controller
             'email' => 'required|email',
             'phone' => 'required',
             'cv' => 'required|file|mimes:pdf,doc,docx|max:10240',
+            ''
         ]);
+
+        $status = Status::where('status', 'Iesniegts pieteikums')->first(); 
 
         //check if there arent applications to this vacancy with the same email or name and surname
         $existingApplication = Application::where('vacancy_id', $request->id)
@@ -67,6 +71,7 @@ class ApplicationController extends Controller
         $application->phone = $request->phone;
         $application->vacancy()->associate(Vacancy::find($request->id));
         $application->file()->associate($file);
+        $application->status_id = $status->id;
         $application->save();
 
         return redirect()->route('vacancy', ['id' => $request->id])
