@@ -164,8 +164,7 @@
                                 @if ($news)
                                     {!! $news->content !!}
                                 @else
-                                    <h1>Tava ģeniālais ziņojums</h1>
-                                    <p>Apraksti savu aktualitāti</p>
+                                Apraksti savu aktualitāti
                                 @endif
                             </x-text-editor>
                         </div>

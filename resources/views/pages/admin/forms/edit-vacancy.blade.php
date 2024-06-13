@@ -92,8 +92,7 @@
                                 @if ($vacancy)
                                 {!! $vacancy->content !!}
                                 @else
-                                <h1>Tava ģeniālā darba iespēja</h1>
-                                <p>Apraksti savu karjeras iespēju</p>
+                                Apraksti savu karjeras iespēju
                                 @endif
                             </x-text-editor>
 
