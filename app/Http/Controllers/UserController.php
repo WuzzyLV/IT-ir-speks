@@ -87,7 +87,7 @@ class UserController extends Controller
         $user->name = $request->username;
         $user->email = $request->email;
         // if user isint root, then set role
-        if ($currUser->role()->first()->name !== Roles::Root->value){
+        if ($currUser->role()->first()->name != "root"){
             $user->role()->associate(Role::where('name', $request->role)->first());
         }
         // if password is set, then set password
