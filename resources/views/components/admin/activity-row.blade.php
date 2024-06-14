@@ -27,7 +27,11 @@ switch ($activity->action) {
 }
 
 use App\Roles;
-$role = $activity->user()->first()->role()->first()
+try{
+    $role=$activity->user()->first()->role()->first();
+}catch (Exception $e){
+    $role="";
+}
 @endphp
 
 <tr class="my-4 border-b-0 align-middle">
