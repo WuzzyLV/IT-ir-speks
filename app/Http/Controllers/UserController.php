@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Activity;
 use App\Models\Role;
 use App\Models\User;
 use App\Roles;
@@ -117,6 +118,9 @@ class UserController extends Controller
         if ($user->role->name === Roles::Root->value) {
             return redirect()->back()->withErrors(['error' => 'Šo lietotāju nevar izdzēst']);
         }
+            // Dzēst visas aktivitātes, kurās lietotājs piedalījies
+        Activity::where('who', $user->id)->delete();
+
         $user->delete();
 
         return redirect()->route('users')->with('success', 'Lietotājs veiksmīgi izdzēsts');
