@@ -63,7 +63,7 @@ class UserController extends Controller
         ]);
     }
 
-    public function handleEdit(Request $request): RedirectResponse
+    public function handleEdit(Request $request)
     {
         $currUser = $request->user();
         $user = User::with('role')->find($request->id);
@@ -87,8 +87,11 @@ class UserController extends Controller
         $user->name = $request->username;
         $user->email = $request->email;
         // if user isint root, then set role
-        if ($currUser->role()->first()->name != "root"){
+        if ($currUser->role()->first()){
             $user->role()->associate(Role::where('name', $request->role)->first());
+            
+        }else{
+            return redirect()->route('users')->with('success', 'Kļūda redīgējot role!');
         }
         // if password is set, then set password
         if ($request->password != "") {
