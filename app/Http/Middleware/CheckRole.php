@@ -25,7 +25,7 @@ class CheckRole
     {
         $userRole = $request->user()->role->name;
 
-        if (self::$roles[$userRole] >= self::$roles[$role]) {
+        if (self::$roles[$userRole] > self::$roles[$role]) {
             return redirect()->back()->withErrors(['error' => 'Tev nav atļaujas veikt šo darbību!']);
         }
         return $next($request);
