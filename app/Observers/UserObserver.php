@@ -41,12 +41,12 @@ class UserObserver
      */
     public function deleted(User $user): void
     {
-        $activity = Activity::create([
-            'desc' => $user->role()->first()->name,
-            'action' => 'delete user',
-        ]);
-        $activity->user()->associate($user);
-        $activity->save();
+        // $activity = Activity::create([
+        //     'desc' => $user->role()->first()->name,
+        //     'action' => 'delete user',
+        // ]);
+        // $activity->user()->associate($user);
+        // $activity->save();
     }
 
     /**
