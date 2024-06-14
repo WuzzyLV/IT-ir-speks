@@ -28,6 +28,7 @@ class ApplicationController extends Controller
         } else{
             $applications= Status::where('status', $statusType)->firstOrFail()->applications();
             $total_pages= ceil($applications->count()/$perPage);
+            $applications= $applications->paginate($perPage, ['*'], 'page', $page);
         }
 
         return view('pages.admin.applications', [

@@ -1,7 +1,7 @@
 <x-app-layout class="mt-10 bg-light1 sm:mt-16">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <x-breadcrumbs />
-        <div class="mx-auto flex max-w-2xl justify-between lg:mx-0">
+        <div class="mx-auto flex justify-between lg:mx-0">
             <div>
                 <h2
                     class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"

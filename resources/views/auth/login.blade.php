@@ -70,14 +70,6 @@
         </div>
 
         <div class="mt-4 flex items-center justify-end">
-            @if (Route::has("password.request"))
-                <a
-                    class="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-accent1 focus:ring-offset-2"
-                    href="{{ route("password.request") }}"
-                >
-                    Aizmirsi paroli?
-                </a>
-            @endif
 
             <x-primary-button class="ms-3">
                 {{ __("Ielogoties") }}

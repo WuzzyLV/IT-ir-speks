@@ -9,7 +9,10 @@
                 <div class="flex shrink-0 items-center" id="logo-accent">
                     @if ($isAdmin == "true")
                     <label for="my-drawer-2" class="drawer-button !cursor-pointer">
-                        <x-application-logo class="hidden lg:block" />
+                        <a href="{{route("landing")}}" class="hidden lg:block">
+                            <x-application-logo  />
+                        </a>
+                        
                         <x-application-logo class="block lg:hidden" pointer="true" />
                     </label>
                     <!-- <label
